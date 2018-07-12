@@ -1,6 +1,6 @@
 import sys, os
 
-# change slashes to forward
+# Change slashes to forward - fucking windows...
 hipfile = sys.argv[2].replace('\\','/')
 print hipfile
 
@@ -14,6 +14,10 @@ print "Using ROP \"%s\"" % (rop.path())
 fs  = int(sys.argv[6])
 fe  = int(sys.argv[8])
 print "Setting frame range to %d - %d" % (fs, fe)
+
+# Set progress output
+rop.parm('vm_verbose').set(3)
+rop.parm('vm_alfprogress').set(1)
 
 # RENDER
 print "Starting to render...",
