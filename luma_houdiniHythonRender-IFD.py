@@ -1,4 +1,15 @@
+#####################################################################
+# H:\_distros\hfs.windows-x86_64_16.5.473\bin\hython.exe
+# H:\_distros\_lumatools\lumatools\luma_houdiniHythonRender.py
+# -h X:\_studiotools\TMP\HQ\mantra_test\mantra_test_103.hip
+# -r "/out/rop_hm_base"
+# -fs 1
+# -fe 10
+#####################################################################
+
+import settings.luma_site_settings
 import sys, os
+import hou
 
 # Change slashes to forward - fucking windows...
 hipfile = sys.argv[2].replace('\\','/')
