@@ -4,17 +4,25 @@ import os
 import hou
 
 ###############################################################################
-g_job = {
-    "name"     : "TESTING - ifd_job_001",
-    "priority" : 5,
+g_jobIFD = {
+    "name"     : "",
+    "priority" : 9,
     "rop"      : "/out/rop_hm_base",
     "frames"   : "1-100",
-    "files"    : "X:/_studiotools/TMP/HQ/mantra_test/mantra_test_103.hip",
+    "files"    : "",
     "outdir"   : ""
 }
 
+g_jobEXR = {
+    "name"     : "IFD-REN - TESTING",
+    "priority" : 5,
+    "files"    : "",
+    "outdir"   : "",
+    "dep"      : 0
+}
+
 ###############################################################################
-def buildCmdLine(l_job):
+def buildCmdLineIFD(l_job):
     rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
     cmd = rpcmd
     cmd += ' -nj_name "%s"' % (l_job['name'])
@@ -22,7 +30,7 @@ def buildCmdLine(l_job):
     cmd += ' -nj_renderer GenerateIFD/16.5.473'
     cmd += ' -nj_splitmode 2,1'
     cmd += ' -nj_pools "mantra"'
-    cmd += ' -nj_paused'
+    # cmd += ' -nj_paused'
     cmd += ' -retnjid'
     cmd += ' -rop "%s"' % (l_job['rop'])
     cmd += ' -frames "%s"' % (l_job['frames'])
@@ -32,10 +40,29 @@ def buildCmdLine(l_job):
     print cmd
     njid = os.system('"' + cmd + '"')
     print njid
+    return njid
+
+def buildCmdLineEXR(l_job):
+    rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
+    cmd = rpcmd
+    cmd += ' -nj_name "%s"' % (l_job['name'])
+    cmd += ' -nj_priority %d' % (l_job['priority'])
+    cmd += ' -nj_renderer Houdini/16.5.473'
+    cmd += ' -nj_splitmode 2,1'
+    cmd += ' -nj_pools "mantra"'
+    cmd += ' -nj_dependency %d' % (l_job['dep'])
+    cmd += ' -nj_deptype 0'
+    # cmd += ' -nj_paused'
+    cmd += ' -outdir "%s"' % (l_job['outdir'])
+    cmd += ' %s' % (l_job['files'])
+
+    print cmd
+    njid = os.system('"' + cmd + '"')
+    print njid
 
 ###############################################################################
 def main():
-    global g_job
+    global g_jobIFD, g_jobEXR
     hou.hipFile.load("X:/_studiotools/TMP/HQ/mantra_test/mantra_test_103.hip")
     rop_list = []
 
@@ -47,22 +74,34 @@ def main():
             rop_list.append(child)
 
     for rop in rop_list:
-        parm_diskFile      = hou.parm(rop.path() + '/soho_diskfile').unexpandedString()
-        parm_outputPicture = hou.parm(rop.path() + '/vm_picture').unexpandedString()
-        parm_outputDir     = os.path.dirname(hou.parm(rop.path() + '/vm_picture').eval())
+        parm_diskName      = os.path.basename(hou.parm(rop.path() + '/soho_diskfile').eval()).split('.')[0]
+        parm_outputDir_IFD = os.path.dirname(hou.parm(rop.path() + '/soho_diskfile').eval())
+        parm_outputDir_EXR = os.path.dirname(hou.parm(rop.path() + '/vm_picture').eval())
         parm_frameStart    = int(hou.evalParm(rop.path() + '/f1'))
         parm_frameEnd      = int(hou.evalParm(rop.path() + '/f2'))
 
-        g_job['name']   = "IFD-GEN : %s - %s - %s" % (os.environ["USERNAME"], os.environ["HIPNAME"], rop.path())
-        g_job['rop']    = rop.path()
-        g_job['frames'] = "%d - %d" % (parm_frameStart, parm_frameEnd)
-        g_job['files']  = os.environ['HIPFILE']
-        g_job['outdir'] = parm_outputDir
+        g_jobIFD['name']   = "IFD-GEN : %s - %s - %s" % (os.environ["USERNAME"], os.environ["HIPNAME"], rop.name())
+        g_jobIFD['rop']    = rop.path()
+        g_jobIFD['frames'] = "%d - %d" % (parm_frameStart, parm_frameEnd)
+        g_jobIFD['files']  = os.environ['HIPFILE']
+        g_jobIFD['outdir'] = parm_outputDir_IFD
 
         # IFD submission
-        buildCmdLine(g_job)
+        njid = buildCmdLineIFD(g_jobIFD)
 
-    hou.releaseLicense()
+        g_jobEXR['name']   = "IFD-REN : %s - %s - %s" % (os.environ["USERNAME"], os.environ["HIPNAME"], rop.name())
+        files = ""
+        for i in range(parm_frameStart, parm_frameEnd + 1):
+            files += '%s/%s.%04d.ifd ' % (parm_outputDir_IFD, parm_diskName, i)
+        g_jobEXR['files']  = files
+        g_jobEXR['outdir'] = parm_outputDir_EXR
+        print g_jobEXR
+        g_jobEXR['dep']    = njid
+
+        # EXR submission
+        buildCmdLineEXR(g_jobEXR)
+
+    # hou.releaseLicense()
 
 ###############################################################################
 if __name__ == '__main__':
