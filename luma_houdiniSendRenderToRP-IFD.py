@@ -1,6 +1,5 @@
 import settings.luma_site_settings
-
-import os
+import os, sys
 import hou
 
 ###############################################################################
@@ -12,7 +11,6 @@ g_jobIFD = {
     "files"    : "",
     "outdir"   : ""
 }
-
 g_jobEXR = {
     "name"     : "IFD-REN - TESTING",
     "priority" : 5,
@@ -36,7 +34,6 @@ def buildCmdLineIFD(l_job):
     cmd += ' -frames "%s"' % (l_job['frames'])
     cmd += ' -outdir "%s"' % (l_job['outdir'])
     cmd += ' %s' % (l_job['files'])
-
     print cmd
     njid = os.system('"' + cmd + '"')
     print njid
@@ -47,7 +44,7 @@ def buildCmdLineEXR(l_job):
     cmd = rpcmd
     cmd += ' -nj_name "%s"' % (l_job['name'])
     cmd += ' -nj_priority %d' % (l_job['priority'])
-    cmd += ' -nj_renderer Houdini/16.5.473'
+    cmd += ' -nj_renderer RenderEXR/16.5.473'
     cmd += ' -nj_splitmode 2,1'
     cmd += ' -nj_pools "mantra"'
     cmd += ' -nj_dependency %d' % (l_job['dep'])
@@ -55,24 +52,24 @@ def buildCmdLineEXR(l_job):
     # cmd += ' -nj_paused'
     cmd += ' -outdir "%s"' % (l_job['outdir'])
     cmd += ' %s' % (l_job['files'])
-
     print cmd
     njid = os.system('"' + cmd + '"')
     print njid
 
 ###############################################################################
 def main():
-    global g_jobIFD, g_jobEXR
-    hou.hipFile.load("X:/_studiotools/TMP/HQ/mantra_test/mantra_test_103.hip")
-    rop_list = []
+    if (len(sys.argv) != 2):
+        exit(1)
 
+    global g_jobIFD, g_jobEXR
+    hou.hipFile.load(sys.argv[1])
+    rop_list = []
     rop_out = hou.node("/out/OUT")
     rop_children = rop_out.inputAncestors()
     for child in rop_children:
         type = child.type().name()
         if type == 'ifd':
             rop_list.append(child)
-
     for rop in rop_list:
         parm_diskName      = os.path.basename(hou.parm(rop.path() + '/soho_diskfile').eval()).split('.')[0]
         parm_outputDir_IFD = os.path.dirname(hou.parm(rop.path() + '/soho_diskfile').eval())
@@ -85,7 +82,6 @@ def main():
         g_jobIFD['frames'] = "%d - %d" % (parm_frameStart, parm_frameEnd)
         g_jobIFD['files']  = os.environ['HIPFILE']
         g_jobIFD['outdir'] = parm_outputDir_IFD
-
         # IFD submission
         njid = buildCmdLineIFD(g_jobIFD)
 
@@ -97,11 +93,10 @@ def main():
         g_jobEXR['outdir'] = parm_outputDir_EXR
         print g_jobEXR
         g_jobEXR['dep']    = njid
-
         # EXR submission
         buildCmdLineEXR(g_jobEXR)
 
-    # hou.releaseLicense()
+    #hou.releaseLicense()
 
 ###############################################################################
 if __name__ == '__main__':
