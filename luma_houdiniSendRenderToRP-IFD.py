@@ -1,5 +1,5 @@
 import settings.luma_site_settings
-import os, sys
+import os, sys, subprocess
 import hou
 
 ###############################################################################
@@ -29,7 +29,7 @@ def buildCmdLineIFD(l_job):
     cmd += ' -nj_priority %d' % (l_job['priority'])
     cmd += ' -nj_renderer GenerateIFD/16.5.473'
     cmd += ' -nj_splitmode 2,1'
-    cmd += ' -nj_pools "ifd_gen"'
+    cmd += ' -nj_pools "ifd_gen_always,ifd_gen_night"'
     if (l_job['paused'] == 1):
         cmd += ' -nj_paused'
     cmd += ' -retnjid'
@@ -60,8 +60,8 @@ def buildCmdLineEXR(l_job):
     tempfile = open(tempfile_path, 'w')
     tempfile.write(cmd)
     tempfile.close()
-    os.system( tempfile_path )
-    os.remove(tempfile_path)
+    # os.system( tempfile_path )
+    # os.remove(tempfile_path)
 
 ###############################################################################
 def main():
@@ -82,6 +82,7 @@ def main():
         if type == 'ifd':
             rop_list.append(child)
     for rop in rop_list:
+        print rop.path()
         parm_diskName      = os.path.basename(hou.parm(rop.path() + '/soho_diskfile').eval()).split('.')[0]
         parm_outputDir_IFD = os.path.dirname(hou.parm(rop.path() + '/soho_diskfile').eval())
         parm_outputDir_EXR = os.path.dirname(hou.parm(rop.path() + '/vm_picture').eval())
@@ -95,22 +96,24 @@ def main():
         g_jobIFD['outdir'] = parm_outputDir_IFD
         g_jobIFD['paused'] = int(sys.argv[2])
         # IFD submission
+        print g_jobIFD
         njid = buildCmdLineIFD(g_jobIFD)
 
         g_jobEXR['name']   = "IFD-REN : %s - %s - %s" % (os.environ["USERNAME"], os.environ["HIPNAME"], rop.name())
         files = ""
         for i in range(parm_frameStart, parm_frameEnd + 1):
-            files += '"%s/%s.%04d.ifd" ' % (parm_outputDir_IFD, parm_diskName, i)
+            files += r'%s/%s.%04d.ifd ' % (parm_outputDir_IFD, parm_diskName, i)
         g_jobEXR['files']  = files
         g_jobEXR['outdir'] = parm_outputDir_EXR
         g_jobEXR['dep']    = njid
         g_jobEXR['paused'] = int(sys.argv[2])
         # EXR submission
+        print g_jobEXR
         buildCmdLineEXR(g_jobEXR)
 
-    #hou.releaseLicense()
+    hou.releaseLicense()
 
 ###############################################################################
 if __name__ == '__main__':
     main()
-    # raw_input('\n\npress enter...')
+    raw_input('\n\npress enter...')
