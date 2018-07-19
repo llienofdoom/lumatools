@@ -1,5 +1,5 @@
 import settings.luma_site_settings
-import os, sys, subprocess
+import os, sys
 import hou
 
 ###############################################################################
@@ -56,12 +56,7 @@ def buildCmdLineEXR(l_job):
     cmd += ' "-outdir" "%s"' % (l_job['outdir'])
     cmd += ' %s' % (l_job['files'])
     print cmd
-    tempfile_path = os.environ['TEMP'] + os.sep + '___cmd.bat'
-    tempfile = open(tempfile_path, 'w')
-    tempfile.write(cmd)
-    tempfile.close()
-    # os.system( tempfile_path )
-    # os.remove(tempfile_path)
+    os.system('"' + cmd + '"')
 
 ###############################################################################
 def main():
@@ -101,8 +96,14 @@ def main():
 
         g_jobEXR['name']   = "IFD-REN : %s - %s - %s" % (os.environ["USERNAME"], os.environ["HIPNAME"], rop.name())
         files = ""
+        # fixing windows inadequacies, create empty files so wildcards work!
+        if not os.path.exists(parm_outputDir_IFD):
+            os.makedirs(parm_outputDir_IFD)
         for i in range(parm_frameStart, parm_frameEnd + 1):
-            files += r'%s/%s.%04d.ifd ' % (parm_outputDir_IFD, parm_diskName, i)
+            filename = '%s/%s.%04d.ifd' % (parm_outputDir_IFD, parm_diskName, i)
+            open(filename, 'a').close()
+        files = '"@%s/%s.%s.ifd"' % (parm_outputDir_IFD, parm_diskName, '*')
+
         g_jobEXR['files']  = files
         g_jobEXR['outdir'] = parm_outputDir_EXR
         g_jobEXR['dep']    = njid
@@ -116,4 +117,4 @@ def main():
 ###############################################################################
 if __name__ == '__main__':
     main()
-    raw_input('\n\npress enter...')
+    # raw_input('\n\npress enter...')
