@@ -15,24 +15,30 @@ import hou
 hipfile = sys.argv[2].replace('\\','/')
 print hipfile
 
-print "Loading file %s" % (hipfile)
-hou.hipFile.load(hipfile)
-print "Loaded!"
+for i in os.environ:
+    print '#'*80
+    print i
+    print os.environ[i]
+    print '#'*80
 
-rop = hou.node(sys.argv[4])
-print "Using ROP \"%s\"" % (rop.path())
-
-fs  = int(sys.argv[6])
-fe  = int(sys.argv[8])
-print "Setting frame range to %d - %d" % (fs, fe)
-
-# Set progress output
-rop.parm('vm_verbose').set(3)
-rop.parm('vm_alfprogress').set(1)
-
-# RENDER
-print "Starting to render...",
-rop.render(frame_range=(fs, fe))
-print "DONE!"
-
-quit()
+# print "Loading file %s" % (hipfile)
+# hou.hipFile.load(hipfile, ignore_load_warnings=True)
+# print "Loaded!"
+#
+# rop = hou.node(sys.argv[4])
+# print "Using ROP \"%s\"" % (rop.path())
+#
+# fs  = int(sys.argv[6])
+# fe  = int(sys.argv[8])
+# print "Setting frame range to %d - %d" % (fs, fe)
+#
+# # Set progress output
+# # rop.parm('vm_verbose').set(3)
+# # rop.parm('vm_alfprogress').set(1)
+#
+# # RENDER
+# print "Starting to render...",
+# rop.render(frame_range=(fs, fe))
+# print "DONE!"
+#
+# quit()
