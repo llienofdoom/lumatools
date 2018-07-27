@@ -2,8 +2,8 @@ import sys, os
 
 # SETUP #######################################################################
 VERSION_HOUDINI         = "16.5.536"
-VERSION_REDSHIFT        = "2.5.72"
-VERSION_REDSHIFT_PLUGIN = "16.5.473"
+VERSION_REDSHIFT        = "2.6.17"
+VERSION_REDSHIFT_PLUGIN = "16.5.536"
 ###############################################################################
 
 # Houdini Setup ###############################################################
@@ -37,7 +37,7 @@ if False:
 ###############################################################################
 
 # Redshift Setup ##############################################################
-if False:
+if True:
     os.environ["REDSHIFT_COREDATAPATH"]    = "H:/_distros/Redshift-" + VERSION_REDSHIFT
     os.environ["REDSHIFT_LOCALDATAPATH"]   = os.environ["REDSHIFT_COREDATAPATH"]
     os.environ["REDSHIFT_PROCEDURALSPATH"] = os.environ["REDSHIFT_COREDATAPATH"] + "/Procedurals"
