@@ -6,6 +6,10 @@ VERSION_REDSHIFT        = "2.6.17"
 VERSION_REDSHIFT_PLUGIN = "16.5.536"
 ###############################################################################
 
+# Python Setup ################################################################
+sys.path.append('H:/_distros/_lumatools/venv/Lib/site-packages')
+###############################################################################
+
 # Houdini Setup ###############################################################
 os.environ["HFS"]                           = "H:/_distros/hfs.windows-x86_64_" + VERSION_HOUDINI
 os.environ["PATH"]                          = os.environ['HFS'] + "/bin;" + os.environ["PATH"]
