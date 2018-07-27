@@ -1,3 +1,3 @@
 # lumatools
 
-This is a collection of tools written for use in Luma Animation.
+This is a collection of tools written for use at Luma Animation.
