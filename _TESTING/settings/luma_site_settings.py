@@ -1,9 +1,9 @@
 import sys, os
 
 # SETUP #######################################################################
-VERSION_HOUDINI         = "16.5.536"
-VERSION_REDSHIFT        = "2.6.17"
-VERSION_REDSHIFT_PLUGIN = "16.5.536"
+VERSION_HOUDINI         = "16.5.473"
+VERSION_REDSHIFT        = "2.5.72"
+VERSION_REDSHIFT_PLUGIN = "16.5.473"
 ###############################################################################
 
 # Python Setup ################################################################
@@ -24,13 +24,13 @@ sys.path.append(os.environ['HFS'] + "/houdini/python%d.%dlibs" % sys.version_inf
 ###############################################################################
 
 # Houdini MOPS Setup ##########################################################
-if False:
+if True:
     os.environ["MOPS"] = os.environ["HSITE"] + "/houdini16.5/MOPS"
     os.environ["HOUDINI_OTLSCAN_PATH"] = os.environ["MOPS"] + "/otls;@/otls"
 ###############################################################################
 
 # Houdini qLib Setup ##########################################################
-if False:
+if True:
     os.environ["QLIB"] = os.environ["HSITE"] + "/houdini16.5/qLib"
     os.environ["QOTL"] = os.environ["QLIB"] + "/otls"
     os.environ["HOUDINI_OTLSCAN_PATH"] += ";" + os.environ["QOTL"] + "/base"

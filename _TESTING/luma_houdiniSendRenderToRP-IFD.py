@@ -112,7 +112,7 @@ def main():
         print g_jobEXR
         buildCmdLineEXR(g_jobEXR)
 
-    hou.releaseLicense()
+    # hou.releaseLicense()
 
 ###############################################################################
 if __name__ == '__main__':
