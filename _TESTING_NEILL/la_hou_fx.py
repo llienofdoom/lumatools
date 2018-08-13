@@ -1,3 +1,4 @@
-import env.env
-import env.env_houdini
+from env.env_houdini import *
+
+logging.info('Running Houdini.')
 

@@ -1,1 +1,3 @@
-print 'loaded env_houdini'
+from env import *
+
+logging.info('Setting up HOUDINI environment.')
