@@ -4,10 +4,14 @@ import os
 import sys
 import time
 import subprocess
-
 # Setup Logging ###############################################################
+log_path = ''
+if 'windows' in platform.system().lower():
+    log_path = 'H:/__store/logs/' + str(time.ctime()).replace(' ', '-').replace(':', '-') + '_' + os.environ['USERNAME'] + '.log'
+else:
+    log_path = '/mnt/h/__store/logs/' + str(time.ctime()).replace(' ', '-').replace(':', '-') + '_' + os.environ['USER'] + '.log'
 logging.basicConfig(
-    # filename='neill.log',
+    filename=log_path,
     level=logging.DEBUG,
     # level=logging.INFO,
     # level=logging.WARNING,
