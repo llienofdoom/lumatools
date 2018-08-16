@@ -11,7 +11,7 @@ if 'windows' in platform.system().lower():
 else:
     log_path = '/mnt/h/__store/logs/' + str(time.ctime()).replace(' ', '-').replace(':', '-') + '_' + os.environ['USER'] + '.log'
 logging.basicConfig(
-    filename=log_path,
+    # filename=log_path,
     level=logging.DEBUG,
     # level=logging.INFO,
     # level=logging.WARNING,
@@ -58,7 +58,7 @@ def write_exe(cmd, env):
         exe_file.write('%s %s=%s\n' % (env_set, key, value))
     exe_file.write('\n')
     if os_win:
-        exe_file.write('start %s\n' % cmd)
+        exe_file.write('%s\n' % cmd)
     else:
         exe_file.write('%s\n' % cmd)
     exe_file.close()
@@ -68,10 +68,10 @@ def run_exe(env, exe):
     print_env(env)
     if os_win:
         # pass
-        subprocess.call([exe], shell=True)
+        subprocess.call([exe], shell=False)
     else:
         # pass
-        subprocess.call(['/bin/sh', exe], shell=True)
+        subprocess.call(['/bin/sh', exe], shell=False)
     os.remove(exe)
 # Setup global env ############################################################
 LA_ENV = {}
