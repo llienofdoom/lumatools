@@ -2,10 +2,10 @@ import subprocess, os
 from env.env_houdini import *
 
 logging.info('Writing Environment to file...')
-exe_file = write_exe('houdinifx', LA_ENV)
+exe_file = write_exe('houdinicore', LA_ENV)
 logging.info('Done!')
 
-logging.info('Starting Houdini FX.')
+logging.info('Starting Houdini Core.')
 print_env(LA_ENV)
 if os_win:
     # pass
