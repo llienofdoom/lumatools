@@ -42,13 +42,27 @@ LA_ENV['HOUDINI_VERSION']               = str(HOU_VER)
 LA_ENV['HOUDINI_PATH']                  = '$HIP' + os.pathsep + '$HOUDINI_USER_PREF_DIR' + os.pathsep + '$HSITE/houdini16.5' + os.pathsep + '$HFS/houdini' + os.pathsep + '$HFS/bin'
 # LA_ENV['HOUDINI_PATH']                  = '$HIP' + os.pathsep + '$HOUDINI_USER_PREF_DIR' + os.pathsep + LA_ENV['HSITE'] + '/houdini16.5' + os.pathsep + LA_ENV['HH'] + os.pathsep + LA_ENV['HB']
 # Redshift Setup ##############################################################
-LA_ENV['REDSHIFT_COREDATAPATH']    = LA_ENV['ROOT'] + '/_distros/Redshift-' + RS_VER
-LA_ENV['REDSHIFT_LOCALDATAPATH']   = LA_ENV['REDSHIFT_COREDATAPATH']
-LA_ENV['REDSHIFT_PROCEDURALSPATH'] = LA_ENV['REDSHIFT_COREDATAPATH'] + '/Procedurals'
-LA_ENV['REDSHIFT_PREFSPATH']       = LA_ENV['REDSHIFT_COREDATAPATH'] + '/preferences.xml'
-LA_ENV['REDSHIFT_LICENSEPATH']     = LA_ENV['REDSHIFT_COREDATAPATH']
-LA_ENV['HOUDINI_DSO_ERROR']        = '2'
-LA_ENV['PATH']                     = LA_ENV['REDSHIFT_COREDATAPATH'] + '/bin' + os.pathsep + LA_ENV['PATH']
-LA_ENV['HOUDINI_PATH']             = LA_ENV['REDSHIFT_COREDATAPATH'] + '/Plugins/Houdini/' + RSP_VER + os.pathsep + LA_ENV['HOUDINI_PATH']
-LA_ENV['redshift_LICENSE']         = '5053@192.168.35.254'
-#############################################################################
+if True:
+    LA_ENV['REDSHIFT_COREDATAPATH']    = LA_ENV['ROOT'] + '/_distros/Redshift-' + RS_VER
+    LA_ENV['REDSHIFT_LOCALDATAPATH']   = LA_ENV['REDSHIFT_COREDATAPATH']
+    LA_ENV['REDSHIFT_PROCEDURALSPATH'] = LA_ENV['REDSHIFT_COREDATAPATH'] + '/Procedurals'
+    LA_ENV['REDSHIFT_PREFSPATH']       = LA_ENV['REDSHIFT_COREDATAPATH'] + '/preferences.xml'
+    LA_ENV['REDSHIFT_LICENSEPATH']     = LA_ENV['REDSHIFT_COREDATAPATH']
+    LA_ENV['HOUDINI_DSO_ERROR']        = '2'
+    LA_ENV['PATH']                     = LA_ENV['REDSHIFT_COREDATAPATH'] + '/bin' + os.pathsep + LA_ENV['PATH']
+    LA_ENV['HOUDINI_PATH']             = LA_ENV['REDSHIFT_COREDATAPATH'] + '/Plugins/Houdini/' + RSP_VER + os.pathsep + LA_ENV['HOUDINI_PATH']
+    LA_ENV['redshift_LICENSE']         = '5053@192.168.35.254'
+# MOPS Setup ##################################################################
+if True:
+    LA_ENV['MOPS']                 = LA_ENV['HSITE'] + '/houdini16.5/MOPS'
+    LA_ENV['HOUDINI_OTLSCAN_PATH'] = LA_ENV['MOPS']  + '/otls' + os.pathsep + '@/otls'
+# qLib Setup ##################################################################
+if True:
+    LA_ENV['QLIB']                  = LA_ENV['HSITE'] + '/houdini16.5/qLib'
+    LA_ENV['QOTL']                  = LA_ENV['QLIB'] + '/otls'
+    LA_ENV['HOUDINI_OTLSCAN_PATH'] += os.pathsep + LA_ENV['QOTL'] + '/base'
+    LA_ENV['HOUDINI_OTLSCAN_PATH'] += os.pathsep + LA_ENV['QOTL'] + '/future'
+    LA_ENV['HOUDINI_OTLSCAN_PATH'] += os.pathsep + LA_ENV['QOTL'] + '/experimental'
+    LA_ENV['HOUDINI_MENU_PATH']     = LA_ENV['QLIB'] + '/menu' + os.pathsep + '@'
+    LA_ENV['HOUDINI_PATH']          = LA_ENV['QLIB'] + os.pathsep + LA_ENV['HOUDINI_PATH'] + os.pathsep + '&'
+###############################################################################
