@@ -2,6 +2,7 @@ import logging
 import platform
 import os
 import time
+import subprocess
 
 # Setup Logging ###############################################################
 logging.basicConfig(
@@ -39,7 +40,7 @@ if 'linux'  in platform.system().lower():
 if 'darwin' in platform.system().lower():
     os_mac = 1
     logging.info('OS type set to MAC.')
-###############################################################################
+# Write_Exe ###################################################################
 def write_exe(cmd, env):
     exe_file_path = os.environ['TEMP'] + os.sep + 'LUMA_CMD_' + str(time.time()) + '.bat'
     logging.info('Saving cmd file to %s.', exe_file_path)
@@ -56,7 +57,16 @@ def write_exe(cmd, env):
         exe_file.write('%s\n' % (cmd))
     exe_file.close()
     return exe_file_path
-
+###############################################################################
+def run_exe(env, exe):
+    print_env(env)
+    if os_win:
+        # pass
+        subprocess.call([exe], shell=True)
+    else:
+        # pass
+        subprocess.call(['/bin/sh', exe], shell=True)
+    os.remove(exe)
 # Setup global env ############################################################
 LA_ENV = {}
 if os_win:
@@ -66,4 +76,3 @@ if os_cyg:
 LA_ENV['SETTINGS'] = LA_ENV['ROOT'] + '/_distros/_lumatools/lumatools/_TESTING_NEILL/settings'
 # OCIO
 LA_ENV['OCIO'] = LA_ENV['ROOT'] + '/SITE/ocio/nuke-default/config.ocio'
-###############################################################################
