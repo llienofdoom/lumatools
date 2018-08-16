@@ -1,6 +1,7 @@
 import logging
 import platform
 import os
+import sys
 import time
 import subprocess
 
@@ -42,19 +43,20 @@ if 'darwin' in platform.system().lower():
     logging.info('OS type set to MAC.')
 # Write_Exe ###################################################################
 def write_exe(cmd, env):
-    exe_file_path = os.environ['TEMP'] + os.sep + 'LUMA_CMD_' + str(time.time()) + '.bat'
+    exe_file_path = os.environ['TEMP'] + os.sep + 'LUMA_CMD_' + str(time.time()) + '.cmd'
     logging.info('Saving cmd file to %s.', exe_file_path)
     env_set       = 'export'
+    exe_file = open(exe_file_path, 'w')
     if os_win:
         env_set = 'SET'
-    exe_file = open(exe_file_path, 'w')
+        exe_file.write('@echo off\n')
     for key, value in env.iteritems():
         exe_file.write('%s %s=%s\n' % (env_set, key, value))
     exe_file.write('\n')
     if os_win:
-        exe_file.write('start %s\n' % (cmd))
+        exe_file.write('start %s\n' % cmd)
     else:
-        exe_file.write('%s\n' % (cmd))
+        exe_file.write('%s\n' % cmd)
     exe_file.close()
     return exe_file_path
 ###############################################################################
