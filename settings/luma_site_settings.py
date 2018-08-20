@@ -1,9 +1,9 @@
 import sys, os
 
 # SETUP #######################################################################
-VERSION_HOUDINI         = "16.5.473"
-VERSION_REDSHIFT        = "2.5.72"
-VERSION_REDSHIFT_PLUGIN = "16.5.473"
+VERSION_HOUDINI         = "16.5.536"
+VERSION_REDSHIFT        = "2.6.19"
+VERSION_REDSHIFT_PLUGIN = "16.5.536"
 ###############################################################################
 
 # Python Setup ################################################################
@@ -37,7 +37,7 @@ if True:
     os.environ["HOUDINI_OTLSCAN_PATH"] += ";" + os.environ["QOTL"] + "/future"
     os.environ["HOUDINI_OTLSCAN_PATH"] += ";" + os.environ["QOTL"] + "/experimental"
     os.environ["HOUDINI_MENU_PATH"]     = os.environ["QLIB"] + "/menu;&"
-    os.environ["HOUDINI_PATH"]          = os.environ["QLIB"] + "$HOUDINI_PATH;&"
+    os.environ["HOUDINI_PATH"]          = os.environ["QLIB"] + ";$HOUDINI_PATH;"
 ###############################################################################
 
 # Redshift Setup ##############################################################
@@ -48,11 +48,17 @@ if True:
     os.environ["REDSHIFT_PREFSPATH"]       = os.environ["REDSHIFT_COREDATAPATH"] + "/preferences.xml"
     os.environ["REDSHIFT_LICENSEPATH"]     = os.environ["REDSHIFT_COREDATAPATH"]
     os.environ["HOUDINI_DSO_ERROR"]        = "2"
-    os.environ["PATH"]                     = os.environ["REDSHIFT_COREDATAPATH"] + "/bin;" + os.environ["PATH"]
-    os.environ["HOUDINI_PATH"]             = os.environ["REDSHIFT_COREDATAPATH"] + "/Plugins/Houdini/" + VERSION_REDSHIFT_PLUGIN + ";&"
+    os.environ["PATH"]                     = os.environ["PATH"] + ";" + os.environ["REDSHIFT_COREDATAPATH"] + "/bin;"
+    os.environ["HOUDINI_PATH"]            += os.environ["REDSHIFT_COREDATAPATH"] + "/Plugins/Houdini/" + VERSION_REDSHIFT_PLUGIN + ";"
     os.environ["redshift_LICENSE"]         = "5053@192.168.35.254"
+###############################################################################
+
+# Game Dev Toolset Setup ######################################################
+if True:
+    os.environ["HOUDINI_PATH"] += os.environ["HSITE"] + "/houdini16.5/gamedev_toolset;&;"
 ###############################################################################
 
 # OCIO Setup ##################################################################
 if False:
     os.environ["OCIO"] = os.environ["HSITE"] + "/ocio/spi-anim/config.ocio"
+
