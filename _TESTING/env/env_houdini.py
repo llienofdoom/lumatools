@@ -1,7 +1,7 @@
 from env import *
 import os, json
 
-LA_HOU_VERSION = '003'
+LA_HOU_VERSION = '004'
 HOU_VER = ''
 RS_VER  = ''
 RSP_VER = ''
@@ -53,18 +53,18 @@ if True:
     LA_ENV['HOUDINI_PATH']             = LA_ENV['REDSHIFT_COREDATAPATH'] + '/Plugins/Houdini/' + RSP_VER + os.pathsep + LA_ENV['HOUDINI_PATH']
     LA_ENV['redshift_LICENSE']         = '5053@192.168.35.254'
 # MOPS Setup ##################################################################
-if True:
+if False:
     LA_ENV['MOPS']                 = LA_ENV['HSITE'] + '/houdini16.5/MOPS'
     LA_ENV['HOUDINI_OTLSCAN_PATH'] = LA_ENV['MOPS']  + '/otls' + os.pathsep + '@/otls'
 # qLib Setup ##################################################################
-if True:
-    LA_ENV['QLIB']                  = LA_ENV['HSITE'] + '/houdini16.5/qLib'
-    LA_ENV['QOTL']                  = LA_ENV['QLIB'] + '/otls'
-    LA_ENV['HOUDINI_OTLSCAN_PATH'] += os.pathsep + LA_ENV['QOTL'] + '/base'
-    LA_ENV['HOUDINI_OTLSCAN_PATH'] += os.pathsep + LA_ENV['QOTL'] + '/future'
-    LA_ENV['HOUDINI_OTLSCAN_PATH'] += os.pathsep + LA_ENV['QOTL'] + '/experimental'
-    LA_ENV['HOUDINI_MENU_PATH']     = LA_ENV['QLIB'] + '/menu' + os.pathsep + '@'
-    LA_ENV['HOUDINI_PATH']          = LA_ENV['QLIB'] + os.pathsep + LA_ENV['HOUDINI_PATH'] + os.pathsep + '&'
+if False:
+    LA_ENV['QLIB']                 = LA_ENV['HSITE'] + '/houdini16.5/qLib'
+    LA_ENV['QOTL']                 = LA_ENV['QLIB'] + '/otls'
+    LA_ENV['HOUDINI_OTLSCAN_PATH'] = LA_ENV['QOTL'] + '/base' + os.pathsep + LA_ENV['HOUDINI_OTLSCAN_PATH']
+    LA_ENV['HOUDINI_OTLSCAN_PATH'] = os.pathsep + LA_ENV['QOTL'] + '/future'
+    LA_ENV['HOUDINI_OTLSCAN_PATH'] = os.pathsep + LA_ENV['QOTL'] + '/experimental'
+    LA_ENV['HOUDINI_MENU_PATH']    = LA_ENV['QLIB'] + '/menu' + os.pathsep + '@'
+    LA_ENV['HOUDINI_PATH']         = LA_ENV['QLIB'] + os.pathsep + LA_ENV['HOUDINI_PATH'] + os.pathsep
 # Game Dev Toolset Setup ######################################################
-if True:
-    os.environ["HOUDINI_PATH"] += os.environ["HSITE"] + "/houdini16.5/gamedev_toolset;&;"
+if False:
+    LA_ENV['HOUDINI_PATH'] += LA_ENV['HSITE'] + '/houdini16.5/gamedev_toolset;&;'

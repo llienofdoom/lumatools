@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/mnt/h/_distros/_lumatools/venv/Scripts/python.exe $(cygpath -w /mnt/h/_distros/_lumatools/lumatools/_TESTING_NEILL/la_hou_mantra.py) $@
+/mnt/h/_distros/_lumatools/venv/Scripts/python.exe $(cygpath -w /mnt/h/_distros/_lumatools/lumatools/_TESTING/la_hou_mantra.py) $@

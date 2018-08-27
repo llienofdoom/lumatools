@@ -79,6 +79,6 @@ if os_win:
     LA_ENV['ROOT'] = 'H:'
 if os_cyg:
     LA_ENV['ROOT'] = '/mnt/h'
-LA_ENV['SETTINGS'] = LA_ENV['ROOT'] + '/_distros/_lumatools/lumatools/_TESTING_NEILL/settings'
+LA_ENV['SETTINGS'] = LA_ENV['ROOT'] + '/_distros/_lumatools/lumatools/_TESTING/settings'
 # OCIO
 LA_ENV['OCIO'] = LA_ENV['ROOT'] + '/SITE/ocio/nuke-default/config.ocio'
