@@ -1,5 +1,8 @@
 from env.env_houdini import *
 
+enable_redshift()
+# enable_plugins()
+
 args = ' '.join(sys.argv[1:])
 
 logging.info('Writing Environment to file...')

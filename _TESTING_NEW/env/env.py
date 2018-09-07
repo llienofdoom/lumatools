@@ -4,12 +4,16 @@ import os
 import sys
 import time
 import subprocess
+# Global Env Vars #############################################################
+LA_ROOT   = os.environ['LA_ROOT']
+LA_TOOLS  = os.environ['LA_TOOLS']
+LA_BRANCH = '_' + os.environ['LA_BRANCH']
 # Setup Logging ###############################################################
 log_path = ''
 if 'windows' in platform.system().lower():
-    log_path = 'H:/__store/logs/' + str(time.ctime()).replace(' ', '-').replace(':', '-') + '_' + os.environ['USERNAME'] + '.log'
+    log_path = LA_ROOT + '/__store/logs/' + str(time.ctime()).replace(' ', '-').replace(':', '-') + '_' + os.environ['USERNAME'] + '.log'
 else:
-    log_path = '/mnt/h/__store/logs/' + str(time.ctime()).replace(' ', '-').replace(':', '-') + '_' + os.environ['USER'] + '.log'
+    log_path = LA_ROOT + '/__store/logs/' + str(time.ctime()).replace(' ', '-').replace(':', '-') + '_' + os.environ['USER'] + '.log'
 logging.basicConfig(
     # filename=log_path,
     level=logging.DEBUG,
@@ -75,10 +79,10 @@ def run_exe(env, exe):
     os.remove(exe)
 # Setup global env ############################################################
 LA_ENV = {}
-if os_win:
-    LA_ENV['ROOT'] = 'H:'
-if os_cyg:
-    LA_ENV['ROOT'] = '/mnt/h'
-LA_ENV['SETTINGS'] = LA_ENV['ROOT'] + '/_distros/_lumatools/lumatools/_TESTING/settings'
-# OCIO
+
+LA_ENV['ROOT']   = LA_ROOT
+LA_ENV['TOOLS']  = LA_TOOLS
+LA_ENV['BRANCH'] = LA_BRANCH
+LA_ENV['SETTINGS'] = '%s/_distros/_lumatools/lumatools/%s/settings' % (LA_ENV['ROOT'], LA_ENV['BRANCH'])
+# OCIO ################################
 LA_ENV['OCIO'] = LA_ENV['ROOT'] + '/SITE/ocio/nuke-default/config.ocio'

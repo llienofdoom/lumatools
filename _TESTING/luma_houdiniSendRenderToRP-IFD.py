@@ -26,6 +26,7 @@ def buildCmdLineIFD(l_job):
     rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
     cmd = rpcmd
     cmd += ' -nj_name "%s"' % (l_job['name'])
+    cmd += ' -nj_tags "LUMA"'
     cmd += ' -nj_priority %d' % (l_job['priority'])
     cmd += ' -nj_renderer GenerateIFD/16.5.536'
     cmd += ' -nj_splitmode 2,1'
@@ -45,6 +46,7 @@ def buildCmdLineEXR(l_job):
     rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
     cmd = rpcmd
     cmd += ' "-nj_name" "%s"' % (l_job['name'])
+    cmd += ' -nj_tags "LUMA"'
     cmd += ' "-nj_priority" "%d"' % (l_job['priority'])
     cmd += ' "-nj_renderer" "RenderEXR/16.5.536"'
     cmd += ' "-nj_splitmode" "2,1"'
