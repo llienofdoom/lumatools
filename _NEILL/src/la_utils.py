@@ -24,5 +24,6 @@ def getOs():
 def runCmd(cmd):
     import subprocess
     cmd = cmd.split()
-    subprocess.call(cmd, shell=False)
+    # return subprocess.call(cmd, shell=False)
+    return subprocess.check_output(cmd, shell=False)
 ###############################################################################
