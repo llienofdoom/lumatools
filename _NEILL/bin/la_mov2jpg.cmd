@@ -1,4 +1,4 @@
-CALL la_global.cmd
+CALL %LA_ROOT%\_%LA_BRANCH%\bin\la_global.cmd
 
-cd %PYTHONPATH%\ffmpeg
+cd /d %PYTHONPATH%\ffmpeg
 python la_mov2jpg.py %*
