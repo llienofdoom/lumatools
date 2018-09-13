@@ -4,7 +4,7 @@ input_file = ''
 try:
     input_file = sys.argv[1]
 except IndexError:
-    la_error('You need to supply a file to convert...')
+    la_utils.print_error('You need to supply a file to convert...')
 input_name = str(os.path.basename(input_file)).split('.')[0]
 folder = os.path.dirname(input_file) + '/jpg/'
 output_file = folder + input_name + '.%04d.jpg'

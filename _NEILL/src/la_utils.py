@@ -29,3 +29,14 @@ def runCmd(cmd, environ=None):
     else:
         return subprocess.check_output(cmd, env=environ, shell=False)
 ###############################################################################
+
+###############################################################################
+def print_error(text):
+    import os
+    print ''
+    print os.path.realpath(__file__)
+    print '#' * 80
+    print ''
+    raw_input(text)
+    exit(0)
+###############################################################################

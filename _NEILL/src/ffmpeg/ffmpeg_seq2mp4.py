@@ -5,14 +5,14 @@ input_file = ''
 try:
     input_file = sys.argv[1]
 except IndexError:
-    la_error('You need to supply a file to convert...')
+    la_utils.print_error('You need to supply a file to convert...')
 path          = os.path.dirname(input_file)
 parent        = os.path.dirname(str(path).rstrip(os.sep))
 basename      = os.path.basename(input_file).split('.')[0]
 extention     = os.path.basename(input_file).split('.')[2]
 list_of_files = glob.glob( path + os.sep + basename + '.????.*' )
 if len(list_of_files) < 1:
-    la_error('List of files is empty. Wrong filename pattern. Must be [name].[####].[ext]')
+    la_utils.print_error('List of files is empty. Wrong filename pattern. Must be [name].[####].[ext]')
 list_of_files.sort()
 start_frame   = int(str(list_of_files[0]).split('.')[1])
 
