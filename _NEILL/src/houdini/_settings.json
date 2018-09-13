@@ -1,0 +1,32 @@
+{
+  "current" : "0004",
+
+  "config" : {
+    "0001" : { "houdini" : "16.5.473", "redshift" : "2.5.72", "plugin_rs" : "16.5.473" },
+    "0002" : { "houdini" : "16.5.536", "redshift" : "2.6.17", "plugin_rs" : "16.5.536" },
+    "0003" : { "houdini" : "16.5.536", "redshift" : "2.6.19", "plugin_rs" : "16.5.536" },
+    "0004" : { "houdini" : "16.5.571", "redshift" : "2.6.20", "plugin_rs" : "16.5.571" }
+  },
+
+  "location_remote" : {
+    "win" : "H:/_distros",
+    "lin" : "",
+    "mac" : "",
+    "cyg" : ""
+  },
+
+  "location_local" : {
+    "win" : "C:/_lumatools/_distros",
+    "lin" : "",
+    "mac" : "",
+    "cyg" : ""
+  },
+
+  "hsite" : {
+    "win" : "H:/SITE",
+    "lin" : "",
+    "mac" : "",
+    "cyg" : ""
+  }
+
+}

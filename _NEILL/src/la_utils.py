@@ -21,9 +21,11 @@ def getOs():
 ###############################################################################
 
 ###############################################################################
-def runCmd(cmd):
+def runCmd(cmd, environ=None):
     import subprocess
     cmd = cmd.split()
-    # return subprocess.call(cmd, shell=False)
-    return subprocess.check_output(cmd, shell=False)
+    if environ is None:
+        return subprocess.check_output(cmd, shell=False)
+    else:
+        return subprocess.check_output(cmd, env=environ, shell=False)
 ###############################################################################
