@@ -1,7 +1,0 @@
-{
-  "LA_ROOT"   : "H:",
-  "LA_TOOLS"  : "$LA_ROOT/_distros/_lumatools",
-  "LA_BRANCH" : "CURRENT",
-
-  "LA_BIN"    : "$LA_TOOLS/"
-}
