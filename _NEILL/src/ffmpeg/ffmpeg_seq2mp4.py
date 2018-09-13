@@ -1,4 +1,4 @@
-from la_ffmpeg import *
+from ffmpeg_base import *
 import glob
 
 input_file = ''

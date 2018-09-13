@@ -2,4 +2,4 @@
 CALL %LA_ROOT%\_%LA_BRANCH%\bin\win\la_global.cmd
 
 cd /d %PYTHONPATH%\ffmpeg
-python la_seq2mp4.py %*
+python ffmpeg_mov2jpg.py %*
