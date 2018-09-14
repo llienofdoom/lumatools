@@ -1,9 +1,9 @@
 import sys, os
 
 # SETUP #######################################################################
-VERSION_HOUDINI         = "16.5.536"
-VERSION_REDSHIFT        = "2.6.19"
-VERSION_REDSHIFT_PLUGIN = "16.5.536"
+VERSION_HOUDINI         = "16.5.571"
+VERSION_REDSHIFT        = "2.6.20"
+VERSION_REDSHIFT_PLUGIN = "16.5.571"
 ###############################################################################
 
 # Python Setup ################################################################
@@ -49,12 +49,12 @@ if True:
     os.environ["REDSHIFT_LICENSEPATH"]     = os.environ["REDSHIFT_COREDATAPATH"]
     os.environ["HOUDINI_DSO_ERROR"]        = "2"
     os.environ["PATH"]                     = os.environ["PATH"] + ";" + os.environ["REDSHIFT_COREDATAPATH"] + "/bin;"
-    os.environ["HOUDINI_PATH"]            += os.environ["REDSHIFT_COREDATAPATH"] + "/Plugins/Houdini/" + VERSION_REDSHIFT_PLUGIN + ";"
+    os.environ["HOUDINI_PATH"]            += os.environ["REDSHIFT_COREDATAPATH"] + "/Plugins/Houdini/" + VERSION_REDSHIFT_PLUGIN + ";&;"
     os.environ["redshift_LICENSE"]         = "5053@192.168.35.254"
 ###############################################################################
 
 # Game Dev Toolset Setup ######################################################
-if True:
+if False:
     os.environ["HOUDINI_PATH"] += os.environ["HSITE"] + "/houdini16.5/gamedev_toolset;&;"
 ###############################################################################
 

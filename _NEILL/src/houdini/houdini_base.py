@@ -12,13 +12,31 @@ version_redshift  = str(config_versions['redshift'])
 version_plugin_rs = str(config_versions['plugin_rs'])
 
 # Check for local version, and set up base paths ##############################
+def checkLocalCopy():
+    loc = 'remote'
+    path_remote = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    path_local  = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    if os.path.exists(path_local):
+        print 'Using Local'
+        loc = 'local'
+    else:
+        import shutil #, glob
+        print 'Updating Local'
+        # remove previous versions
+        # path_parent = str(settings['location_local' ][opsys])
+        # previous_versions = glob.glob(path_parent + '/hfs.windows-x86_64_*')
+        # for version in previous_versions:
+        #     print 'Removing', version
+        #     shutil.rmtree(version)
+        # copy current version
+        print 'Copying from', path_remote, 'to', path_local
+        print 'Please be patient. Go have a coffee or something.'
+        shutil.copytree(path_remote, path_local)
+        print 'Done!'
+        loc = 'local'
+    return loc
 
-###########################################################
-## TODO Check for local version, copy over, use that!
-###########################################################
-
-location = 'remote'
-# location = 'local'
+location = checkLocalCopy()
 path_houdini   = str(settings['location_%s' % location][opsys] + '/hfs.windows-x86_64_' + version_houdini)
 path_redshift  = str(settings['location_%s' % location][opsys] + '/Redshift-'           + version_redshift)
 path_plugin_rs = path_redshift + '/Plugins/Houdini/' + version_plugin_rs

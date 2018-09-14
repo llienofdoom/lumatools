@@ -28,8 +28,8 @@ def buildCmdLineIFD(l_job):
     cmd += ' -nj_name "%s"' % (l_job['name'])
     cmd += ' -nj_tags "LUMA"'
     cmd += ' -nj_priority %d' % (l_job['priority'])
-    cmd += ' -nj_renderer GenerateIFD/16.5.536'
-    cmd += ' -nj_splitmode 2,1'
+    cmd += ' -nj_renderer GenerateIFD/16.5.571'
+    cmd += ' -nj_splitmode 1,2'
     cmd += ' -nj_pools "ifd_gen_always,ifd_gen_night"'
     if (l_job['paused'] == 1):
         cmd += ' -nj_paused'
@@ -48,9 +48,11 @@ def buildCmdLineEXR(l_job):
     cmd += ' "-nj_name" "%s"' % (l_job['name'])
     cmd += ' -nj_tags "LUMA"'
     cmd += ' "-nj_priority" "%d"' % (l_job['priority'])
-    cmd += ' "-nj_renderer" "RenderEXR/16.5.536"'
+    cmd += ' "-nj_renderer" "RenderEXR/16.5.571"'
     cmd += ' "-nj_splitmode" "2,1"'
     cmd += ' "-nj_pools" "ifd_ren"'
+    # cmd += ' "-nj_pools" "testing_ifd"'
+    # cmd += ' "-nj_clients" "LUMA-DOOM_ifd"'
     cmd += ' "-nj_dependency" "%d"' % (l_job['dep'])
     cmd += ' "-nj_deptype" "0"'
     if (l_job['paused'] == 1):
