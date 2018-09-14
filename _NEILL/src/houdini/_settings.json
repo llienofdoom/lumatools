@@ -27,13 +27,5 @@
     "lin" : "",
     "mac" : "",
     "cyg" : ""
-  },
-
-  "pose_lib" : {
-    "win" : "H:/SITE/houdini16.5/poselib",
-    "lin" : "",
-    "mac" : "",
-    "cyg" : ""
   }
-
 }

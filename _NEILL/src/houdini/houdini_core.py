@@ -1,6 +1,7 @@
 from houdini_base import *
 
 try:
+    checkLocalCopy()
     setHoudiniEnv()
     setRedshiftEnv()
     setMopsEnv()

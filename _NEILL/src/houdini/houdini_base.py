@@ -13,12 +13,10 @@ version_plugin_rs = str(config_versions['plugin_rs'])
 
 # Check for local version, and set up base paths ##############################
 def checkLocalCopy():
-    loc = 'remote'
     path_remote = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
     path_local  = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
     if os.path.exists(path_local):
         print 'Using Local'
-        loc = 'local'
     else:
         import shutil #, glob
         print 'Updating Local'
@@ -33,15 +31,11 @@ def checkLocalCopy():
         print 'Please be patient. Go have a coffee or something.'
         shutil.copytree(path_remote, path_local)
         print 'Done!'
-        loc = 'local'
-    return loc
 
-location = checkLocalCopy()
-path_houdini   = str(settings['location_%s' % location][opsys] + '/hfs.windows-x86_64_' + version_houdini)
-path_redshift  = str(settings['location_%s' % location][opsys] + '/Redshift-'           + version_redshift)
+path_houdini   = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+path_redshift  = str(settings['location_remote'][opsys] + '/Redshift-'           + version_redshift)
 path_plugin_rs = path_redshift + '/Plugins/Houdini/' + version_plugin_rs
 path_hsite     = str(settings['hsite'][opsys])
-path_pose_lib  = str(settings['pose_lib'][opsys])
 
 # Set environment #############################################################
 env = dict()
@@ -81,7 +75,7 @@ def setHoudiniEnv():
     env['HOUDINI_PATH'] += '$HFS/bin'               + os.pathsep
     env['HOUDINI_OTLSCAN_PATH'] = '@/otls'          + os.pathsep
     env['HOUDINI_MENU_PATH']    = '@'               + os.pathsep
-    env['PATH']         = env['HB'] + os.pathsep + env['PATH']
+    env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
 def setRedshiftEnv():
     global env
