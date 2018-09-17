@@ -1,41 +1,34 @@
 import sys, os
 import la_utils
 
+
 # Read settings ###############################################################
 opsys    = la_utils.getOs()
 settings = la_utils.readSettings()
-
 config_current    = str(settings['current'])
 config_versions   = settings['config'][config_current]
 version_houdini   = str(config_versions['houdini'])
 version_redshift  = str(config_versions['redshift'])
 version_plugin_rs = str(config_versions['plugin_rs'])
 
-# Check for local version, and set up base paths ##############################
-def checkLocalCopy():
+
+# Check for local version #####################################################
+use_local_houdini = False
+def useLocalHoudini():
+    global use_local_houdini
     path_remote = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
     path_local  = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
     if os.path.exists(path_local):
         print 'Using Local'
     else:
-        import shutil #, glob
+        import shutil
         print 'Updating Local'
-        # remove previous versions
-        # path_parent = str(settings['location_local' ][opsys])
-        # previous_versions = glob.glob(path_parent + '/hfs.windows-x86_64_*')
-        # for version in previous_versions:
-        #     print 'Removing', version
-        #     shutil.rmtree(version)
-        # copy current version
         print 'Copying from', path_remote, 'to', path_local
         print 'Please be patient. Go have a coffee or something.'
         shutil.copytree(path_remote, path_local)
         print 'Done!'
+    use_local_houdini = True
 
-path_houdini   = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
-path_redshift  = str(settings['location_remote'][opsys] + '/Redshift-'           + version_redshift)
-path_plugin_rs = path_redshift + '/Plugins/Houdini/' + version_plugin_rs
-path_hsite     = str(settings['hsite'][opsys])
 
 # Set environment #############################################################
 env = dict()
@@ -47,27 +40,30 @@ if opsys is 'win':
     env['TMP']        = 'C:/tmp'
     env['TEMP']       = 'C:/tmp'
 
+
 def setHoudiniEnv():
     global env
+    global use_local_houdini
+    path_remote  = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    path_local   = str(settings['location_local'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    path_houdini = path_local if use_local_houdini else path_remote
+    path_hsite   = str(settings['hsite'][opsys])
     env['HFS']   = path_houdini
-    env['H']     = path_houdini
-    env['HB']    = path_houdini + '/bin'
-    env['HD']    = path_houdini + '/demo'
-    env['HH']    = path_houdini + '/houdini'
-    env['HHC']   = path_houdini + '/houdini/config'
-    env['HT']    = path_houdini + '/toolkit'
-    env['HTB']   = path_houdini + '/toolkit/bin'
     env['HSITE'] = path_hsite
-
+    env['H']     = env['HFS']
+    env['HB']    = env['HFS'] + '/bin'
+    env['HD']    = env['HFS'] + '/demo'
+    env['HH']    = env['HFS'] + '/houdini'
+    env['HHC']   = env['HFS'] + '/houdini/config'
+    env['HT']    = env['HFS'] + '/toolkit'
+    env['HTB']   = env['HFS'] + '/toolkit/bin'
     env['HOUDINI_MAJOR_RELEASE'] = str(version_houdini).split('.')[0]
     env['HOUDINI_MINOR_RELEASE'] = str(version_houdini).split('.')[1]
     env['HOUDINI_BUILD_VERSION'] = str(version_houdini).split('.')[2]
     env['HOUDINI_VERSION']       = str(version_houdini)
-
     env['HOUDINI_EXTERNAL_HELP_BROWSER'] = '1'
     env['HOUDINI_WINDOW_CONSOLE']        = '1'
     env['HOUDINI_BUFFEREDSAVE']          = '1'
-
     env['HOUDINI_PATH']  = '$HIP'                   + os.pathsep
     env['HOUDINI_PATH'] += '$HOUDINI_USER_PREF_DIR' + os.pathsep
     env['HOUDINI_PATH'] += '$HSITE/houdini16.5'     + os.pathsep
@@ -77,8 +73,11 @@ def setHoudiniEnv():
     env['HOUDINI_MENU_PATH']    = '@'               + os.pathsep
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
+
 def setRedshiftEnv():
     global env
+    path_redshift  = str(settings['location_remote'][opsys] + '/Redshift-' + version_redshift)
+    path_plugin_rs = path_redshift + '/Plugins/Houdini/' + version_plugin_rs
     env['redshift_LICENSE']         = '5053@192.168.35.254'
     env['REDSHIFT_COREDATAPATH']    = path_redshift
     env['REDSHIFT_LOCALDATAPATH']   = path_redshift
@@ -89,22 +88,25 @@ def setRedshiftEnv():
     env['HOUDINI_PATH'] = path_plugin_rs + os.pathsep + env['HOUDINI_PATH']
     env['PATH'] = path_redshift + '/bin' + os.pathsep + env['PATH']
 
+
 def setMopsEnv():
     global env
-    env['MOPS'] = path_hsite + '/houdini16.5/MOPS'
+    env['MOPS'] = env['HSITE'] + '/houdini16.5/MOPS'
     env['HOUDINI_OTLSCAN_PATH'] = env['MOPS'] + '/otls' + os.pathsep + env['HOUDINI_OTLSCAN_PATH']
+
 
 def setQlibEnv():
     global env
-    env['QLIB'] = path_hsite + '/houdini16.5/qLib'
-    env['QOTL'] = env['QLIB'] + '/otls'
-    env['HOUDINI_OTLSCAN_PATH'] =   env['QOTL'] + '/base' + os.pathsep \
-                                  + env['QOTL'] + '/future' + os.pathsep \
+    env['QLIB'] = env['HSITE'] + '/houdini16.5/qLib'
+    env['QOTL'] = env['QLIB']  + '/otls'
+    env['HOUDINI_OTLSCAN_PATH'] =   env['QOTL'] + '/base'         + os.pathsep \
+                                  + env['QOTL'] + '/future'       + os.pathsep \
                                   + env['QOTL'] + '/experimental' + os.pathsep \
                                   + env['HOUDINI_OTLSCAN_PATH']
     env['HOUDINI_MENU_PATH'] = env['QLIB'] + '/menu' + os.pathsep + env['HOUDINI_MENU_PATH']
     env['HOUDINI_PATH'] = env['QLIB'] + os.pathsep + env['HOUDINI_PATH']
 
+
 def setGameDevEnv():
     global env
-    env['HOUDINI_PATH'] = path_hsite + '/houdini16.5/gamedev_toolset' + os.pathsep + env['HOUDINI_PATH']
+    env['HOUDINI_PATH'] = env['HSITE'] + '/houdini16.5/gamedev_toolset' + os.pathsep + env['HOUDINI_PATH']
