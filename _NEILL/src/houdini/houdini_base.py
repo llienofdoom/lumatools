@@ -124,5 +124,5 @@ def runHou(app, local=True):
     args = ' '.join(sys.argv[1:])
     cmd = env['HB'] + '/%s %s' % (app, args)
     print 'Starting', cmd
-    # la_utils.runCmd(cmd, env)
+    la_utils.runCmd(cmd, env)
 
