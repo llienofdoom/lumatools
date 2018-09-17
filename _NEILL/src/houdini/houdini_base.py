@@ -1,4 +1,4 @@
-import os
+import os, sys
 import la_utils
 
 # Read settings ###############################################################
@@ -110,3 +110,19 @@ def setQlibEnv():
 def setGameDevEnv():
     global env
     env['HOUDINI_PATH'] = env['HSITE'] + '/houdini16.5/gamedev_toolset' + os.pathsep + env['HOUDINI_PATH']
+
+###############################################################################
+def runHou(app, local=True):
+    if local:
+        useLocalHoudini()
+    setHoudiniEnv()
+    setRedshiftEnv()
+    setMopsEnv()
+    setQlibEnv()
+    # setGameDevEnv()
+
+    args = ' '.join(sys.argv[1:])
+    cmd = env['HB'] + '/%s %s' % (app, args)
+    print 'Starting', cmd
+    # la_utils.runCmd(cmd, env)
+

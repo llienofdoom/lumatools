@@ -9,7 +9,6 @@ def readSettings():
 ###############################################################################
 def getOs():
     import platform
-
     if 'windows' in platform.system().lower():
         return 'win'
     if 'cygwin' in platform.system().lower():
