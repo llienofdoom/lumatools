@@ -1,34 +1,34 @@
-import sys, os
+import os
 import la_utils
-
 
 # Read settings ###############################################################
 opsys    = la_utils.getOs()
 settings = la_utils.readSettings()
-config_current    = str(settings['current'])
-config_versions   = settings['config'][config_current]
-version_houdini   = str(config_versions['houdini'])
-version_redshift  = str(config_versions['redshift'])
-version_plugin_rs = str(config_versions['plugin_rs'])
-
+config_current = ''
+try:
+    config_current = os.environ['LA_HOU_CURRENT']
+except KeyError:
+    config_current = str(settings['current'])
+config_versions    = settings['config'][config_current]
+version_houdini    = str(config_versions['houdini'])
+version_redshift   = str(config_versions['redshift'])
+version_plugin_rs  = str(config_versions['plugin_rs'])
 
 # Check for local version #####################################################
 use_local_houdini = False
 def useLocalHoudini():
     global use_local_houdini
-    path_remote = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
-    path_local  = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    path_remote      = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    path_local       = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
     if os.path.exists(path_local):
-        print 'Using Local'
+        print 'Using Local.'
     else:
-        import shutil
-        print 'Updating Local'
+        print 'Updating Local.'
         print 'Copying from', path_remote, 'to', path_local
         print 'Please be patient. Go have a coffee or something.'
-        shutil.copytree(path_remote, path_local)
-        print 'Done!'
+        la_utils.copyFolder(path_remote, path_local)
+        print 'Update complete! Continuing startup.'
     use_local_houdini = True
-
 
 # Set environment #############################################################
 env = dict()
@@ -40,7 +40,7 @@ if opsys is 'win':
     env['TMP']        = 'C:/tmp'
     env['TEMP']       = 'C:/tmp'
 
-
+###############################################################################
 def setHoudiniEnv():
     global env
     global use_local_houdini
@@ -73,7 +73,7 @@ def setHoudiniEnv():
     env['HOUDINI_MENU_PATH']    = '@'               + os.pathsep
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
-
+###############################################################################
 def setRedshiftEnv():
     global env
     path_redshift  = str(settings['location_remote'][opsys] + '/Redshift-' + version_redshift)
@@ -88,13 +88,13 @@ def setRedshiftEnv():
     env['HOUDINI_PATH'] = path_plugin_rs + os.pathsep + env['HOUDINI_PATH']
     env['PATH'] = path_redshift + '/bin' + os.pathsep + env['PATH']
 
-
+###############################################################################
 def setMopsEnv():
     global env
     env['MOPS'] = env['HSITE'] + '/houdini16.5/MOPS'
     env['HOUDINI_OTLSCAN_PATH'] = env['MOPS'] + '/otls' + os.pathsep + env['HOUDINI_OTLSCAN_PATH']
 
-
+###############################################################################
 def setQlibEnv():
     global env
     env['QLIB'] = env['HSITE'] + '/houdini16.5/qLib'
@@ -106,7 +106,7 @@ def setQlibEnv():
     env['HOUDINI_MENU_PATH'] = env['QLIB'] + '/menu' + os.pathsep + env['HOUDINI_MENU_PATH']
     env['HOUDINI_PATH'] = env['QLIB'] + os.pathsep + env['HOUDINI_PATH']
 
-
+###############################################################################
 def setGameDevEnv():
     global env
     env['HOUDINI_PATH'] = env['HSITE'] + '/houdini16.5/gamedev_toolset' + os.pathsep + env['HOUDINI_PATH']

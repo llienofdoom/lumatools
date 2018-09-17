@@ -40,3 +40,18 @@ def print_error(text):
     raw_input(text)
     exit(0)
 ###############################################################################
+
+###############################################################################
+def copyFolder(src, dst):
+    import subprocess
+    opsys = getOs()
+    if opsys == 'win':
+        cmd = 'robocopy %s %s /mir' % (src, dst)
+        subprocess.call(cmd, shell=False)
+    if opsys == 'lin':
+        print 'NOT IMPLEMENTED YET!'
+    if opsys == 'mac':
+        print 'NOT IMPLEMENTED YET!'
+    if opsys == 'cyg':
+        print 'NOT IMPLEMENTED YET!'
+###############################################################################
