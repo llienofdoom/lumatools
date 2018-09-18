@@ -1,0 +1,11 @@
+certifi==2018.8.24
+chardet==3.0.4
+discord-hooks==1.0
+feedparser==5.2.1
+idna==2.7
+numpy==1.15.1
+Pillow==5.2.0
+PyOpenGL==3.1.0
+PySide2==5.11.0a1.dev1528379875
+requests==2.19.1
+urllib3==1.23

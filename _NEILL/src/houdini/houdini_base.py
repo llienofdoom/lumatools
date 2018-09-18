@@ -35,6 +35,9 @@ env = dict()
 env['PATH'] = os.environ['PATH']
 env['TMP']  = '/tmp'
 env['TEMP'] = '/tmp'
+env['LA_ROOT']   = os.environ['LA_ROOT']
+env['LA_VENV']   = os.environ['LA_VENV']
+env['LA_BRANCH'] = os.environ['LA_BRANCH']
 if opsys is 'win':
     env['SystemRoot'] = 'C:/Windows'
     env['TMP']        = 'C:/tmp'
@@ -70,6 +73,7 @@ def setHoudiniEnv():
     env['HOUDINI_PATH'] += '$HFS/houdini'           + os.pathsep
     env['HOUDINI_PATH'] += '$HFS/bin'               + os.pathsep
     env['HOUDINI_OTLSCAN_PATH'] = '@/otls'          + os.pathsep
+    env['HOUDINI_OTLSCAN_PATH'] = os.environ['LA_ROOT'] + '/_' + os.environ['LA_BRANCH'] + '/src/houdini/otls' + os.pathsep + env['HOUDINI_OTLSCAN_PATH']
     env['HOUDINI_MENU_PATH']    = '@'               + os.pathsep
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
