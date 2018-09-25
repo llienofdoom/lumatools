@@ -28,8 +28,10 @@ if dim[1] % 2 != 0:
 else:
     h = dim[1]
 
+framerate = float(raw_input('Please specify framerate [ 23.976 / 24 / 25 / 29.97 / 30 ] : '))
+
 cmd  = ffmpeg + ' -y'
-cmd += ' -r %f' % (24)
+cmd += ' -r %f' % framerate
 cmd += ' -start_number %d' % (start_frame)
 cmd += ' -gamma 2.2'
 cmd += ' -i %s' % ( path + os.sep + basename + '.%04d.' + extention )
