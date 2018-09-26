@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+. /work/_tools/bin/la_venv
+#cd $LA_ROOT/_$LA_BRANCH/src/tools
+#python img_rename.py $1
