@@ -1,7 +1,7 @@
-import feedparser
+import os, feedparser
 from discord_hooks import Webhook
 
-ver_file = 'H:/__store/hou_latest_production_build'
+ver_file = os.environ['LA_ROOT'] + os.sep + '_' +  os.environ['LA_BRANCH'] + os.sep + 'etc' + os.sep + 'hou_latest_production_build'
 
 # Get current version
 current = open(ver_file, 'r').read()
