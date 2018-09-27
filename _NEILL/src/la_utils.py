@@ -21,11 +21,15 @@ def getOs():
 
 ###############################################################################
 def runCmd(cmd, environ=None):
-    import subprocess
+    import subprocess, os
     cmd = cmd.split()
     if environ is None:
         return subprocess.check_output(cmd, shell=False)
     else:
+        # Add default env to to process
+        for key in os.environ:
+            if key != 'PATH':
+                environ[key] = os.environ[key]
         return subprocess.check_output(cmd, env=environ, shell=False)
 ###############################################################################
 

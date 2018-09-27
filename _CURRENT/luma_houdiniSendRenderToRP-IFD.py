@@ -31,7 +31,7 @@ def buildCmdLineIFD(l_job):
     cmd += ' -nj_renderer GenerateIFD/16.5.571'
     cmd += ' -nj_splitmode 1,2'
     cmd += ' -nj_pools "ifd_gen_always,ifd_gen_night"'
-    if (l_job['paused'] == 1):
+    if l_job['paused'] == 1:
         cmd += ' -nj_paused'
     cmd += ' -retnjid'
     cmd += ' -rop "%s"' % (l_job['rop'])
@@ -55,7 +55,7 @@ def buildCmdLineEXR(l_job):
     # cmd += ' "-nj_clients" "LUMA-DOOM_ifd"'
     cmd += ' "-nj_dependency" "%d"' % (l_job['dep'])
     cmd += ' "-nj_deptype" "0"'
-    if (l_job['paused'] == 1):
+    if l_job['paused'] == 1:
         cmd += ' -nj_paused'
     cmd += ' "-outdir" "%s"' % (l_job['outdir'])
     cmd += ' %s' % (l_job['files'])
@@ -64,7 +64,7 @@ def buildCmdLineEXR(l_job):
 
 ###############################################################################
 def main():
-    if (len(sys.argv) != 3):
+    if len(sys.argv) != 3:
         exit(1)
 
     global g_jobIFD, g_jobEXR
@@ -77,8 +77,8 @@ def main():
     rop_out = hou.node("/out/OUT")
     rop_children = rop_out.inputAncestors()
     for child in rop_children:
-        type = child.type().name()
-        if type == 'ifd':
+        nodeType = child.type().name()
+        if nodeType == 'ifd':
             rop_list.append(child)
     for rop in rop_list:
         print rop.path()
@@ -121,4 +121,4 @@ def main():
 ###############################################################################
 if __name__ == '__main__':
     main()
-    # raw_input('\n\npress enter...')
+    raw_input('\n\nPress enter to finish...')
