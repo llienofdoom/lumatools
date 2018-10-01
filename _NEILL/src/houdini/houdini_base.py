@@ -69,12 +69,13 @@ def setHoudiniEnv():
     env['HOUDINI_BUFFEREDSAVE']          = '1'
     env['HOUDINI_PATH']  = '$HIP'                   + os.pathsep
     env['HOUDINI_PATH'] += '$HOUDINI_USER_PREF_DIR' + os.pathsep
-    env['HOUDINI_PATH'] += '$HSITE/houdini16.5'     + os.pathsep
+    env['HOUDINI_PATH'] += '$HSITE/houdini' + env['HOUDINI_MAJOR_RELEASE'] + '.' + env['HOUDINI_MINOR_RELEASE'] + os.pathsep
     env['HOUDINI_PATH'] += '$HFS/houdini'           + os.pathsep
     env['HOUDINI_PATH'] += '$HFS/bin'               + os.pathsep
     env['HOUDINI_OTLSCAN_PATH'] = '@/otls'          + os.pathsep
     env['HOUDINI_OTLSCAN_PATH'] = os.environ['LA_ROOT'] + '/_' + os.environ['LA_BRANCH'] + '/src/houdini/otls' + os.pathsep + env['HOUDINI_OTLSCAN_PATH']
     env['HOUDINI_MENU_PATH']    = '@'               + os.pathsep
+    env['HOUDINI_NVIDIA_OPTIX_DSO_PATH'] = str(settings['location_remote'][opsys] + '/optix5.1')
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
 ###############################################################################
@@ -116,14 +117,18 @@ def setGameDevEnv():
     env['HOUDINI_PATH'] = env['HSITE'] + '/houdini16.5/gamedev_toolset' + os.pathsep + env['HOUDINI_PATH']
 
 ###############################################################################
-def runHou(app, local=True):
+def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plug_gdev=False):
     if local:
         useLocalHoudini()
     setHoudiniEnv()
-    setRedshiftEnv()
-    setMopsEnv()
-    setQlibEnv()
-    # setGameDevEnv()
+    if plug_rs:
+        setRedshiftEnv()
+    if plug_mops:
+        setMopsEnv()
+    if plug_qlib:
+        setQlibEnv()
+    if plug_gdev:
+        setGameDevEnv()
 
     args = ' '.join(sys.argv[1:])
     cmd = env['HB'] + '/%s %s' % (app, args)

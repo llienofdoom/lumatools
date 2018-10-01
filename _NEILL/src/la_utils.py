@@ -30,6 +30,10 @@ def runCmd(cmd, environ=None):
         for key in os.environ:
             if key != 'PATH':
                 environ[key] = os.environ[key]
+            if key == 'PATH':
+                environ['PATH'] += os.environ['PATH']
+        # for i, j in environ.items():
+        #     print i, j
         return subprocess.check_output(cmd, env=environ, shell=False)
 ###############################################################################
 
