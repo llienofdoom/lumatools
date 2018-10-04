@@ -1,0 +1,15 @@
+{
+  "current" : "0002",
+
+  "config" : {
+    "0001" : { "blender" : "2.79b" },
+    "0002" : { "blender" : "2.80.0" }
+  },
+
+  "location" : {
+    "win" : "H:/_distros/blender-",
+    "lin" : "",
+    "mac" : "",
+    "cyg" : ""
+  }
+}

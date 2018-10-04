@@ -75,7 +75,7 @@ def setHoudiniEnv():
     env['HOUDINI_OTLSCAN_PATH'] = '@/otls'          + os.pathsep
     env['HOUDINI_OTLSCAN_PATH'] = os.environ['LA_ROOT'] + '/_' + os.environ['LA_BRANCH'] + '/src/houdini/otls' + os.pathsep + env['HOUDINI_OTLSCAN_PATH']
     env['HOUDINI_MENU_PATH']    = '@'               + os.pathsep
-    env['HOUDINI_NVIDIA_OPTIX_DSO_PATH'] = str(settings['location_remote'][opsys] + '/optix5.1')
+    env['HOUDINI_NVIDIA_OPTIX_DSO_PATH'] = str(settings['optix_location'][opsys])
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
 ###############################################################################
@@ -133,5 +133,5 @@ def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plu
     args = ' '.join(sys.argv[1:])
     cmd = env['HB'] + '/%s %s' % (app, args)
     print 'Starting', cmd
-    la_utils.runCmd(cmd, env)
+    print la_utils.runCmd(cmd, env)
 

@@ -31,6 +31,13 @@
     "cyg" : ""
   },
 
+  "optix_location" : {
+    "win" : "H:/_distros/optix5.1",
+    "lin" : "",
+    "mac" : "",
+    "cyg" : ""
+  },
+
   "hsite" : {
     "win" : "H:/SITE",
     "lin" : "/mnt/h/SITE",
