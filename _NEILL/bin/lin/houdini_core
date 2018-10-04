@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd $PYTHONPATH/houdini
+python houdini_core.py $@

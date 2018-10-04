@@ -56,7 +56,11 @@ def copyFolder(src, dst):
         cmd = 'robocopy %s %s /mir' % (src, dst)
         subprocess.call(cmd, shell=False)
     if opsys == 'lin':
-        print 'NOT IMPLEMENTED YET!'
+        print src
+        print dst
+        cmd = 'mkdir -p %s; cp -r %s %s' % (dst, src, dst)
+        print cmd
+        subprocess.call(cmd, shell=False)
     if opsys == 'mac':
         print 'NOT IMPLEMENTED YET!'
     if opsys == 'cyg':

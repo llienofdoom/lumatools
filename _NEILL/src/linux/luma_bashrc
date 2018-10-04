@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#export LA_ROOT=/mnt/luma/lumatools
+#export LA_VENV=/mnt/luma/software/CURRENT/venv
+#export LA_BRANCH=NEILL
+
+pushd .
+cd $LA_VENV/bin
+. activate
+popd
+
+export PYTHONPATH=$LA_ROOT/_$LA_BRANCH/src
+
+export redshift_LICENSE='5053@192.168.35.254'
+alias blender=/mnt/luma/software/CURRENT/blender/blender-2.80/blender
+
+export PATH=$LA_ROOT/_$LA_BRANCH/bin/lin:$PATH
+
+echo 'Luma Default env setup.'
+clear

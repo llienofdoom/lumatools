@@ -1,3 +1,3 @@
 from houdini_base import *
 
-runHou(app='mantra', local=True)
+runHou(app='mantra', local=False)

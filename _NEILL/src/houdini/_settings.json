@@ -1,5 +1,5 @@
 {
-  "current" : "0004",
+  "current" : "0005",
 
   "config" : {
     "0001" : { "houdini" : "16.5.473", "redshift" : "2.5.72", "plugin_rs" : "16.5.473" },
@@ -11,22 +11,29 @@
   },
 
   "location_remote" : {
-    "win" : "H:/_distros",
-    "lin" : "",
+    "win" : "H:/_distros/hfs.windows-x86_64_",
+    "lin" : "/mnt/luma/software/CURRENT/houdini/",
     "mac" : "",
     "cyg" : ""
   },
 
   "location_local" : {
-    "win" : "C:/_lumatools/_distros",
-    "lin" : "",
+    "win" : "C:/_lumatools/_distros/hfs.windows-x86_64_",
+    "lin" : "~/.lumatools/",
+    "mac" : "",
+    "cyg" : ""
+  },
+
+  "rs_location" : {
+    "win" : "H:/_distros/Redshift-",
+    "lin" : "/mnt/luma/software/CURRENT/redshift/",
     "mac" : "",
     "cyg" : ""
   },
 
   "hsite" : {
     "win" : "H:/SITE",
-    "lin" : "",
+    "lin" : "/mnt/h/SITE",
     "mac" : "",
     "cyg" : ""
   }

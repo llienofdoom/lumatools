@@ -18,8 +18,8 @@ version_plugin_rs  = str(config_versions['plugin_rs'])
 use_local_houdini = False
 def useLocalHoudini():
     global use_local_houdini
-    path_remote      = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
-    path_local       = str(settings['location_local' ][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    path_remote      = str(settings['location_remote'][opsys]  + version_houdini)
+    path_local       = str(settings['location_local' ][opsys]  + version_houdini)
     if os.path.exists(path_local):
         print 'Using Local.'
     else:
@@ -47,8 +47,8 @@ if opsys is 'win':
 def setHoudiniEnv():
     global env
     global use_local_houdini
-    path_remote  = str(settings['location_remote'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
-    path_local   = str(settings['location_local'][opsys] + '/hfs.windows-x86_64_' + version_houdini)
+    path_remote  = str(settings['location_remote'][opsys] + version_houdini)
+    path_local   = str(settings['location_local'][opsys]  + version_houdini)
     path_houdini = path_local if use_local_houdini else path_remote
     path_hsite   = str(settings['hsite'][opsys])
     env['HFS']   = path_houdini
@@ -81,7 +81,7 @@ def setHoudiniEnv():
 ###############################################################################
 def setRedshiftEnv():
     global env
-    path_redshift  = str(settings['location_remote'][opsys] + '/Redshift-' + version_redshift)
+    path_redshift  = str(settings['rs_location'][opsys] + version_redshift)
     path_plugin_rs = path_redshift + '/Plugins/Houdini/' + version_plugin_rs
     env['redshift_LICENSE']         = '5053@192.168.35.254'
     env['REDSHIFT_COREDATAPATH']    = path_redshift
