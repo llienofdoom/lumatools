@@ -7,7 +7,7 @@ name     = filename.split('.')[0]
 number   = filename.split('.')[1]
 ext      = filename.split('.')[2]
 
-list_of_files = glob.glob(folder + os.sep + name + '*')
+list_of_files = glob.glob(folder + os.sep + name + '.????.' + ext)
 first = int(os.path.basename(list_of_files[0]).split('.')[1])
 
 print '#'*80

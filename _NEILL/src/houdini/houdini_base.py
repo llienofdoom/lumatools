@@ -69,11 +69,17 @@ def setHoudiniEnv():
     env['HOUDINI_BUFFEREDSAVE']          = '1'
     env['HOUDINI_PATH']  = '$HIP'                   + os.pathsep
     env['HOUDINI_PATH'] += '$HOUDINI_USER_PREF_DIR' + os.pathsep
-    env['HOUDINI_PATH'] += '$HSITE/houdini' + env['HOUDINI_MAJOR_RELEASE'] + '.' + env['HOUDINI_MINOR_RELEASE'] + os.pathsep
+    env['HOUDINI_PATH'] += '$HSITE/houdini' \
+                           + env['HOUDINI_MAJOR_RELEASE'] + '.' + env['HOUDINI_MINOR_RELEASE'] \
+                           + os.pathsep
     env['HOUDINI_PATH'] += '$HFS/houdini'           + os.pathsep
     env['HOUDINI_PATH'] += '$HFS/bin'               + os.pathsep
     env['HOUDINI_OTLSCAN_PATH'] = '@/otls'          + os.pathsep
-    env['HOUDINI_OTLSCAN_PATH'] = os.environ['LA_ROOT'] + '/_' + os.environ['LA_BRANCH'] + '/src/houdini/otls' + os.pathsep + env['HOUDINI_OTLSCAN_PATH']
+    env['HOUDINI_OTLSCAN_PATH'] = os.environ['LA_ROOT'] \
+                                  + '/_' + os.environ['LA_BRANCH'] \
+                                  + '/src/houdini/otls' \
+                                  + os.pathsep \
+                                  + env['HOUDINI_OTLSCAN_PATH']
     env['HOUDINI_MENU_PATH']    = '@'               + os.pathsep
     env['HOUDINI_NVIDIA_OPTIX_DSO_PATH'] = str(settings['optix_location'][opsys])
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
@@ -96,7 +102,7 @@ def setRedshiftEnv():
 ###############################################################################
 def setMopsEnv():
     global env
-    env['MOPS'] = env['HSITE'] + '/houdini16.5/MOPS'
+    env['MOPS'] = env['HSITE'] + '/houdini_MOPS'
     env['HOUDINI_OTLSCAN_PATH'] = env['MOPS'] + '/otls' + os.pathsep + env['HOUDINI_OTLSCAN_PATH']
 
 ###############################################################################
