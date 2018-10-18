@@ -1,8 +1,9 @@
 {
-  "path_root" : "X:/Golf/renders",
+  "path_root" : "//192.168.35.14/x/Golf/renders",
+  "audio"     : "//192.168.35.14/x/Golf/renders/audio",
 
   "fairway_loop" : {
-    "template_comp" : "X:/Golf/renders/_template/fairway_comp_template_v01.nk",
+    "template_comp" : "//192.168.35.14/x/Golf/renders/_template/fairway_comp_template_v01.nk",
     "passes" : ["ball", "ball_shadow", "env", "env_cm", "player", "player_cm", "player_shadow"]
   }
 }

@@ -1,0 +1,24 @@
+General
+{
+	Name = "golf_convert"
+	SelectedGroups = 2048
+}
+
+Events
+{
+	Count = 1
+
+	Event00
+	{
+		Scope = 289
+		Type = 2
+		Name = "golf_convert"
+		Flags = 1
+
+		Contents
+		{
+			Count = 1
+			Entry00 = "H:\\_distros\\_lumatools\\lumatools\\_NEILL\\src\\nuke\\golf\\golf_convert.cmd $(RenderSet.outfile_full)"
+		}
+	}
+}
