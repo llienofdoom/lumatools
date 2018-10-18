@@ -51,6 +51,8 @@ for course in folders_courses:
                                     out['mov64_audiofile'].setValue(audio)
                                     out['create_directories'].setValue(1)
                                 node['file'].setValue(path)
+                                node['first'].setValue(frame_range[0])
+                                node['last' ].setValue(frame_range[1])
                     #####################################################################
                     nuke.scriptSave(comp)
                     # nuke.execute('OUT', frame_range[0], frame_range[1])
@@ -65,7 +67,7 @@ for course in folders_courses:
                     cmd += ' -nj_pools "nuke"'
                     cmd += ' -nj_paused'
                     cmd += ' -frames "%s-%s"' % (frame_range[0], frame_range[1])
-                    cmd += ' -outfile_full "%s"' % vid
+                    cmd += ' -outfile "%s"' % vid
                     cmd += ' %s' % comp
                     print cmd
                     njid = os.system('"' + cmd + '"')

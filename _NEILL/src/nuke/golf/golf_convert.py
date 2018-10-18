@@ -13,4 +13,6 @@ cmd += ' -pix_fmt yuv420p'
 cmd += ' -c:v libx264'
 cmd += ' %s' % ( path + os.sep + basename + '.mp4' )
 cmd = cmd.replace('\\', '/')
+print cmd
 os.system(cmd)
+print 'DONE!'
