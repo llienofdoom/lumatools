@@ -14,7 +14,7 @@ list_of_files = glob.glob( path + os.sep + basename + '.????.*' )
 if len(list_of_files) < 1:
     la_utils.print_error('List of files is empty. Wrong filename pattern. Must be [name].[####].[ext]')
 list_of_files.sort()
-start_frame   = int(str(list_of_files[0]).split('.')[1])
+start_frame   = int(str(list_of_files[0]).split('.')[-2])
 
 # Check width & height divisible by 2, stupid h264.
 w, h = 1280, 720
@@ -32,7 +32,7 @@ framerate = float(raw_input('Please specify framerate [ 23.976 / 24 / 25 / 29.97
 
 cmd  = ffmpeg + ' -y'
 cmd += ' -r %f' % framerate
-cmd += ' -start_number %d' % (start_frame)
+cmd += ' -start_number %d' % start_frame
 cmd += ' -gamma 2.2'
 cmd += ' -i %s' % ( path + os.sep + basename + '.%04d.' + extention )
 cmd += ' -pix_fmt yuv420p'
