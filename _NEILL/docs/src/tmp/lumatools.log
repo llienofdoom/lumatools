@@ -1,11 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730) (preloaded format=pdflatex 2018.10.24)  24 OCT 2018 18:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.10.24)  24 OCT 2018 21:55
 entering extended mode
 **./_main.tex
 (_main.tex
 LaTeX2e <2018-04-01> patch level 5
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\base\article.cls
+
+("/Users/llien/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\base\size11.clo
+
+("/Users/llien/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/size11.clo"
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -19,14 +23,14 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\psnfss\times.st
-y
+)
+("/Users/llien/Library/Application Support/MiKTeX/texmfs/install/tex/latex/psnf
+ss/times.sty"
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
-) (H:\_distros\_lumatools\lumatools\_NEILL\docs\src\tmp\lumatools.aux (H:\_dist
-ros\_lumatools\lumatools\_NEILL\docs\src\tmp\utils/macros.aux) (H:\_distros\_lu
-matools\lumatools\_NEILL\docs\src\tmp\utils/cover.aux) (H:\_distros\_lumatools\
-lumatools\_NEILL\docs\src\tmp\tools.aux) (H:\_distros\_lumatools\lumatools\_NEI
-LL\docs\src\tmp\file_naming.aux))
+) (/work/_tools/lumatools/_NEILL/docs/src/tmp/lumatools.aux (/work/_tools/lumat
+ools/_NEILL/docs/src/tmp/utils/macros.aux) (/work/_tools/lumatools/_NEILL/docs/
+src/tmp/utils/cover.aux) (/work/_tools/lumatools/_NEILL/docs/src/tmp/tools.aux)
+(/work/_tools/lumatools/_NEILL/docs/src/tmp/file_naming.aux))
 \openout1 = `lumatools.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -42,7 +46,9 @@ LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 15.
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\psnfss\ot1ptm.fd
+
+("/Users/llien/Library/Application Support/MiKTeX/texmfs/install/tex/latex/psnf
+ss/ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \openout2 = `utils/macros.aux'.
@@ -60,9 +66,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 11.
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 11.
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\psnfss\ot1pcr.fd
+
+("/Users/llien/Library/Application Support/MiKTeX/texmfs/install/tex/latex/psnf
+ss/ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)) [1{H:/_distros/_lumatools/latex/miktex/texmfs/data/pdftex/config/pdftex.map}
+)) [1{/Users/llien/Library/Application Support/MiKTeX/texmfs/data/pdftex/config
+/pdftex.map}
 
 
 
@@ -72,7 +81,7 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
-(H:\_distros\_lumatools\lumatools\_NEILL\docs\src\tmp\lumatools.toc
+(/work/_tools/lumatools/_NEILL/docs/src/tmp/lumatools.toc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 )
@@ -95,26 +104,26 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 
 
 
-] (H:\_distros\_lumatools\lumatools\_NEILL\docs\src\tmp\lumatools.aux (H:\_dist
-ros\_lumatools\lumatools\_NEILL\docs\src\tmp\utils/macros.aux) (H:\_distros\_lu
-matools\lumatools\_NEILL\docs\src\tmp\utils/cover.aux) (H:\_distros\_lumatools\
-lumatools\_NEILL\docs\src\tmp\tools.aux) (H:\_distros\_lumatools\lumatools\_NEI
-LL\docs\src\tmp\file_naming.aux)) ) 
+] (/work/_tools/lumatools/_NEILL/docs/src/tmp/lumatools.aux (/work/_tools/lumat
+ools/_NEILL/docs/src/tmp/utils/macros.aux) (/work/_tools/lumatools/_NEILL/docs/
+src/tmp/utils/cover.aux) (/work/_tools/lumatools/_NEILL/docs/src/tmp/tools.aux)
+(/work/_tools/lumatools/_NEILL/docs/src/tmp/file_naming.aux)) ) 
 Here is how much of TeX's memory you used:
- 359 strings out of 494872
- 6197 string characters out of 3177247
- 55182 words of memory out of 3000000
- 4008 multiletter control sequences out of 15000+200000
+ 359 strings out of 494889
+ 5991 string characters out of 3176956
+ 55294 words of memory out of 3000000
+ 4009 multiletter control sequences out of 15000+200000
  16760 words of font info for 39 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 0 hyphenation exceptions out of 8191
  26i,7n,20p,145b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
-{H:/_distros/_lumatools/latex/miktex/texmfs/
-install/fonts/enc/dvips/base/8r.enc}<H:/_distros/_lumatools/latex/miktex/texmfs
-/install/fonts/type1/urw/courier/ucrr8a.pfb><H:/_distros/_lumatools/latex/mikte
-x/texmfs/install/fonts/type1/urw/times/utmb8a.pfb><H:/_distros/_lumatools/latex
-/miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on H:\_distros\_lumatools\lumatools\_NEILL\docs\lumatools.pdf (4
- pages, 38513 bytes).
+{/Users/llien/Li
+brary/Application Support/MiKTeX/texmfs/install/fonts/enc/dvips/base/8r.enc}</U
+sers/llien/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/urw/co
+urier/ucrr8a.pfb></Users/llien/Library/Application Support/MiKTeX/texmfs/instal
+l/fonts/type1/urw/times/utmb8a.pfb></Users/llien/Library/Application Support/Mi
+KTeX/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
+Output written on /work/_tools/lumatools/_NEILL/docs/lumatools.pdf (4 pages, 38
+513 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
