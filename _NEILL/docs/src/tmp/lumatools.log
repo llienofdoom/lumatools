@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730) (preloaded format=pdflatex 2018.10.24)  24 OCT 2018 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730) (preloaded format=pdflatex 2018.10.24)  24 OCT 2018 18:04
 entering extended mode
 **./main.tex
 (main.tex
@@ -19,104 +19,104 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\amsmath\amsmath.s
-ty
-Package: amsmath 2017/09/02 v2.17a AMS math features
-\@mathmargin=\skip43
-For additional information on amsmath, use the `?' option.
-
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\amsmath\amstext.s
-ty
-Package: amstext 2000/06/29 v2.01 AMS text
-
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\amsmath\amsgen.st
+) (H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\psnfss\times.st
 y
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks14
-\ex@=\dimen103
-))
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\amsmath\amsbsy.st
-y
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen104
-)
-(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\amsmath\amsopn.st
-y
-Package: amsopn 2016/03/08 v2.02 operator names
-)
-\inf@bad=\count88
-LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count89
-\leftroot@=\count90
-LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count91
-\DOTSCASE@=\count92
-LaTeX Info: Redefining \ldots on input line 472.
-LaTeX Info: Redefining \dots on input line 475.
-LaTeX Info: Redefining \cdots on input line 596.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen105
-LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count93
-\c@MaxMatrixCols=\count94
-\dotsspace@=\muskip10
-\c@parentequation=\count95
-\dspbrk@lvl=\count96
-\tag@help=\toks15
-\row@=\count97
-\column@=\count98
-\maxfields@=\count99
-\andhelp@=\toks16
-\eqnshift@=\dimen106
-\alignsep@=\dimen107
-\tagshift@=\dimen108
-\tagwidth@=\dimen109
-\totwidth@=\dimen110
-\lineht@=\dimen111
-\@envbody=\toks17
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2817.
-LaTeX Info: Redefining \] on input line 2818.
-)
-No file lumatools.aux.
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+) (H:\_distros\_lumatools\lumatools\_NEILL\docs\src\tmp\lumatools.aux (H:\_dist
+ros\_lumatools\lumatools\_NEILL\docs\src\tmp\utils/macros.aux) (H:\_distros\_lu
+matools\lumatools\_NEILL\docs\src\tmp\utils/cover.aux) (H:\_distros\_lumatools\
+lumatools\_NEILL\docs\src\tmp\tools.aux) (H:\_distros\_lumatools\lumatools\_NEI
+LL\docs\src\tmp\file_naming.aux))
 \openout1 = `lumatools.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-[1
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 15.
+(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+\openout2 = `utils/macros.aux'.
 
-{H:/_distros/_lumatools/latex/miktex/texmfs/data/pdftex/config/pdftex.map}] (H:
-\_distros\_lumatools\lumatools\_NEILL\docs\src\tmp\lumatools.aux) ) 
+(utils/macros.tex)
+\openout2 = `utils/cover.aux'.
+
+(utils/cover.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 11.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 11.
+(H:\_distros\_lumatools\latex\miktex\texmfs\install\tex\latex\psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)) [1{H:/_distros/_lumatools/latex/miktex/texmfs/data/pdftex/config/pdftex.map}
+
+
+
+
+
+
+]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
+(H:\_distros\_lumatools\lumatools\_NEILL\docs\src\tmp\lumatools.toc
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+)
+\tf@toc=\write3
+\openout3 = `lumatools.toc'.
+
+[2
+
+
+]
+\openout2 = `tools.aux'.
+
+(tools.tex) [3
+
+
+]
+\openout2 = `file_naming.aux'.
+
+(file_naming.tex) [4
+
+
+
+] (H:\_distros\_lumatools\lumatools\_NEILL\docs\src\tmp\lumatools.aux (H:\_dist
+ros\_lumatools\lumatools\_NEILL\docs\src\tmp\utils/macros.aux) (H:\_distros\_lu
+matools\lumatools\_NEILL\docs\src\tmp\utils/cover.aux) (H:\_distros\_lumatools\
+lumatools\_NEILL\docs\src\tmp\tools.aux) (H:\_distros\_lumatools\lumatools\_NEI
+LL\docs\src\tmp\file_naming.aux)) ) 
 Here is how much of TeX's memory you used:
- 817 strings out of 494872
- 9760 string characters out of 3177247
- 64358 words of memory out of 3000000
- 4512 multiletter control sequences out of 15000+200000
- 3940 words of font info for 15 fonts, out of 3000000 for 9000
+ 359 strings out of 494872
+ 6194 string characters out of 3177247
+ 55182 words of memory out of 3000000
+ 4008 multiletter control sequences out of 15000+200000
+ 16760 words of font info for 39 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 27i,4n,21p,202b,111s stack positions out of 5000i,500n,10000p,200000b,50000s
-<H:/_distros
-/_lumatools/latex/miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pf
-b>
-Output written on H:\_distros\_lumatools\lumatools\_NEILL\docs\lumatools.pdf (1
- page, 11062 bytes).
+ 26i,7n,20p,144b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
+{H:/_distros/_lumatools/latex/miktex/texmfs/
+install/fonts/enc/dvips/base/8r.enc}<H:/_distros/_lumatools/latex/miktex/texmfs
+/install/fonts/type1/urw/courier/ucrr8a.pfb><H:/_distros/_lumatools/latex/mikte
+x/texmfs/install/fonts/type1/urw/times/utmb8a.pfb><H:/_distros/_lumatools/latex
+/miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
+Output written on H:\_distros\_lumatools\lumatools\_NEILL\docs\lumatools.pdf (4
+ pages, 35839 bytes).
 PDF statistics:
- 10 PDF objects out of 1000 (max. 8388607)
+ 28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

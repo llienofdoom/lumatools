@@ -4,14 +4,20 @@
 %%
 
 % Preamble
-\documentclass[11pt]{article}
+\documentclass[a4paper,twocolumn,11pt]{article}
 
 % Packages
-\usepackage{amsmath}
+\setcounter{tocdepth}{2}
+\usepackage{times}
+%\usepackage{amsmath}
 
 % Document
 \begin{document}
 
-test
+    \include{utils/macros}
+    \include{utils/cover}
+    \tableofcontents
+    \include{tools}
+    \include{file_naming}
 
 \end{document}
