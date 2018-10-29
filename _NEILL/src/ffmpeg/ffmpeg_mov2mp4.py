@@ -27,6 +27,7 @@ cmd += ' -i %s' % input_file
 cmd += ' -pix_fmt yuv420p'
 cmd += ' -c:v libx264'
 cmd += ' -vf scale=%d:%d' % (w,h)
-cmd += ' %s' % ( path + os.sep + basename + '.mp4' )
+cmd += ' %s' % ( path + os.sep + basename + '_CONVERTED.mp4' )
 cmd = cmd.replace('\\', '/')
+# print cmd
 la_utils.runCmd(cmd)

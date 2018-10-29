@@ -108,7 +108,7 @@ def setMopsEnv():
 ###############################################################################
 def setQlibEnv():
     global env
-    env['QLIB'] = env['HSITE'] + '/houdini16.5/qLib'
+    env['QLIB'] = env['HSITE'] + '/qLib'
     env['QOTL'] = env['QLIB']  + '/otls'
     env['HOUDINI_OTLSCAN_PATH'] =   env['QOTL'] + '/base'         + os.pathsep \
                                   + env['QOTL'] + '/future'       + os.pathsep \
