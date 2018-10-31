@@ -5,5 +5,24 @@
   "fairway_loop" : {
     "template_comp" : "//192.168.35.14/x/Golf/renders/_template/fairway_comp_template_v01.nk",
     "passes" : ["ball", "ball_shadow", "env", "env_cm", "player", "player_cm", "player_shadow"]
+  },
+
+  "lineup" : {
+    "template_comp" : "//192.168.35.14/x/Golf/renders/_template/lineup_template.nk",
+    "passes" : [
+      "ball",
+      "ball_shadow",
+      "course",
+      "course_cm",
+      "crowds",
+      "crowds_shadow",
+      "flag",
+      "flag_shadow",
+      "plate",
+      "player",
+      "player_cm",
+      "player_shadow",
+      "sky"
+    ]
   }
 }
