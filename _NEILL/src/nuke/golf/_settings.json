@@ -1,28 +1,39 @@
 {
-  "path_root" : "//192.168.35.14/x/Golf/renders",
-  "audio"     : "//192.168.35.14/x/Golf/renders/audio",
+  "root"    : "//192.168.35.14/x/Golf/renders",
+  "audio"   : "audio",
+  "standin" : "_templates/missing.png",
 
-  "fairway_loop" : {
-    "template_comp" : "//192.168.35.14/x/Golf/renders/_template/fairway_comp_template_v01.nk",
-    "passes" : ["ball", "ball_shadow", "env", "env_cm", "player", "player_cm", "player_shadow"]
-  },
-
-  "lineup" : {
-    "template_comp" : "//192.168.35.14/x/Golf/renders/_template/lineup_template.nk",
-    "passes" : [
-      "ball",
-      "ball_shadow",
-      "course",
-      "course_cm",
-      "crowds",
-      "crowds_shadow",
-      "flag",
-      "flag_shadow",
-      "plate",
-      "player",
-      "player_cm",
-      "player_shadow",
+  "fairway" : {
+    "comp"          : "_templates/fairway_template.nk",
+    "passes_common" : [
+      "ball"          ,
+      "ball_shadow"   ,
+      "course"        ,
+      "course_cm"     ,
+      "crowds"        ,
+      "crowds_shadow" ,
+      "flag_?"        ,
+      "flag_shadow_?" ,
+      "plate"         ,
       "sky"
-    ]
+    ],
+
+    "frame_range" : {
+      "_lineup" : [1, 150],
+      "_swing"  : [1, 150]
+    },
+
+    "passes_vary" : {
+      "_lineup"     : [
+        "player_?"    ,
+        "player_cm_?" ,
+        "player_shadow_?"
+      ],
+      "_swing"      : [
+        "player_?"    ,
+        "player_cm_?" ,
+        "player_shadow_?"
+      ]
+    }
   }
 }
