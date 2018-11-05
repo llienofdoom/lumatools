@@ -98,12 +98,16 @@ def fairway_submit():
         cmd += ' -outfile "%s"' % (root + '/videos/fairway/' + pass_vary + '/')
         cmd += ' %s' % list_of_comps
         print cmd
-        os.system('"' + cmd + '"')
+        tmp_path = os.environ['TEMP'] + '/la_golf_comp_fairway.cmd'
+        tmp_file = open(tmp_path, 'w')
+        tmp_file.write(cmd)
+        tmp_file.close()
+        os.system(tmp_path)
 ###################################################################################################
 
 ###################################################################################################
 def main():
-    fairway_comp()
+    # fairway_comp()
     fairway_submit()
 ###################################################################################################
 main()
