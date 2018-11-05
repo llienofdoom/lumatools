@@ -20,7 +20,7 @@
 
     "frame_range" : {
       "_lineup" : [1, 150],
-      "_swing"  : [1, 150]
+      "_swing"  : [1, 120]
     },
 
     "passes_vary" : {
