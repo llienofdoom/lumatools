@@ -39,7 +39,7 @@ def fairway_comp():
                                 nuke.root()['last_frame' ].setValue(frames[1])
                                 nuke.root()['fps'].setValue(30)
                                 out = nuke.toNode('OUT')
-                                vid = root + '/videos/fairway/' + pass_vary + '/' + var_name + '.mp4'
+                                vid = root + '/videos/fairway/' + pass_vary + '/' + var_name + '.mov'
                                 out['file'].setValue(vid)
                                 out['create_directories'].setValue(1)
                                 if pass_vary == 'lineup':
@@ -87,6 +87,7 @@ def fairway_submit():
 
         list_of_comps = glob.glob(root + '/comps/fairway/' + pass_vary + '/*.nk')
         list_of_comps = ' '.join(list_of_comps)
+        list_of_comps = list_of_comps.replace('\\', '/')
         cmd = rpcmd
         cmd += ' -nj_name "%s"' % ('GOLF : fairway - ' + pass_vary)
         cmd += ' -nj_tags "VSE"'
@@ -107,7 +108,7 @@ def fairway_submit():
 
 ###################################################################################################
 def main():
-    # fairway_comp()
+    fairway_comp()
     fairway_submit()
 ###################################################################################################
 main()
