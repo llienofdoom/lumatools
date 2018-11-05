@@ -95,7 +95,7 @@ def fairway_submit():
         cmd += ' -nj_pools "nuke"'
         cmd += ' -nj_paused'
         cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
-        cmd += ' -outfile "%s"' % (root + '/videos/fairway/' + pass_vary + '/')
+        cmd += ' -outdir "%s"' % (root + '/videos/fairway/' + pass_vary + '/')
         cmd += ' %s' % list_of_comps
         print cmd
         tmp_path = os.environ['TEMP'] + '/la_golf_comp_fairway.cmd'
