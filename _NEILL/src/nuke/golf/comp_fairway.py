@@ -80,35 +80,43 @@ def fairway_submit():
     rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
 
     passes_vary = settings['fairway']['passes_vary']
-    for pass_vary in passes_vary:
-        pass_vary = pass_vary[1:]
-        frames = settings['fairway']['frame_range']['_' + pass_vary]
-        frames = [int(frames[0]), int(frames[1])]
-
-        list_of_comps = glob.glob(root + '/comps/fairway/' + pass_vary + '/*.nk')
-        list_of_comps = ' '.join(list_of_comps)
-        list_of_comps = list_of_comps.replace('\\', '/')
-        cmd = rpcmd
-        cmd += ' -nj_name "%s"' % ('GOLF : fairway - ' + pass_vary)
-        cmd += ' -nj_tags "VSE"'
-        cmd += ' -nj_priority 5'
-        cmd += ' -nj_renderer "Nuke v11.2v4/Default version"'
-        cmd += ' -nj_pools "nuke"'
-        cmd += ' -nj_paused'
-        cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
-        cmd += ' -outdir "%s"' % (root + '/videos/fairway/' + pass_vary + '/')
-        cmd += ' %s' % list_of_comps
-        print cmd
-        tmp_path = os.environ['TEMP'] + '/la_golf_comp_fairway.cmd'
-        tmp_file = open(tmp_path, 'w')
-        tmp_file.write(cmd)
-        tmp_file.close()
-        os.system(tmp_path)
+    for par in range(3, 6):
+        for pass_vary in passes_vary:
+            pass_vary = pass_vary[1:]
+            frames = settings['fairway']['frame_range']['_' + pass_vary]
+            frames = [int(frames[0]), int(frames[1])]
+            list_of_comps = glob.glob(root + '/comps/fairway/' + pass_vary + '/par_' + str(par) + '*.nk')
+            list_of_comps = ' '.join(list_of_comps)
+            list_of_comps = list_of_comps.replace('\\', '/')
+            cmd = rpcmd
+            cmd += ' -nj_name "%s"' % ('GOLF : COMP - fairway_' + pass_vary + '_par_' + str(par))
+            cmd += ' -nj_tags "VSE"'
+            cmd += ' -nj_priority 5'
+            cmd += ' -nj_renderer "Nuke v11.2v4/Default version"'
+            cmd += ' -nj_pools "nuke"'
+            cmd += ' -nj_paused'
+            cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
+            cmd += ' -outdir "%s"' % (root + '/videos/fairway/' + pass_vary + '/')
+            cmd += ' %s' % list_of_comps
+            # tmp_path = os.environ['TEMP'] + '/la_golf_comp_fairway.cmd'
+            # tmp_file = open(tmp_path, 'w')
+            # tmp_file.write(cmd)
+            # tmp_file.close()
+            # os.system(tmp_path)
+            print cmd
+            os.system('"' + cmd + '"')
 ###################################################################################################
 
 ###################################################################################################
 def main():
-    fairway_comp()
-    fairway_submit()
+    choice = int(raw_input('Choose wisely : [ (1) Generate comps | (2) Submit to RenderPal | (3) All ] : '))
+    if   choice == 1:
+        fairway_comp()
+    elif choice == 2:
+        fairway_submit()
+    else:
+        fairway_comp()
+        fairway_submit()
 ###################################################################################################
-main()
+if __name__ == '__main__':
+    main()
