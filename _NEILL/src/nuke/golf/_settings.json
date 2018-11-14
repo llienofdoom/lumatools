@@ -35,6 +35,38 @@
     }
   },
 
+  "putt" : {
+    "comp"          : "_templates/putt_template.nk",
+    "frame_range" : {
+      "_lineup" : [1, 150],
+      "_swing"  : [1, 120]
+    },
+    "passes_common" : [
+      "ball"          ,
+      "ball_shadow"   ,
+      "course"        ,
+      "course_cm"     ,
+      "crowds"        ,
+      "crowds_shadow" ,
+      "flag_?"        ,
+      "flag_shadow_?" ,
+      "plate"         ,
+      "sky"
+    ],
+    "passes_vary" : {
+      "_lineup"     : [
+        "player_?"    ,
+        "player_cm_?" ,
+        "player_shadow_?"
+      ],
+      "_swing"      : [
+        "player_?"    ,
+        "player_cm_?" ,
+        "player_shadow_?"
+      ]
+    }
+  },
+
   "reaction" : {
     "comp"          : "_templates/reaction_template.nk",
     "frame_range" : {

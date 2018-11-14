@@ -28,15 +28,21 @@ if dim[1] % 2 != 0:
 else:
     h = dim[1]
 
-framerate = float(raw_input('Please specify framerate [ 23.976 / 24 / 25 / 29.97 / 30 ] : '))
+framerate = raw_input('Please specify framerate [ 23.976 / 24 / 25 / 29.97 / 30 ] (25) : ')
+if framerate == '':
+    framerate = '25'
+quality   = raw_input('Please specify quality [ 0 - 51 ] (23) : ')
+if quality == '':
+    quality = '23'
 
 cmd  = ffmpeg + ' -y'
-cmd += ' -r %f' % framerate
+cmd += ' -r %s' % framerate
 cmd += ' -start_number %d' % start_frame
 cmd += ' -gamma 2.2'
 cmd += ' -i %s' % ( path + os.sep + basename + '.%04d.' + extention )
 cmd += ' -pix_fmt yuv420p'
 cmd += ' -c:v libx264'
+cmd += ' -crf %s' % quality
 cmd += ' -vf scale=%d:%d' % (w,h)
 cmd += ' %s' % ( parent + os.sep + basename + '.mp4' )
 cmd = cmd.replace('\\', '/')
