@@ -39,7 +39,7 @@ def putt_comp():
                                 nuke.root()['last_frame' ].setValue(frames[1])
                                 nuke.root()['fps'].setValue(30)
                                 out = nuke.toNode('OUT')
-                                vid = root + '/videos/putt/' + pass_vary + '/' + var_name + '.mov'
+                                vid = root + '/videos/' + date + '/putt/' + pass_vary + '/' + var_name + '.mov'
                                 out['file'].setValue(vid)
                                 out['create_directories'].setValue(1)
                                 if pass_vary == 'lineup':
@@ -94,29 +94,26 @@ def putt_submit():
             cmd += ' -nj_priority 5'
             cmd += ' -nj_renderer "Nuke v11.2v4/Default version"'
             cmd += ' -nj_pools "nuke"'
-            cmd += ' -nj_paused'
+            # cmd += ' -nj_paused'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
-            cmd += ' -outdir "%s"' % (root + '/videos/putt/' + pass_vary + '/')
+            cmd += ' -outdir "%s"' % (root + '/videos/' + date + '/putt/' + pass_vary + '/')
             cmd += ' %s' % list_of_comps
-            # tmp_path = os.environ['TEMP'] + '/la_golf_comp_fairway.cmd'
-            # tmp_file = open(tmp_path, 'w')
-            # tmp_file.write(cmd)
-            # tmp_file.close()
-            # os.system(tmp_path)
             print cmd
             os.system('"' + cmd + '"')
 ###################################################################################################
 
 ###################################################################################################
 def main():
-    choice = int(raw_input('Choose wisely : [ (1) Generate comps | (2) Submit to RenderPal | (3) All ] : '))
-    if   choice == 1:
-        putt_comp()
-    elif choice == 2:
-        putt_submit()
-    else:
-        putt_comp()
-        putt_submit()
+    # choice = int(raw_input('Choose wisely : [ (1) Generate comps | (2) Submit to RenderPal | (3) All ] : '))
+    # if   choice == 1:
+    #     putt_comp()
+    # elif choice == 2:
+    #     putt_submit()
+    # else:
+    #     putt_comp()
+    #     putt_submit()
+    putt_comp()
+    putt_submit()
 ###################################################################################################
 if __name__ == '__main__':
     main()

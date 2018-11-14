@@ -1,6 +1,7 @@
 import os, sys
 import shutil
 import glob
+import datetime
 import la_utils
 import nuke
 
@@ -8,6 +9,8 @@ opsys    = la_utils.getOs()
 settings = la_utils.readSettings()
 root            = settings['root']
 missing_footage = root + '/' + settings['standin']
+
+date = datetime.datetime.today().strftime('%Y-%m-%d')
 
 ###############################################################################
 def update_path(cwd, nod, pas):
