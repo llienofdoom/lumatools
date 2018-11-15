@@ -52,12 +52,12 @@ def approach_comp():
                                     num = ball[-1:]
                                     pas = pas[:-1] + num
                                     nod = pas[:-2]
-                                    update_path(cwd, nod, pas)
+                                    update_path(cwd + '/_' + flag, nod, pas)
                                 if 'flag' in pas:
                                     num = flag[-1:]
                                     pas = pas[:-1] + num
                                     nod = pas[:-2]
-                                    update_path(cwd, nod, pas)
+                                    update_path(cwd + '/_' + flag, nod, pas)
                             ###################################################
                             print '\tSaving comp and closing nuke.'
                             nuke.scriptSave(comp)

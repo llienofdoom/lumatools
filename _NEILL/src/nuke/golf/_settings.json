@@ -119,5 +119,20 @@
       "flag_?",
       "flag_shadow_?"
     ]
+  },
+
+  "result" : {
+    "comp"        : "_templates/result_template.nk",
+    "frame_range" : [1, 120],
+
+    "passes_common" : [
+      "course"    ,
+      "course_cm"
+    ],
+
+    "passes_vary"   : [
+      "ball_?"    ,
+      "ball_shadow_?"
+    ]
   }
 }
