@@ -11,7 +11,7 @@
   "standin" : "_templates/missing.png",
 
   "fairway" : {
-    "comp"          : "_templates/fairway_template.nk",
+    "comp"          : "_templates/fairway_template_v02.nk",
     "frame_range" : {
       "_lineup" : [1, 150],
       "_swing"  : [1, 120]
@@ -26,7 +26,9 @@
       "flag_?"        ,
       "flag_shadow_?" ,
       "plate"         ,
-      "sky"
+      "sky"           ,
+      "tracer"
+
     ],
     "passes_vary" : {
       "_lineup"     : [
@@ -74,12 +76,10 @@
     }
   },
 
-  "reaction" : {
-    "comp"          : "_templates/reaction_template.nk",
-    "frame_range" : {
-      "fairway" : [1, 60],
-      "putt"    : [1, 60]
-    },
+  "reaction_fairway" : {
+    "comp"          : "_templates/reaction_fairway_template.nk",
+    "frame_range" : [1, 60],
+
     "passes_common" : [
       "course"        ,
       "course_cm"     ,
@@ -88,16 +88,10 @@
       "plate"         ,
       "sky"
     ],
-    "passes_vary" : {
-      "fairway"     : [
-        "player_?"    ,
-        "player_cm_?"
-      ],
-      "putt"        : [
-        "player_?"    ,
-        "player_cm_?"
-      ]
-    }
+    "passes_vary" : [
+      "player_?"    ,
+      "player_cm_?"
+    ]
   },
 
   "approach" : {

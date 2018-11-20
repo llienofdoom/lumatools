@@ -16,7 +16,7 @@ def fairway_comp():
                         passes_vary = settings['fairway']['passes_vary']
                         for pass_vary in passes_vary:
                             pass_vary = pass_vary[1:]
-                            for player_num in range(1, 7):
+                            for player_num in range(1, 2): ######## TODO FIX ME! After Wedensday 7
                                 # START HERE ######################################
                                 player = 'player_%d' % player_num
                                 var_name = '%s_%s_%s_%s_%s' % (par, fairway, pass_vary, flag, player)
@@ -59,12 +59,25 @@ def fairway_comp():
                                     else :
                                         nod = pas
                                         update_path(cwd, nod, pas)
+                                        if pass_vary == 'lineup':
+                                            nod = nuke.toNode('ball')
+                                            nod['first'].setValue(1)
+                                            nod['last'].setValue(1)
+                                            nod['origfirst'].setValue(1)
+                                            nod['origlast'].setValue(1)
+                                            nod = nuke.toNode('ball_shadow')
+                                            nod['first'].setValue(1)
+                                            nod['last'].setValue(1)
+                                            nod['origfirst'].setValue(1)
+                                            nod['origlast'].setValue(1)
+                                            nod = nuke.toNode('tracer_merge')
+                                            nod['disable'].setValue(1)
                                 ###################################################
                                 passes = settings['fairway']['passes_vary']['_' + pass_vary]
                                 for pas in passes:
                                     pas = pas[:-1] + str(player_num)
                                     nod = pas[:-2]
-                                    update_path(cwd, nod, pas)
+                                    update_path(cwd + '/_' + pass_vary, nod, pas)
                                 ###################################################
                                 print '\tSaving comp and closing nuke.'
                                 nuke.scriptSave(comp)
