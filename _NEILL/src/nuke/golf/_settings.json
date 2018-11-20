@@ -8,10 +8,10 @@
 
   "root"    : "//192.168.35.14/x/Golf/renders",
   "audio"   : "audio",
-  "standin" : "_templates/missing.png",
+  "standin" : "_templates/_missing.png",
 
   "fairway" : {
-    "comp"          : "_templates/fairway_template_v02.nk",
+    "comp"          : "_templates/template_fairway.nk",
     "frame_range" : {
       "_lineup" : [1, 150],
       "_swing"  : [1, 120]
@@ -45,39 +45,43 @@
   },
 
   "putt" : {
-    "comp"          : "_templates/putt_template.nk",
+    "comp"          : "_templates/template_putt.nk",
     "frame_range" : {
       "_lineup" : [1, 150],
-      "_swing"  : [1, 120]
+      "_swing"  : [1,  90]
     },
     "passes_common" : [
-      "ball"          ,
-      "ball_shadow"   ,
       "course"        ,
       "course_cm"     ,
       "crowds"        ,
       "crowds_shadow" ,
-      "flag_?"        ,
-      "flag_shadow_?" ,
       "plate"         ,
       "sky"
     ],
     "passes_vary" : {
       "_lineup"     : [
-        "player_?"    ,
-        "player_cm_?" ,
+        "flag_?"       ,
+        "flag_shadow_?",
+        "ball_?"       ,
+        "ball_shadow_?",
+        "player_?"     ,
+        "player_cm_?"  ,
         "player_shadow_?"
       ],
       "_swing"      : [
-        "player_?"    ,
-        "player_cm_?" ,
+        "flag_?"       ,
+        "flag_shadow_?",
+        "ball_?"       ,
+        "ball_shadow_?",
+        "player_?"     ,
+        "player_cm_?"  ,
         "player_shadow_?"
       ]
     }
   },
 
   "reaction_fairway" : {
-    "comp"          : "_templates/reaction_fairway_template.nk",
+    "comp"          : "_templates/template_reaction.nk",
     "frame_range" : [1, 60],
 
     "passes_common" : [
@@ -95,7 +99,7 @@
   },
 
   "reaction_putt" : {
-    "comp"          : "_templates/reaction_fairway_template.nk",
+    "comp"          : "_templates/template_reaction.nk",
     "frame_range" : [1, 90],
 
     "passes_common" : [
@@ -119,7 +123,7 @@
   },
 
   "approach" : {
-    "comp"        : "_templates/approach_template.nk",
+    "comp"        : "_templates/template_approach.nk",
     "frame_range" : [1, 150],
 
     "passes_common" : [
@@ -140,7 +144,7 @@
   },
 
   "result" : {
-    "comp"        : "_templates/result_template.nk",
+    "comp"        : "_templates/template_result.nk",
     "frame_range" : [1, 120],
 
     "passes_common" : [

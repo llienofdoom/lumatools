@@ -1,7 +1,7 @@
 from comp_base import *
 
 ###################################################################################################
-def reaction_comp():
+def comp():
     template_comp   = root + '/' + settings['reaction_putt']['comp']
     folders_par     = os.listdir(root)
     for par in folders_par:
@@ -59,7 +59,7 @@ def reaction_comp():
 ###################################################################################################
 
 ###################################################################################################
-def reaction_submit():
+def submit():
     print 'Sending comp to RenderPal.'
     rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
 
@@ -85,16 +85,8 @@ def reaction_submit():
 
 ###################################################################################################
 def main():
-    # choice = int(raw_input('Choose wisely : [ (1) Generate comps | (2) Submit to RenderPal | (3) All ] : '))
-    # if   choice == 1:
-    #     reaction_comp()
-    # elif choice == 2:
-    #     reaction_submit()
-    # else:
-    #     reaction_comp()
-    #     reaction_submit()
-    reaction_comp()
-    reaction_submit()
+    comp()
+    submit()
 ###################################################################################################
 if __name__ == '__main__':
     main()

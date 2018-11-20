@@ -1,7 +1,33 @@
 from comp_base import *
 
+###############################################################################
+def update_path_local(cwd, nod, pas):
+    nod = nuke.toNode(nod)
+    seq = cwd + '/' + pas + '/' + pas[6:] + '.%04d.exr'
+    print seq
+    frameS = 1
+    frameE = 1
+
+    files = glob.glob(seq[:-8] + '*')
+    if len(files) == 0:
+        print '\t\t\tSequence doesn\'t exist.'
+        seq = missing_footage
+        nod['premultiplied'].setValue(1)
+    else:
+        frameS = int(files[ 0].split('.')[-2])
+        frameE = int(files[-1].split('.')[-2])
+
+    nod['file'].setValue(seq)
+    nod['first'    ].setValue(frameS)
+    nod['last'     ].setValue(frameE)
+    nod['origfirst'].setValue(frameS)
+    nod['origlast' ].setValue(frameE)
+
+    print '\t|-----o Updated path for pass - %s' % pas
+###############################################################################
+
 ###################################################################################################
-def putt_comp():
+def comp():
     template_comp   = root + '/' + settings['putt']['comp']
     folders_par     = os.listdir(root)
     for par in folders_par:
@@ -10,72 +36,83 @@ def putt_comp():
             for putt in folders_putt:
                 if 'putt_' in putt:
                     cwd = root + '/' + par + '/' + putt
-                    flags = glob.glob(cwd + '/' + 'flag_?')
-                    for flag in flags:
-                        flag = os.path.basename(flag)
-                        passes_vary = settings['putt']['passes_vary']
-                        for pass_vary in passes_vary:
-                            pass_vary = pass_vary[1:]
-                            for player_num in range(1, 7):
-                                # START HERE ######################################
-                                player = 'player_%d' % player_num
-                                var_name = '%s_%s_%s_%s_%s' % (par, putt, pass_vary, flag, player)
-                                print '#'*80
-                                print 'Comping "%s".' % var_name
-                                print 'Current working directory : %s' % cwd
-                                ###################################################
-                                print '\tCopying comp from template.'
-                                comp = root + '/comps/putt/' + pass_vary + '/' + var_name + '.nk'
-                                if not os.path.exists(os.path.dirname(comp)):
-                                    os.makedirs(os.path.dirname(comp))
-                                shutil.copy(template_comp, comp)
-                                ###################################################
-                                print '\tSetting global comp settings.'
-                                nuke.scriptOpen(comp)
-                                nuke.frame(1)
-                                frames = settings['putt']['frame_range']['_' + pass_vary]
-                                frames = [int(frames[0]), int(frames[1])]
-                                nuke.root()['first_frame'].setValue(frames[0])
-                                nuke.root()['last_frame' ].setValue(frames[1])
-                                nuke.root()['fps'].setValue(30)
-                                out = nuke.toNode('OUT')
-                                vid = root + '/videos/' + date + '/putt/' + pass_vary + '/' + var_name + '.mov'
-                                out['file'].setValue(vid)
-                                out['create_directories'].setValue(1)
-                                if pass_vary == 'lineup':
-                                    loop = nuke.toNode('luma_golf_loop')
-                                    loop['disable'].setValue(0)
-                                ###################################################
-                                passes = settings['putt']['passes_common']
-                                for pas in passes:
-                                    if pas == 'flag_?':
-                                        pas = flag
-                                        nod = pas[:-2]
-                                        update_path(cwd, nod, pas)
-                                    elif pas == 'flag_shadow_?':
-                                        pas = flag.split('_')[0] + '_shadow_' + flag.split('_')[1]
-                                        nod = pas[:-2]
-                                        update_path(cwd, nod, pas)
-                                    else :
+                    passes_vary = settings['putt']['passes_vary']
+                    for pass_vary in passes_vary:
+                        pass_vary = pass_vary[1:]
+                        flags = glob.glob(cwd + '/_' + pass_vary + '/flag_?')
+                        for flag in flags:
+                            flag = os.path.basename(flag)
+                            list_of_pos = []
+                            pos_folders = glob.glob(cwd + '/_' + pass_vary + '/' + flag + '/pos_?_*')
+                            for i in pos_folders:
+                                list_of_pos.append(os.path.basename(i)[:5])
+                            list_of_pos = set(list_of_pos)
+                            list_of_pos = sorted(list_of_pos)
+                            for pos in list_of_pos:
+                                for player_num in range(1, 2): ######## TODO FIX ME! After Wedensday 7
+                                    # START HERE ######################################
+                                    player = 'player_%d' % player_num
+                                    var_name = '%s_%s_%s_%s_%s_%s' % (par, putt, pass_vary, flag, pos, player)
+                                    print '#'*80
+                                    print 'Comping "%s".' % var_name
+                                    print 'Current working directory : %s' % cwd
+                                    ###################################################
+                                    print '\tCopying comp from template.'
+                                    comp = root + '/comps/putt/' + pass_vary + '/' + var_name + '.nk'
+                                    if not os.path.exists(os.path.dirname(comp)):
+                                        os.makedirs(os.path.dirname(comp))
+                                    shutil.copy(template_comp, comp)
+                                    ###################################################
+                                    print '\tSetting global comp settings.'
+                                    nuke.scriptOpen(comp)
+                                    nuke.frame(1)
+                                    frames = settings['putt']['frame_range']['_' + pass_vary]
+                                    frames = [int(frames[0]), int(frames[1])]
+                                    nuke.root()['first_frame'].setValue(frames[0])
+                                    nuke.root()['last_frame' ].setValue(frames[1])
+                                    nuke.root()['fps'].setValue(30)
+                                    out = nuke.toNode('OUT')
+                                    vid = root + '/videos/' + date + '/putt/' + pass_vary + '/' + var_name + '.mov'
+                                    out['file'].setValue(vid)
+                                    out['create_directories'].setValue(1)
+                                    if pass_vary == 'lineup':
+                                        loop = nuke.toNode('luma_golf_loop')
+                                        loop['disable'].setValue(0)
+                                    ###################################################
+                                    passes = settings['putt']['passes_common']
+                                    for pas in passes:
                                         nod = pas
                                         update_path(cwd, nod, pas)
-                                ###################################################
-                                passes = settings['putt']['passes_vary']['_' + pass_vary]
-                                for pas in passes:
-                                    pas = pas[:-1] + str(player_num)
-                                    nod = pas[:-2]
-                                    update_path(cwd, nod, pas)
-                                ###################################################
-                                print '\tSaving comp and closing nuke.'
-                                nuke.scriptSave(comp)
-                                nuke.scriptClose()
-                                ###################################################
-                                print 'DONE!\n'
-                                ###################################################
+                                    ###################################################
+                                    passes = settings['putt']['passes_vary']['_' + pass_vary]
+                                    for pas in passes:
+                                        lcwd = cwd + '/_' + pass_vary + '/' + flag
+                                        if 'flag' in pas:
+                                            pas = pas[:-1] + flag[-1]
+                                            nod = pas[:-2]
+                                            update_path(lcwd, nod, pas)
+                                        else:
+                                            if 'ball' in pas:
+                                                pas = pas[:-1] + flag[-1]
+                                                nod = pas[:-2]
+                                                pas = pos + '_' + pas
+                                                update_path_local(lcwd, nod, pas)
+                                            else:
+                                                pas = pas[:-1] + str(player_num)
+                                                nod = pas[:-2]
+                                                pas = pos + '_' + pas
+                                                update_path_local(lcwd, nod, pas)
+                                    # ###################################################
+                                    print '\tSaving comp and closing nuke.'
+                                    nuke.scriptSave(comp)
+                                    nuke.scriptClose()
+                                    ###################################################
+                                    print 'DONE!\n'
+                                    ###################################################
 ###################################################################################################
 
 ###################################################################################################
-def putt_submit():
+def submit():
     print 'Sending comp to RenderPal.'
     rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
 
@@ -104,16 +141,8 @@ def putt_submit():
 
 ###################################################################################################
 def main():
-    # choice = int(raw_input('Choose wisely : [ (1) Generate comps | (2) Submit to RenderPal | (3) All ] : '))
-    # if   choice == 1:
-    #     putt_comp()
-    # elif choice == 2:
-    #     putt_submit()
-    # else:
-    #     putt_comp()
-    #     putt_submit()
-    putt_comp()
-    putt_submit()
+    comp()
+    submit()
 ###################################################################################################
 if __name__ == '__main__':
     main()

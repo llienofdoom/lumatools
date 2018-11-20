@@ -1,7 +1,7 @@
 from comp_base import *
 
 ###################################################################################################
-def approach_comp():
+def comp():
     template_comp   = root + '/' + settings['approach']['comp']
     folders_par     = os.listdir(root)
     for par in folders_par:
@@ -68,7 +68,7 @@ def approach_comp():
 ###################################################################################################
 
 ###################################################################################################
-def approach_submit():
+def submit():
     print 'Sending comp to RenderPal.'
     rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
 
@@ -94,16 +94,8 @@ def approach_submit():
 
 ###################################################################################################
 def main():
-    # choice = int(raw_input('Choose wisely : [ (1) Generate comps | (2) Submit to RenderPal | (3) All ] : '))
-    # if   choice == 1:
-    #     approach_comp()
-    # elif choice == 2:
-    #     fairway_submit()
-    # else:
-    #     approach_comp()
-    #     fairway_submit()
-    approach_comp()
-    approach_submit()
+    comp()
+    submit()
 ###################################################################################################
 if __name__ == '__main__':
     main()

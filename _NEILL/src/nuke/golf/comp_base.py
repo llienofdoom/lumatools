@@ -10,12 +10,14 @@ settings = la_utils.readSettings()
 root            = settings['root']
 missing_footage = root + '/' + settings['standin']
 
-date = datetime.datetime.today().strftime('%Y-%m-%d')
+date  = datetime.datetime.today().strftime('%Y-%m-%d')
+date += '_OVERNIGHT'
 
 ###############################################################################
 def update_path(cwd, nod, pas):
     nod = nuke.toNode(nod)
     seq = cwd + '/' + pas + '/' + pas + '.%04d.exr'
+    print seq
     frameS = 1
     frameE = 1
 
