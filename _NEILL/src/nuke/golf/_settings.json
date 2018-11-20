@@ -94,6 +94,30 @@
     ]
   },
 
+  "reaction_putt" : {
+    "comp"          : "_templates/reaction_fairway_template.nk",
+    "frame_range" : [1, 90],
+
+    "passes_common" : [
+      "course"        ,
+      "course_cm"     ,
+      "crowds"        ,
+      "crowds_shadow" ,
+      "plate"         ,
+      "sky"
+    ],
+    "passes_vary" : {
+      "pos": [
+        "player_?",
+        "player_cm_?"
+      ],
+      "neg": [
+        "player_?",
+        "player_cm_?"
+      ]
+    }
+  },
+
   "approach" : {
     "comp"        : "_templates/approach_template.nk",
     "frame_range" : [1, 150],
