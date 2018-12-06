@@ -49,7 +49,7 @@ def comp():
                             list_of_pos = set(list_of_pos)
                             list_of_pos = sorted(list_of_pos)
                             for pos in list_of_pos:
-                                for player_num in range(1, 2): ######## TODO FIX ME! After Wedensday 7
+                                for player_num in range(1, 7): ######## TODO FIX ME! After Wedensday 7
                                     # START HERE ######################################
                                     player = 'player_%d' % player_num
                                     var_name = '%s_%s_%s_%s_%s_%s' % (par, putt, pass_vary, flag, pos, player)

@@ -16,7 +16,7 @@ def comp():
                         passes_vary = settings['fairway']['passes_vary']
                         for pass_vary in passes_vary:
                             pass_vary = pass_vary[1:]
-                            for player_num in range(1, 2): ######## TODO FIX ME! After Wedensday 7
+                            for player_num in range(1, 7): ######## TODO FIX ME! After Wedensday 7
                                 # START HERE ######################################
                                 player = 'player_%d' % player_num
                                 var_name = '%s_%s_%s_%s_%s' % (par, fairway, pass_vary, flag, player)

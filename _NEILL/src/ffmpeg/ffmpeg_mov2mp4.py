@@ -9,6 +9,10 @@ path          = os.path.dirname(input_file)
 parent        = os.path.dirname(str(path).rstrip(os.sep))
 basename      = os.path.basename(input_file).split('.')[0]
 
+quality   = raw_input('Please specify quality. [ 0 - 51 ] (best to worst) Press enter to use default (23) : ')
+if quality == '':
+    quality = '23'
+
 # Check width & height divisible by 2, stupid h264.
 w, h = 1280, 720
 dim = la_getImageSize(input_file)
@@ -26,6 +30,7 @@ cmd += ' -gamma 2.2'
 cmd += ' -i %s' % input_file
 cmd += ' -pix_fmt yuv420p'
 cmd += ' -c:v libx264'
+cmd += ' -crf %s' % quality
 cmd += ' -vf scale=%d:%d' % (w,h)
 cmd += ' %s' % ( path + os.sep + basename + '_CONVERTED.mp4' )
 cmd = cmd.replace('\\', '/')

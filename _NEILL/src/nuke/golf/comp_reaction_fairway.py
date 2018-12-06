@@ -10,7 +10,7 @@ def comp():
             for reaction in folders_reaction:
                 if 'reaction_fairway' in reaction:
                     cwd = root + '/' + par + '/' + reaction
-                    for player_num in range(1, 2):  ######## TODO FIX ME! After Wedensday 7
+                    for player_num in range(1, 7):  ######## TODO FIX ME! After Wedensday 7
                         # START HERE ######################################
                         player = 'player_%d' % player_num
                         var_name = '%s_%s_%s' % (par, reaction, player)
