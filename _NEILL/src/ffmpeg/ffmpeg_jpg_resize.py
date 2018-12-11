@@ -1,4 +1,5 @@
 from ffmpeg_base import *
+import math
 
 input_files = sys.argv[1:]
 
@@ -11,8 +12,8 @@ if dimInput == '0':
     w = dim[0]
     h = dim[1]
 elif dimInput == '1':
-    w = floor(dim[0] /2)
-    h = floor(dim[1] /2)
+    w = math.floor(dim[0] /2)
+    h = math.floor(dim[1] /2)
 elif dimInput == '2':
     w = dim[0]*2
     h = dim[1]*2

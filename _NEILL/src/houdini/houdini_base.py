@@ -33,6 +33,7 @@ def useLocalHoudini():
 # Set environment #############################################################
 env = dict()
 env['PATH'] = os.environ['PATH']
+env['PATH'] += os.pathsep + 'X:/_studiotools/software/ffmpeg/bin' + os.pathsep
 env['TMP']  = '/tmp'
 env['TEMP'] = '/tmp'
 env['LA_ROOT']   = os.environ['LA_ROOT']
