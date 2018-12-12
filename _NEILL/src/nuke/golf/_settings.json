@@ -6,9 +6,13 @@
     "cyg" : ""
   },
 
-  "root"    : "//192.168.35.14/x/Golf/renders",
-  "audio"   : "audio",
-  "standin" : "_templates/_missing.png",
+  "root"       : "//192.168.35.14/x/Golf/renders",
+  "audio"      : "audio",
+  "standin"    : "_templates/_missing.png",
+  "players"    : [1, 1],
+  "single_run" : 0,
+  "comp"       : 1,
+  "submit"     : 0,
 
   "fairway" : {
     "comp"          : "_templates/template_fairway.nk",

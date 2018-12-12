@@ -1,4 +1,4 @@
-from comp_base import *
+from comp_00_base import *
 
 ###################################################################################################
 def comp():
@@ -12,7 +12,8 @@ def comp():
                     cwd = root + '/' + par + '/' + reaction
                     passes_vary = settings['reaction_putt']['passes_vary']
                     for current_pass in passes_vary:
-                        for player_num in range(1, 7):  ######## TODO FIX ME! After Wedensday 7
+                        player_range = settings['players']
+                        for player_num in range(player_range[0], player_range[1] + 1):
                             # START HERE ######################################
                             player = 'player_%d' % player_num
                             var_name = '%s_%s_%s_%s' % (par, reaction, player, current_pass)
@@ -38,6 +39,12 @@ def comp():
                             vid = root + '/videos/' + date + '/reaction_putt/' + var_name + '.mov'
                             out['file'].setValue(vid)
                             out['create_directories'].setValue(1)
+                            # AUDIO
+                            import random
+                            audio_file = root + '/' + settings['audio'] + '/reaction_putt/reaction_putt_' + current_pass + '_'
+                            audio_file += str(random.randint(1, 5)) + '.wav'
+                            out['mov32_audiofile'].setValue(audio_file)
+                            print '\tAUDIO : %s.' % audio_file
                             ###################################################
                             passes = settings['reaction_putt']['passes_common']
                             for pas in passes:
@@ -55,6 +62,8 @@ def comp():
                             nuke.scriptClose()
                             ###################################################
                             print 'DONE!\n'
+                            if settings['single_run']:
+                                exit(0)
                             ###################################################
 ###################################################################################################
 
@@ -75,7 +84,6 @@ def submit():
         cmd += ' -nj_priority 5'
         cmd += ' -nj_renderer "Nuke v11.2v4/Default version"'
         cmd += ' -nj_pools "nuke"'
-        # cmd += ' -nj_paused'
         cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
         cmd += ' -outdir "%s"' % (root + '/videos/' + date + '/reaction_putt/')
         cmd += ' %s' % list_of_comps
@@ -85,8 +93,10 @@ def submit():
 
 ###################################################################################################
 def main():
-    comp()
-    submit()
+    if settings['comp'  ]:
+        comp()
+    if settings['submit']:
+        submit()
 ###################################################################################################
 if __name__ == '__main__':
     main()
