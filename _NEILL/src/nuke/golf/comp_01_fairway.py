@@ -40,22 +40,29 @@ def comp():
                                 nuke.root()['last_frame' ].setValue(frames[1])
                                 nuke.root()['fps'].setValue(30)
                                 out = nuke.toNode('OUT')
-                                vid = root + '/videos/' + date + '/fairway/' + pass_vary + '/' + var_name + '.mov'
+                                out['file_type'].setValue('png')
+                                vid = root + '/videos/' + date + '/fairway/' + pass_vary + '/' + var_name + '/' + var_name + '.%04d.png'
                                 out['file'].setValue(vid)
                                 out['create_directories'].setValue(1)
+                                if not os.path.exists(os.path.dirname(vid)):
+                                    os.makedirs(os.path.dirname(vid))
                                 if pass_vary == 'lineup':
                                     loop = nuke.toNode('luma_golf_loop')
                                     loop['disable'].setValue(0)
                                     # AUDIO
                                     audio_file = root + '/' + settings['audio'] + '/fairway/lineup/fairway_lineup.wav'
-                                    out['mov32_audiofile'].setValue(audio_file)
+                                    aud = open(os.path.dirname(vid) + '/aud', 'w')
+                                    aud.write(audio_file)
+                                    aud.close()
                                     print '\tAUDIO : %s.' % audio_file
                                 if pass_vary == 'swing':
                                     # AUDIO
                                     import random
                                     audio_file  = root + '/' + settings['audio'] + '/fairway/swing/fairway_swing_'
                                     audio_file += str(random.randint(1, 5)) + '.wav'
-                                    out['mov32_audiofile'].setValue(audio_file)
+                                    aud = open(os.path.dirname(vid) + '/aud', 'w')
+                                    aud.write(audio_file)
+                                    aud.close()
                                     print '\tAUDIO : %s.' % audio_file
                                 ###################################################
                                 passes = settings['fairway']['passes_common']
@@ -120,6 +127,7 @@ def submit():
             cmd += ' -nj_tags "VSE"'
             cmd += ' -nj_priority 5'
             cmd += ' -nj_renderer "Nuke v11.2v4/Default version"'
+            cmd += ' -nj_preset "H:/_distros/_lumatools/lumatools/_NEILL/src/nuke/golf/presets/golf_preset.rnjprs"'
             cmd += ' -nj_pools "nuke"'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
             cmd += ' -outdir "%s"' % (root + '/videos/' + date + '/fairway/' + pass_vary + '/')

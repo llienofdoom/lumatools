@@ -1,0 +1,589 @@
+General
+{
+	Name = "golf"
+	SelectedGroups = 2048
+}
+
+Data
+{
+	ValueCount = 70
+
+	Value01
+	{
+		Type = 1
+		Name = "FrameChecking_ExactMatch"
+		Value = "false"
+	}
+
+
+	Value02
+	{
+		Type = 4
+		Name = "FrameChecking_ImageName"
+		Value = ""
+	}
+
+
+	Value03
+	{
+		Type = 2
+		Name = "MinDispatchDelay"
+		Value = "0"
+	}
+
+
+	Value04
+	{
+		Type = 4
+		Name = "BlockedClients"
+		Value = ""
+	}
+
+
+	Value05
+	{
+		Type = 2
+		Name = "SplitMode_Count"
+		Value = "0"
+	}
+
+
+	Value06
+	{
+		Type = 1
+		Name = "ChunkDispatchFirstLastFirst"
+		Value = "false"
+	}
+
+
+	Value07
+	{
+		Type = 2
+		Name = "SliceMode_Overlap"
+		Value = "0"
+	}
+
+
+	Value08
+	{
+		Type = 2
+		Name = "RenderCoreCount"
+		Value = "1"
+	}
+
+
+	Value09
+	{
+		Type = 4
+		Name = "RenderSet"
+		Value = "<RenderSet>\n\t<Renderer></Renderer>\n\t<Values></Values>\n</RenderSet>\n"
+	}
+
+
+	Value10
+	{
+		Type = 2
+		Name = "FrameChecking_FilesizeThreshold"
+		Value = "0"
+	}
+
+
+	Value11
+	{
+		Type = 1
+		Name = "TimeThresholds_UseUpperThreshold"
+		Value = "false"
+	}
+
+
+	Value12
+	{
+		Type = 2
+		Name = "DTSErrorAction"
+		Value = "0"
+	}
+
+
+	Value13
+	{
+		Type = 2
+		Name = "FrameChecking_Padding"
+		Value = "0"
+	}
+
+
+	Value14
+	{
+		Type = 1
+		Name = "ErrorHandling_IncRecreatedChunks"
+		Value = "false"
+	}
+
+
+	Value15
+	{
+		Type = 4
+		Name = "EmailRecipients"
+		Value = ""
+	}
+
+
+	Value16
+	{
+		Type = 2
+		Name = "FileCaching_DirUpLevel"
+		Value = "0"
+	}
+
+
+	Value17
+	{
+		Type = 1
+		Name = "FrameChecking_RecurseSubdirs"
+		Value = "false"
+	}
+
+
+	Value18
+	{
+		Type = 2
+		Name = "TimeThresholds_UpperThresholdSec"
+		Value = "0"
+	}
+
+
+	Value19
+	{
+		Type = 1
+		Name = "FileCaching_SceneDirAsFallback"
+		Value = "true"
+	}
+
+
+	Value20
+	{
+		Type = 2
+		Name = "TimeThresholds_UpperThresholdMin"
+		Value = "0"
+	}
+
+
+	Value21
+	{
+		Type = 1
+		Name = "TimeThresholds_UseLowerThreshold"
+		Value = "false"
+	}
+
+
+	Value22
+	{
+		Type = 4
+		Name = "SliceMode_Format"
+		Value = ""
+	}
+
+
+	Value23
+	{
+		Type = 2
+		Name = "ChunkDispatchOrder"
+		Value = "0"
+	}
+
+
+	Value24
+	{
+		Type = 2
+		Name = "Priority"
+		Value = "5"
+	}
+
+
+	Value25
+	{
+		Type = 3
+		Name = "CreationDate"
+		Value = "43447.501181"
+	}
+
+
+	Value26
+	{
+		Type = 4
+		Name = "Renderer"
+		Value = "Nuke v11.2v4/Default version"
+	}
+
+
+	Value27
+	{
+		Type = 2
+		Name = "MinClientPriority"
+		Value = "-1"
+	}
+
+
+	Value28
+	{
+		Type = 4
+		Name = "Tags"
+		Value = ""
+	}
+
+
+	Value29
+	{
+		Type = 1
+		Name = "FrameChecking_DisableForCreatedJobs"
+		Value = "false"
+	}
+
+
+	Value30
+	{
+		Type = 2
+		Name = "TimeThresholds_UpperThresholdAction"
+		Value = "0"
+	}
+
+
+	Value31
+	{
+		Type = 2
+		Name = "TimeThresholds_LowerThresholdSec"
+		Value = "0"
+	}
+
+
+	Value32
+	{
+		Type = 1
+		Name = "SendEmails"
+		Value = "true"
+	}
+
+
+	Value33
+	{
+		Type = 2
+		Name = "NetJobID"
+		Value = "0"
+	}
+
+
+	Value34
+	{
+		Type = 4
+		Name = "FileCaching_Script"
+		Value = ""
+	}
+
+
+	Value35
+	{
+		Type = 4
+		Name = "FileCaching_IncludeFilters"
+		Value = ""
+	}
+
+
+	Value36
+	{
+		Type = 2
+		Name = "TimeThresholds_LowerThresholdMin"
+		Value = "0"
+	}
+
+
+	Value37
+	{
+		Type = 3
+		Name = "Scheduling_DateTime"
+		Value = "43447.501181"
+	}
+
+
+	Value38
+	{
+		Type = 2
+		Name = "SliceMode_CX"
+		Value = "0"
+	}
+
+
+	Value39
+	{
+		Type = 2
+		Name = "SplitMode_Mode"
+		Value = "0"
+	}
+
+
+	Value40
+	{
+		Type = 4
+		Name = "CustomFields"
+		Value = ""
+	}
+
+
+	Value41
+	{
+		Type = 1
+		Name = "UseRendererDTSSettings"
+		Value = "true"
+	}
+
+
+	Value42
+	{
+		Type = 2
+		Name = "MinClientMemory"
+		Value = "0"
+	}
+
+
+	Value43
+	{
+		Type = 1
+		Name = "DepTreatUnfinishedAsDone"
+		Value = "false"
+	}
+
+
+	Value44
+	{
+		Type = 4
+		Name = "Name"
+		Value = ""
+	}
+
+
+	Value45
+	{
+		Type = 4
+		Name = "PoolList"
+		Value = "4A5BCAFD-9287-4EE9-9A0B-9C707C5F2AAF"
+	}
+
+
+	Value46
+	{
+		Type = 4
+		Name = "Notes"
+		Value = ""
+	}
+
+
+	Value47
+	{
+		Type = 4
+		Name = "FileCaching_ExcludeFilters"
+		Value = ""
+	}
+
+
+	Value48
+	{
+		Type = 2
+		Name = "FrameChecking_Method"
+		Value = "0"
+	}
+
+
+	Value49
+	{
+		Type = 2
+		Name = "ClientLimit"
+		Value = "-1"
+	}
+
+
+	Value50
+	{
+		Type = 1
+		Name = "Scheduling_UseScheduling"
+		Value = "false"
+	}
+
+
+	Value51
+	{
+		Type = 4
+		Name = "ExtendedSplitting"
+		Value = ""
+	}
+
+
+	Value52
+	{
+		Type = 2
+		Name = "SliceMode_RY"
+		Value = "0"
+	}
+
+
+	Value53
+	{
+		Type = 1
+		Name = "Renderer32bit"
+		Value = "true"
+	}
+
+
+	Value54
+	{
+		Type = 4
+		Name = "Project"
+		Value = ""
+	}
+
+
+	Value55
+	{
+		Type = 2
+		Name = "FileCaching_CacheScope"
+		Value = "65535"
+	}
+
+
+	Value56
+	{
+		Type = 4
+		Name = "FrameChecking_ImageDir"
+		Value = ""
+	}
+
+
+	Value57
+	{
+		Type = 1
+		Name = "Renderer64bit"
+		Value = "true"
+	}
+
+
+	Value58
+	{
+		Type = 1
+		Name = "Paused"
+		Value = "false"
+	}
+
+
+	Value59
+	{
+		Type = 4
+		Name = "FileCaching_AdditionalCacheParams"
+		Value = ""
+	}
+
+
+	Value60
+	{
+		Type = 1
+		Name = "EnableDTS"
+		Value = "false"
+	}
+
+
+	Value61
+	{
+		Type = 2
+		Name = "ErrorHandling_Action"
+		Value = "0"
+	}
+
+
+	Value62
+	{
+		Type = 2
+		Name = "ErrorHandling_Tolerance"
+		Value = "0"
+	}
+
+
+	Value63
+	{
+		Type = 2
+		Name = "TimeThresholds_LowerThresholdAction"
+		Value = "0"
+	}
+
+
+	Value64
+	{
+		Type = 4
+		Name = "Dependencies"
+		Value = ""
+	}
+
+
+	Value65
+	{
+		Type = 2
+		Name = "SliceMode_Mode"
+		Value = "0"
+	}
+
+
+	Value66
+	{
+		Type = 2
+		Name = "DepType"
+		Value = "0"
+	}
+
+
+	Value67
+	{
+		Type = 4
+		Name = "EmailUsers"
+		Value = ""
+	}
+
+
+	Value68
+	{
+		Type = 1
+		Name = "Urgent"
+		Value = "false"
+	}
+
+
+	Value69
+	{
+		Type = 2
+		Name = "Color"
+		Value = "-16777216"
+	}
+
+
+	Value70
+	{
+		Type = 3
+		Name = "FinishDate"
+		Value = "43447.501181"
+	}
+}
+
+Events
+{
+	Count = 1
+
+	Event00
+	{
+		Scope = 289
+		Type = 1
+		Name = "post_process"
+		Flags = 1
+
+		Contents
+		{
+			Count = 2
+			Entry00 = "H:/_distros/_lumatools/lumatools/_NEILL/src/nuke/golf/post_process.cmd"
+			Entry01 = "$(RenderSet.outdir)"
+		}
+	}
+}
