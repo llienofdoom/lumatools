@@ -136,7 +136,9 @@
       "crowds"        ,
       "crowds_shadow" ,
       "plate"         ,
-      "sky"
+      "sky"           ,
+      "player"        ,
+      "player_shadow"
     ],
 
     "passes_vary"   : [

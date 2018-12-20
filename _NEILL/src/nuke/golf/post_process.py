@@ -35,6 +35,7 @@ for vid in vids:
         ffmpeg = 'X:/_studiotools/software/ffmpeg/bin/ffmpeg'
         cmd = ffmpeg + ' -y '  # -hide_banner -loglevel panic -threads 8'
         cmd += ' -gamma 2.2'
+        cmd += ' -r 30'
         cmd += ' -i %s' % (full_path + '/' + seq)
         cmd += ' -i %s' % audio_file
         cmd += ' -pix_fmt yuv420p'
