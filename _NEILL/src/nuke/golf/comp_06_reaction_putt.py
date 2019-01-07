@@ -10,66 +10,197 @@ def comp():
             for reaction in folders_reaction:
                 if 'reaction_putt' in reaction:
                     cwd = root + '/' + par + '/' + reaction
-                    passes_vary = settings['reaction_putt']['passes_vary']
-                    for current_pass in passes_vary:
-                        player_range = settings['players']
-                        for player_num in range(player_range[0], player_range[1] + 1):
-                            # START HERE ######################################
-                            player = 'player_%d' % player_num
-                            var_name = '%s_%s_%s_%s' % (par, reaction, player, current_pass)
-                            print '#'*80
-                            print 'Comping "%s".' % var_name
-                            print 'Current working directory : %s' % cwd
-                            ###################################################
-                            print '\tCopying comp from template.'
-                            comp = root + '/comps/reaction_putt/' + var_name + '.nk'
-                            if not os.path.exists(os.path.dirname(comp)):
-                                os.makedirs(os.path.dirname(comp))
-                            shutil.copy(template_comp, comp)
-                            ###################################################
-                            print '\tSetting global comp settings.'
-                            nuke.scriptOpen(comp)
-                            nuke.frame(1)
-                            frames = settings['reaction_putt']['frame_range']
-                            frames = [int(frames[0]), int(frames[1])]
-                            nuke.root()['first_frame'].setValue(frames[0])
-                            nuke.root()['last_frame' ].setValue(frames[1])
-                            nuke.root()['fps'].setValue(30)
-                            out = nuke.toNode('OUT')
-                            out['file_type'].setValue('png')
-                            vid = root + '/videos/' + date + '/reaction_putt/' + var_name + '/' + var_name + '.%04d.png'
-                            out['file'].setValue(vid)
-                            out['create_directories'].setValue(1)
-                            if not os.path.exists(os.path.dirname(vid)):
-                                os.makedirs(os.path.dirname(vid))
-                            # AUDIO
-                            import random
-                            audio_file = root + '/' + settings['audio'] + '/reaction_putt/reaction_putt_' + current_pass + '_'
-                            audio_file += str(random.randint(1, 5)) + '.wav'
-                            aud = open(os.path.dirname(vid) + '/aud', 'w')
-                            aud.write(audio_file)
-                            aud.close()
-                            print '\tAUDIO : %s.' % audio_file
-                            ###################################################
-                            passes = settings['reaction_putt']['passes_common']
-                            for pas in passes:
-                                nod = pas
-                                update_path(cwd, nod, pas)
-                            ###################################################
-                            passes = settings['reaction_putt']['passes_vary'][current_pass]
-                            for pas in passes:
-                                pas = pas[:-1] + str(player_num)
-                                nod = pas[:-2]
-                                update_path(cwd + '/_' + current_pass, nod, pas)
-                            ###################################################
-                            print '\tSaving comp and closing nuke.'
-                            nuke.scriptSave(comp)
-                            nuke.scriptClose()
-                            ###################################################
-                            print 'DONE!\n'
-                            if settings['single_run']:
-                                exit(0)
-                            ###################################################
+
+                    # TODO : FIX THIS, next year...
+                    if par == 'par_3': # NORMAL ONE
+                        passes_vary = settings['reaction_putt']['passes_vary']
+                        for current_pass in passes_vary:
+                            player_range = settings['players']
+                            for player_num in range(player_range[0], player_range[1] + 1):
+                                # START HERE ######################################
+                                player = 'player_%d' % player_num
+                                var_name = '%s_%s_%s_%s' % (par, reaction, player, current_pass)
+                                print '#' * 80
+                                print 'Comping "%s".' % var_name
+                                print 'Current working directory : %s' % cwd
+                                ###################################################
+                                print '\tCopying comp from template.'
+                                comp = root + '/comps/reaction_putt/' + var_name + '.nk'
+                                if not os.path.exists(os.path.dirname(comp)):
+                                    os.makedirs(os.path.dirname(comp))
+                                shutil.copy(template_comp, comp)
+                                ###################################################
+                                print '\tSetting global comp settings.'
+                                nuke.scriptOpen(comp)
+                                nuke.frame(1)
+                                frames = settings['reaction_putt']['frame_range']
+                                frames = [int(frames[0]), int(frames[1])]
+                                nuke.root()['first_frame'].setValue(frames[0])
+                                nuke.root()['last_frame'].setValue(frames[1])
+                                nuke.root()['fps'].setValue(30)
+                                out = nuke.toNode('OUT')
+                                out['file_type'].setValue('png')
+                                vid = root + '/videos/' + date + '/reaction_putt/' + var_name + '/' + var_name + '.%04d.png'
+                                out['file'].setValue(vid)
+                                out['create_directories'].setValue(1)
+                                if not os.path.exists(os.path.dirname(vid)):
+                                    os.makedirs(os.path.dirname(vid))
+                                # AUDIO
+                                import random
+                                audio_file = root + '/' + settings[
+                                    'audio'] + '/reaction_putt/reaction_putt_' + current_pass + '_'
+                                audio_file += str(random.randint(1, 5)) + '.wav'
+                                aud = open(os.path.dirname(vid) + '/aud', 'w')
+                                aud.write(audio_file)
+                                aud.close()
+                                print '\tAUDIO : %s.' % audio_file
+                                ###################################################
+                                passes = settings['reaction_putt']['passes_common']
+                                for pas in passes:
+                                    nod = pas
+                                    update_path(cwd, nod, pas)
+                                ###################################################
+                                passes = settings['reaction_putt']['passes_vary'][current_pass]
+                                for pas in passes:
+                                    pas = pas[:-1] + str(player_num)
+                                    nod = pas[:-2]
+                                    update_path(cwd + '/_' + current_pass, nod, pas)
+                                ###################################################
+                                print '\tSaving comp and closing nuke.'
+                                nuke.scriptSave(comp)
+                                nuke.scriptClose()
+                                ###################################################
+                                print 'DONE!\n'
+                                if settings['single_run']:
+                                    exit(0)
+                                ###################################################
+                    else:
+                        passes_vary = settings['reaction_putt']['passes_vary']
+                        for current_pass in passes_vary:
+                            if current_pass == 'neg':
+                                for i in range(1,4):
+                                    player_range = settings['players']
+                                    for player_num in range(player_range[0], player_range[1] + 1):
+                                        # START HERE ######################################
+                                        player = 'player_%d' % player_num
+                                        var_name = '%s_%s_%s_%s' % (par, reaction, player, current_pass + '_' + str(i))
+                                        print '#' * 80
+                                        print 'Comping "%s".' % var_name
+                                        print 'Current working directory : %s' % cwd
+                                        ###################################################
+                                        print '\tCopying comp from template.'
+                                        comp = root + '/comps/reaction_putt/' + var_name + '.nk'
+                                        if not os.path.exists(os.path.dirname(comp)):
+                                            os.makedirs(os.path.dirname(comp))
+                                        shutil.copy(template_comp, comp)
+                                        ###################################################
+                                        print '\tSetting global comp settings.'
+                                        nuke.scriptOpen(comp)
+                                        nuke.frame(1)
+                                        frames = settings['reaction_putt']['frame_range']
+                                        frames = [int(frames[0]), int(frames[1])]
+                                        nuke.root()['first_frame'].setValue(frames[0])
+                                        nuke.root()['last_frame'].setValue(frames[1])
+                                        nuke.root()['fps'].setValue(30)
+                                        out = nuke.toNode('OUT')
+                                        out['file_type'].setValue('png')
+                                        vid = root + '/videos/' + date + '/reaction_putt/' + var_name + '/' + var_name + '.%04d.png'
+                                        out['file'].setValue(vid)
+                                        out['create_directories'].setValue(1)
+                                        if not os.path.exists(os.path.dirname(vid)):
+                                            os.makedirs(os.path.dirname(vid))
+                                        # AUDIO
+                                        import random
+                                        audio_file = root + '/' + settings[
+                                            'audio'] + '/reaction_putt/reaction_putt_' + current_pass + '_'
+                                        audio_file += str(random.randint(1, 5)) + '.wav'
+                                        aud = open(os.path.dirname(vid) + '/aud', 'w')
+                                        aud.write(audio_file)
+                                        aud.close()
+                                        print '\tAUDIO : %s.' % audio_file
+                                        ###################################################
+                                        passes = settings['reaction_putt']['passes_common']
+                                        for pas in passes:
+                                            nod = pas
+                                            update_path(cwd, nod, pas)
+                                        ###################################################
+                                        passes = settings['reaction_putt']['passes_vary'][current_pass]
+                                        for pas in passes:
+                                            pas = pas[:-1] + str(player_num)
+                                            nod = pas[:-2]
+                                            update_path(cwd + '/_' + current_pass + '_' + str(i), nod, pas)
+                                        ###################################################
+                                        print '\tSaving comp and closing nuke.'
+                                        nuke.scriptSave(comp)
+                                        nuke.scriptClose()
+                                        ###################################################
+                                        print 'DONE!\n'
+                                        if settings['single_run']:
+                                            exit(0)
+                                        ###################################################
+                            if current_pass == 'pos':
+                                for i in range(1,3):
+                                    player_range = settings['players']
+                                    for player_num in range(player_range[0], player_range[1] + 1):
+                                        # START HERE ######################################
+                                        player = 'player_%d' % player_num
+                                        var_name = '%s_%s_%s_%s' % (par, reaction, player, current_pass + '_' + str(i))
+                                        print '#' * 80
+                                        print 'Comping "%s".' % var_name
+                                        print 'Current working directory : %s' % cwd
+                                        ###################################################
+                                        print '\tCopying comp from template.'
+                                        comp = root + '/comps/reaction_putt/' + var_name + '.nk'
+                                        if not os.path.exists(os.path.dirname(comp)):
+                                            os.makedirs(os.path.dirname(comp))
+                                        shutil.copy(template_comp, comp)
+                                        ###################################################
+                                        print '\tSetting global comp settings.'
+                                        nuke.scriptOpen(comp)
+                                        nuke.frame(1)
+                                        frames = settings['reaction_putt']['frame_range']
+                                        frames = [int(frames[0]), int(frames[1])]
+                                        nuke.root()['first_frame'].setValue(frames[0])
+                                        nuke.root()['last_frame'].setValue(frames[1])
+                                        nuke.root()['fps'].setValue(30)
+                                        out = nuke.toNode('OUT')
+                                        out['file_type'].setValue('png')
+                                        vid = root + '/videos/' + date + '/reaction_putt/' + var_name + '/' + var_name + '.%04d.png'
+                                        out['file'].setValue(vid)
+                                        out['create_directories'].setValue(1)
+                                        if not os.path.exists(os.path.dirname(vid)):
+                                            os.makedirs(os.path.dirname(vid))
+                                        # AUDIO
+                                        import random
+                                        audio_file = root + '/' + settings[
+                                            'audio'] + '/reaction_putt/reaction_putt_' + current_pass + '_'
+                                        audio_file += str(random.randint(1, 5)) + '.wav'
+                                        aud = open(os.path.dirname(vid) + '/aud', 'w')
+                                        aud.write(audio_file)
+                                        aud.close()
+                                        print '\tAUDIO : %s.' % audio_file
+                                        ###################################################
+                                        passes = settings['reaction_putt']['passes_common']
+                                        for pas in passes:
+                                            nod = pas
+                                            update_path(cwd, nod, pas)
+                                        ###################################################
+                                        passes = settings['reaction_putt']['passes_vary'][current_pass]
+                                        for pas in passes:
+                                            pas = pas[:-1] + str(player_num)
+                                            nod = pas[:-2]
+                                            update_path(cwd + '/_' + current_pass + '_' + str(i), nod, pas)
+                                        ###################################################
+                                        print '\tSaving comp and closing nuke.'
+                                        nuke.scriptSave(comp)
+                                        nuke.scriptClose()
+                                        ###################################################
+                                        print 'DONE!\n'
+                                        if settings['single_run']:
+                                            exit(0)
+                                        ###################################################
+
+
 ###################################################################################################
 
 ###################################################################################################

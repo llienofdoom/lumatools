@@ -11,7 +11,8 @@
     "0007" : { "houdini" : "17.0.370", "redshift" : "2.6.24", "plugin_rs" : "17.0.352" },
     "0008" : { "houdini" : "16.5.634", "redshift" : "2.6.24", "plugin_rs" : "16.5.571" },
     "0009" : { "houdini" : "17.0.394", "redshift" : "2.6.24", "plugin_rs" : "17.0.352" },
-    "0010" : { "houdini" : "17.0.425", "redshift" : "2.6.26", "plugin_rs" : "17.0.352" }
+    "0010" : { "houdini" : "17.0.425", "redshift" : "2.6.26", "plugin_rs" : "17.0.352" },
+    "0011" : { "houdini" : "17.0.453", "redshift" : "2.6.26", "plugin_rs" : "17.0.352" }
   },
 
   "location_remote" : {
