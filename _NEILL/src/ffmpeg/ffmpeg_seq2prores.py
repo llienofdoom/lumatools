@@ -22,12 +22,21 @@ if framerate == '':
 quality   = raw_input('Please specify quality [ 0 - 32 ] (13) : ')
 if quality == '':
     quality = '13'
+audio = raw_input('Do you need to supply an audio file? [ y/n ] (n): ')
+if audio == '':
+    audio = 'n'
+audio_file = ''
+if audio == 'y':
+    audio_file = raw_input('Please drag audio file to riiiight... HERE. : ')
 
 cmd  = ffmpeg + ' -y'
 cmd += ' -r %s' % framerate
 cmd += ' -start_number %d' % start_frame
 cmd += ' -gamma 2.2'
 cmd += ' -i %s' % ( path + os.sep + basename + '.%04d.' + extention )
+if audio == 'y':
+    cmd += ' -i %s' % audio_file
+    cmd += ' -c:a aac -shortest'
 cmd += ' -c:v prores_ks'
 cmd += ' -profile:v 3'
 cmd += ' -qscale:v %s' % quality
