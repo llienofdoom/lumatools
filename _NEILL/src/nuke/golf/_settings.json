@@ -142,9 +142,9 @@
     ],
 
     "passes_vary"   : [
-      "ball_?"    ,
-      "ball_shadow_?",
-      "flag_?",
+      "ball_?"        ,
+      "ball_shadow_?" ,
+      "flag_?"        ,
       "flag_shadow_?"
     ]
   },

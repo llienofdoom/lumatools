@@ -11,10 +11,10 @@ folders = sys.argv
 for folder in folders:
     for root, dirs, files in os.walk(folder):
         for name in files:
-            if '.mov' in name:
+            if '.mp4' in name:
                 old_name   = os.path.join(root, name)
                 new_folder = root.replace(folder, folder + '_CONVERTED')
-                new_name   = os.path.join(new_folder, name.replace('mov', 'mp4'))
+                new_name   = os.path.join(new_folder, name)
                 if not os.path.exists(new_folder):
                     os.makedirs(new_folder)
                 cmd = ffmpeg + ' -y ' #-hide_banner -loglevel panic -threads 8'

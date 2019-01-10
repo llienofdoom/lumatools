@@ -1,5 +1,5 @@
 @ECHO OFF
 CALL %LA_ROOT%\_%LA_BRANCH%\bin\win\la_global.cmd
 
-cd /d %PYTHONPATH%\nuke\golf
-python _old/convert_vids.py %*
+cd /d %PYTHONPATH%\ffmpeg
+python ffmpeg_seq2prores.py %*

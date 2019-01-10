@@ -64,6 +64,9 @@ def comp():
                                     pas = pas[:-1] + num
                                     nod = pas[:-2]
                                     update_path(cwd + '/_' + flag, nod, pas)
+                                    # tracer
+                                    if not 'shadow' in pas:
+                                        update_path(cwd + '/_' + flag, 'tracer', pas + '_tracer')
                                 if 'flag' in pas:
                                     num = flag[-1:]
                                     pas = pas[:-1] + num
