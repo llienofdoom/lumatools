@@ -11,7 +11,7 @@ root            = settings['root']
 missing_footage = root + '/' + settings['standin']
 
 date  = datetime.datetime.today().strftime('%Y-%m-%d')
-# date += '_OVERNIGHT'
+date += '_OVERNIGHT'
 
 ###############################################################################
 def update_path(cwd, nod, pas):
