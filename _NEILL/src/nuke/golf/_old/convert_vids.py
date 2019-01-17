@@ -22,7 +22,7 @@ for folder in folders:
                 cmd += ' -i %s' % old_name
                 cmd += ' -pix_fmt yuv420p'
                 cmd += ' -c:v libx264'
-                cmd += ' -crf 20'
+                cmd += ' -crf 30'
                 # cmd += ' -vf scale -1:240:flags=bicubic'
                 cmd += ' -vf scale=-2:240'
                 cmd += ' %s' % new_name
