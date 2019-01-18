@@ -2,6 +2,7 @@
   "current" : "0012",
 
   "config" : {
+    "0000" : { "houdini" : "16.0.762", "redshift" : "2.6.31", "plugin_rs" : "16.0.736" },
     "0001" : { "houdini" : "16.5.473", "redshift" : "2.5.72", "plugin_rs" : "16.5.473" },
     "0002" : { "houdini" : "16.5.536", "redshift" : "2.6.17", "plugin_rs" : "16.5.536" },
     "0003" : { "houdini" : "16.5.536", "redshift" : "2.6.19", "plugin_rs" : "16.5.536" },
@@ -38,7 +39,7 @@
   },
 
   "optix_location" : {
-    "win" : "H:/_distros/optix5.1",
+    "win" : "H:/_distros/optix5.1.1",
     "lin" : "",
     "mac" : "",
     "cyg" : ""
