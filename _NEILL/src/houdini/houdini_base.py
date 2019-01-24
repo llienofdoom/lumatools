@@ -85,6 +85,11 @@ def setHoudiniEnv():
     env['HOUDINI_NVIDIA_OPTIX_DSO_PATH'] = str(settings['optix_location'][opsys])
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
+    # Extra ones for testing
+    env['HOUDINI_ENABLE_OLD_PRESETS'] = '1'
+    env['HOUDINI_GALLERY_PATH']       = env['HSITE'] + '/h_galleries' + os.pathsep + env['HFS'] + '/houdini/gallery'
+    env['HOUDINI_MENU_PATH']          = env['HSITE'] + '/h_menu' + os.pathsep + env['HOUDINI_MENU_PATH']
+
 ###############################################################################
 def setRedshiftEnv():
     global env
