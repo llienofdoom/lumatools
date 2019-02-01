@@ -129,7 +129,12 @@ def setGameDevEnv():
     env['HOUDINI_PATH'] = env['HSITE'] + '/houdini16.5/gamedev_toolset' + os.pathsep + env['HOUDINI_PATH']
 
 ###############################################################################
-def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plug_gdev=False):
+def setAeLib():
+    global env
+    env['HOUDINI_PATH'] = env['HSITE'] + '/houdini_aelib' + os.pathsep + env['HOUDINI_PATH']
+
+###############################################################################
+def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plug_gdev=False, plug_aelib=False):
     if local:
         useLocalHoudini()
     setHoudiniEnv()
@@ -141,6 +146,8 @@ def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plu
         setQlibEnv()
     if plug_gdev:
         setGameDevEnv()
+    if plug_aelib:
+        setAeLib()
 
     args = ' '.join(sys.argv[1:])
     cmd = env['HB'] + '/%s %s' % (app, args)
