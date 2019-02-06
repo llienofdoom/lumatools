@@ -85,10 +85,10 @@ def setHoudiniEnv():
     env['HOUDINI_NVIDIA_OPTIX_DSO_PATH'] = str(settings['optix_location'][opsys])
     env['PATH'] = env['HB'] + os.pathsep + env['PATH']
 
-    # Extra ones for testing
     env['HOUDINI_ENABLE_OLD_PRESETS'] = '1'
     env['HOUDINI_GALLERY_PATH']       = env['HSITE'] + '/h_galleries' + os.pathsep + env['HFS'] + '/houdini/gallery'
     env['HOUDINI_MENU_PATH']          = env['HSITE'] + '/h_menu' + os.pathsep + env['HOUDINI_MENU_PATH']
+    env['HOUDINI_ACCESS_METHOD']      = '1'
 
 ###############################################################################
 def setRedshiftEnv():
@@ -126,7 +126,7 @@ def setQlibEnv():
 ###############################################################################
 def setGameDevEnv():
     global env
-    env['HOUDINI_PATH'] = env['HSITE'] + '/houdini16.5/gamedev_toolset' + os.pathsep + env['HOUDINI_PATH']
+    env['HOUDINI_PATH'] = env['HSITE'] + '/houdini_gameDev' + os.pathsep + env['HOUDINI_PATH']
 
 ###############################################################################
 def setAeLib():
