@@ -7,7 +7,7 @@
 # -fe 10
 #####################################################################
 
-import sys
+import sys, os
 import hou
 
 # Change slashes to forward - fucking windows...
@@ -28,6 +28,12 @@ print "Setting frame range to %d - %d" % (fs, fe)
 # Set progress output
 # rop.parm('vm_verbose').set(3)
 # rop.parm('vm_alfprogress').set(1)
+
+print '#'*70
+print 'ENVIRONMENT'
+for i in os.environ:
+    print i, '=', os.environ[i]
+print '#'*70
 
 # RENDER
 print "Starting to render...",

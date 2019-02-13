@@ -7,7 +7,7 @@ def RP_selected_write_nodes():
 
     else:
         rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
-        redshift_version = os.environ['REDSHIFT_COREDATAPATH'].split('-')[1]
+        # redshift_version = os.environ['REDSHIFT_COREDATAPATH'].split('-')[1]
 
         for node in hou.selectedNodes():
             node_path = node.path()
@@ -18,15 +18,17 @@ def RP_selected_write_nodes():
             frames = hou.playbar.frameRange()
 
             cmd = rpcmd
-            cmd += ' -nj_name "%s - %s - %s"' % (proj, scene, node.name())
+            cmd += ' -nj_name "RS-GEN : %s - %s - %s"' % (proj, scene, node.name())
             cmd += ' -nj_priority 5'
-            cmd += ' -nj_paused'
+            # cmd += ' -nj_paused'
             cmd += ' -nj_renderer "Redshift/RS_EXPORT"'
             cmd += ' -nj_pools "rs_gen_always"'
             cmd += ' "-nj_splitmode" "2,10"'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
             cmd += ' -rop "%s"' % (node_path)
             cmd += ' %s' % path + '.hip'
-            print cmd
+            # print cmd
             os.system('"' + cmd + '"')
-            hou.ui.displayMessage('Submitted to RenderPal!')
+            hou.ui.displayMessage('Submitted "%s" to RenderPal!' % node_path)
+
+RP_selected_write_nodes()
