@@ -15,14 +15,17 @@ def RP_selected_write_nodes():
             proj = path.split('/')[1]
             scene = path.split('/')[-1]
 
-            frames = hou.playbar.frameRange()
+            # frames = hou.playbar.frameRange()
+            frames = []
+            frames.append(node.parm('f1').eval())
+            frames.append(node.parm('f2').eval())
 
             cmd = rpcmd
             cmd += ' -nj_name "RS-GEN : %s - %s - %s"' % (proj, scene, node.name())
             cmd += ' -nj_priority 5'
-            # cmd += ' -nj_paused'
+            cmd += ' -nj_paused'
             cmd += ' -nj_renderer "Redshift/RS_EXPORT"'
-            cmd += ' -nj_pools "rs_gen_always"'
+            cmd += ' -nj_pools "rs_gen_luma"'
             cmd += ' "-nj_splitmode" "2,10"'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
             cmd += ' -rop "%s"' % (node_path)

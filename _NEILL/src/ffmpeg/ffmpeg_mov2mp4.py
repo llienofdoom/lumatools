@@ -1,4 +1,5 @@
 from ffmpeg_base import *
+import math
 
 input_file = ''
 try:
@@ -24,6 +25,29 @@ if dim[1] % 2 != 0:
     h = dim[1] - 1
 else:
     h = dim[1]
+
+dimInput = raw_input('Please specify dimensions [ 0 (input rez), 1 (half rez), 2 (double rez), 3 (babyHD), 4 (fullHD), 5 (4k) ] (default 3) : ')
+if dimInput == '0':
+    w = w
+    h = h
+elif dimInput == '1':
+    w = math.floor(w /2)
+    h = math.floor(h /2)
+elif dimInput == '2':
+    w = w*2
+    h = h*2
+elif dimInput == '3':
+    w = 1280
+    h = 720
+elif dimInput == '4':
+    w = 1920
+    h = 1080
+elif dimInput == '5':
+    w = 3840
+    h = 2160
+else:
+    w = 1280
+    h = 720
 
 cmd  = ffmpeg + ' -y'
 cmd += ' -gamma 2.2'
