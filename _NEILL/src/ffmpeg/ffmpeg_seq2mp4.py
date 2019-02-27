@@ -34,16 +34,26 @@ if framerate == '':
 quality   = raw_input('Please specify quality [ 0 - 51 ] (23) : ')
 if quality == '':
     quality = '23'
+audio = raw_input('Do you need to supply an audio file? [ y/n ] (n): ')
+if audio == '':
+    audio = 'n'
+audio_file = ''
+if audio == 'y':
+    audio_file = raw_input('Please drag audio file to riiiight... HERE. : ')
 
 cmd  = ffmpeg + ' -y'
 cmd += ' -r %s' % framerate
 cmd += ' -start_number %d' % start_frame
 cmd += ' -gamma 2.2'
 cmd += ' -i %s' % ( path + os.sep + basename + '.%04d.' + extention )
+if audio == 'y':
+    cmd += ' -i %s' % audio_file
+    cmd += ' -c:a aac -shortest'
 cmd += ' -pix_fmt yuv420p'
 cmd += ' -c:v libx264'
 cmd += ' -crf %s' % quality
 cmd += ' -vf scale=%d:%d' % (w,h)
+
 cmd += ' %s' % ( parent + os.sep + basename + '.mp4' )
 cmd = cmd.replace('\\', '/')
 la_utils.runCmd(cmd)

@@ -1,0 +1,16 @@
+{
+  "current" : "11.3v1",
+  "location_remote" : {
+    "win" : "H:/_distros/Nuke",
+    "lin" : "/mnt/luma/software/CURRENT/houdini/",
+    "mac" : "",
+    "cyg" : ""
+  },
+
+  "location_local" : {
+    "win" : "C:/_lumatools/_distros/Nuke",
+    "lin" : "~/.lumatools/",
+    "mac" : "",
+    "cyg" : ""
+  }
+}
