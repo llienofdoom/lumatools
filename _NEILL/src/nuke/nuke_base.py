@@ -43,7 +43,7 @@ if opsys is 'win':
 ###############################################################################
 def setNukeEnv():
     global env
-    global use_local_houdini
+    global use_local_nuke
     path_remote  = str(settings['location_remote'][opsys] + config_current)
     path_local   = str(settings['location_local'][opsys]  + config_current)
     path_nuke = path_local if use_local_houdini else path_remote

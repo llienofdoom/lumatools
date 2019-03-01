@@ -1,8 +1,17 @@
 {
-  "current" : "11.3v1",
+  "current" : "0004",
+
+  "config" : {
+    "0000" : { "nuke" : "10.5v1" },
+    "0001" : { "nuke" : "11.2v3" },
+    "0002" : { "nuke" : "11.2v4" },
+    "0003" : { "nuke" : "11.3v1" },
+    "0004" : { "nuke" : "11.3v2" }
+  },
+
   "location_remote" : {
     "win" : "H:/_distros/Nuke",
-    "lin" : "/mnt/luma/software/CURRENT/houdini/",
+    "lin" : "/mnt/luma/software/CURRENT/nuke/",
     "mac" : "",
     "cyg" : ""
   },
