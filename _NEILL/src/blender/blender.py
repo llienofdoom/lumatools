@@ -5,17 +5,10 @@ import la_utils
 opsys    = la_utils.getOs()
 settings = la_utils.readSettings()
 
-config_current = ''
-try:
-    config_current = os.environ['LA_BLEND_CURRENT']
-except KeyError:
-    config_current = str(settings['current'])
-config_versions    = settings['config'][config_current]
-version_blender    = str(config_versions['blender'])
-path               = str(settings['location'][opsys]  + version_blender)
+path               = str(settings['location'][opsys])
 blender            = path + '/blender'
 
-print 'Starting luma remote blender version %s.' % version_blender
+print 'Starting luma remote blender.'
 print 'Running from %s.' % path
 
 # Set environment #############################################################

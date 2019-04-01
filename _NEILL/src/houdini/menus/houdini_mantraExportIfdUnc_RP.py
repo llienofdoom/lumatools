@@ -47,19 +47,18 @@ def mantraExportIfdUnc_RP():
 
             hou_ver = hou.getenv('HOUDINI_VERSION')
             hou_ver = 'RenderEXR/' + hou_ver
-            print hou_ver
 
             cmd = rpcmd
             cmd += ' -nj_name "IFD-REN : %s - %s - %s"' % (proj, scene, node.name())
             cmd += ' -nj_priority 5'
             cmd += ' -nj_renderer "%s"' % hou_ver
-            cmd += ' -nj_pools "testing_ifd"'
+            cmd += ' -nj_pools "ifd_ren"'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
             cmd += ' -outdir "%s"' % output
             cmd += ' %s' % ifds
             # print cmd
             os.system('"' + cmd + '"')
-            hou.ui.displayMessage('Submitted "%s" to RenderPal!' % node_path)
+            # hou.ui.displayMessage('Submitted "%s" to RenderPal!' % node_path)
 
         hou.hscript('set -u HIP')
         hou.hscript('set -g HIP = ' + old_hip)
