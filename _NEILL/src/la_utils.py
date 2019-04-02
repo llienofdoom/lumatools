@@ -54,7 +54,7 @@ def runCmd(cmd, environ=None):
                 environ['PATH'] += os.environ['PATH']
         # for i, j in environ.items():
         #     print i, j
-        return subprocess.check_output(cmd, env=environ, shell=False)
+        return subprocess.check_output(cmd, env=environ, shell=True)
 ###############################################################################
 
 ###############################################################################
@@ -76,11 +76,8 @@ def copyFolder(src, dst):
         cmd = 'robocopy %s %s /mir' % (src, dst)
         subprocess.call(cmd, shell=False)
     if opsys == 'lin':
-        print src
-        print dst
-        cmd = 'mkdir -p %s; cp -r %s %s' % (dst, src, dst)
-        print cmd
-        subprocess.call(cmd, shell=False)
+        cmd = 'mkdir -p %s; rsync -avz --progress %s/ %s/' % (dst, src, dst)
+        subprocess.call(cmd, shell=True)
     if opsys == 'mac':
         print 'NOT IMPLEMENTED YET!'
     if opsys == 'cyg':

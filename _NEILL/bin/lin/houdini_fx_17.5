@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. $LA_ROOT/_$LA_BRANCH/bin/lin/la_global
+
+export LA_HOU_CURRENT=0016
+export OCIO=/mnt/h/SITE/ocio/aces_1.0.3/config.ocio
+
+cd $PYTHONPATH/houdini
+python houdini_fx.py $@

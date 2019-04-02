@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+. $LA_ROOT/_$LA_BRANCH/bin/lin/la_global
 
 cd $PYTHONPATH/houdini
 python houdini_core.py $@

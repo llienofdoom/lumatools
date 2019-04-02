@@ -10,8 +10,9 @@ export PATH=~/bin:$PATH
 # Luma Studio Setup
 export LA_BRANCH=NEILL
 export LA_ROOT=/mnt/h/_distros/_lumatools/lumatools
-export LA_VENV=/mnt/h/_distros/_lumatools/la_venv-lin_2018-09-01
+export LA_VENV=/mnt/h/_distros/_lumatools/la_venv_lin_2019-04-02
+
+export PATH=$LA_ROOT/_$LA_BRANCH/bin/lin:$PATH
 
 
 echo 'LUMA USER SETUP DONE!'
-

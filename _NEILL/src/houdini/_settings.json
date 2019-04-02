@@ -11,28 +11,28 @@
 
   "location_remote" : {
     "win" : "H:/_distros/hfs.windows-x86_64_",
-    "lin" : "/mnt/luma/software/CURRENT/houdini/",
+    "lin" : "/mnt/h/_distros/_lnx/hfs",
     "mac" : "",
     "cyg" : ""
   },
 
   "location_local" : {
     "win" : "C:/_lumatools/_distros/hfs.windows-x86_64_",
-    "lin" : "~/.lumatools/",
+    "lin" : "~/.lumatools/_distros/hfs",
     "mac" : "",
     "cyg" : ""
   },
 
   "rs_location" : {
     "win" : "H:/_distros/Redshift-",
-    "lin" : "/mnt/luma/software/CURRENT/redshift/",
+    "lin" : "/mnt/h/_distros/_lnx/redshift-",
     "mac" : "",
     "cyg" : ""
   },
 
   "optix_location" : {
     "win" : "H:/_distros/optix5.1.1",
-    "lin" : "",
+    "lin" : "/mnt/h/_distros/_lnx/optix5.1.1",
     "mac" : "",
     "cyg" : ""
   },

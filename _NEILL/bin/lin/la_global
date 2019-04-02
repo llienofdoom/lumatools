@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pushd .
+cd $LA_VENV/bin
+. activate
+popd
+export PYTHONPATH=$LA_ROOT/_$LA_BRANCH/src
