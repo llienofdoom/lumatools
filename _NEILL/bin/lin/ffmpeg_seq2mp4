@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. $LA_ROOT/_$LA_BRANCH/bin/lin/la_global
+
+cd $PYTHONPATH/ffmpeg
+python ffmpeg_seq2mp4.py $@

@@ -52,7 +52,7 @@ def mantraExportIfdUnc_RP():
             cmd += ' -nj_name "IFD-REN : %s - %s - %s"' % (proj, scene, node.name())
             cmd += ' -nj_priority 5'
             cmd += ' -nj_renderer "%s"' % hou_ver
-            cmd += ' -nj_pools "ifd_ren"'
+            cmd += ' -nj_pools "rs_ren"'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
             cmd += ' -outdir "%s"' % output
             cmd += ' %s' % ifds

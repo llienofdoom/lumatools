@@ -11,8 +11,23 @@ export PATH=~/bin:$PATH
 export LA_BRANCH=NEILL
 export LA_ROOT=/mnt/h/_distros/_lumatools/lumatools
 export LA_VENV=/mnt/h/_distros/_lumatools/la_venv_lin_2019-04-02
-
 export PATH=$LA_ROOT/_$LA_BRANCH/bin/lin:$PATH
+
+
+# RenderPal Setup
+export RP_CMDRC_DIR=~/.wine/drive_c/Program\ Files\ \(x86\)/RenderPal\ V2/CmdRC/
+echo 'Setup RenderPal'
+
+# Nuke Setup
+export NUKE_PATH=/mnt/x/_studiotools/libraries/nuke/eugen:/mnt/x/_studiotools/libraries/nuke:/mnt/x/_studiotools/libraries/nuke/Cryptomatte/nuke
+alias nuke='/opt/Nuke11.3v3/Nuke11.3'
+alias nukex='/opt/Nuke11.3v3/Nuke11.3 --nukex'
+alias nukes='/opt/Nuke11.3v3/Nuke11.3 --studio'
+echo 'Setup Nuke'
+
+# OCIO Setup
+export OCIO=/mnt/h/SITE/ocio/aces_1.0.3/config.ocio
+echo 'Setup OCIO'
 
 
 echo 'LUMA USER SETUP DONE!'

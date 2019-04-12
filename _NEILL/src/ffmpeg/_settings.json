@@ -1,7 +1,7 @@
 {
   "location" : {
     "win" : "X:/_studiotools/software/ffmpeg/bin",
-    "lin" : "",
+    "lin" : "/mnt/h/sdrive_temp/software/ffmpeg/lin/2.7.7",
     "mac" : "",
     "cyg" : ""
   }
