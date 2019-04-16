@@ -5,4 +5,4 @@
 current=$(realpath $1)
 
 cd $PYTHONPATH/ffmpeg
-python ffmpeg_seq2mp4.py $current
+python ffmpeg_mov2mp4.py $current
