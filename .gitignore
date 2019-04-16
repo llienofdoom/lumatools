@@ -8,3 +8,4 @@ ehthumbs.db
 Thumbs.db
 docs/src/tmp
 *.pyc
+#*.sublime-*
