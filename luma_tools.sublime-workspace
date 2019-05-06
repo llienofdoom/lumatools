@@ -7,6 +7,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "_NEILL/src/houdini/houdini_base.py",
+			"settings":
+			{
+				"buffer_size": 6980,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -60,7 +68,10 @@
 	},
 	"expanded_folders":
 	[
-		"/192.168.35.14/hq/_distros/_lumatools/lumatools"
+		"/mnt/h/_distros/_lumatools/lumatools",
+		"/mnt/h/_distros/_lumatools/lumatools/_NEILL",
+		"/mnt/h/_distros/_lumatools/lumatools/_NEILL/src",
+		"/mnt/h/_distros/_lumatools/lumatools/_NEILL/src/houdini"
 	],
 	"file_history":
 	[
@@ -99,8 +110,39 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "_NEILL/src/houdini/houdini_base.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6980,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 291.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
