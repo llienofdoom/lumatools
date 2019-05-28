@@ -1,5 +1,44 @@
-\contentsline {section}{\numberline {1}Introduction}{2}
-\contentsline {section}{\numberline {2}Luma Tools}{3}
-\contentsline {paragraph}{General}{3}
-\contentsline {section}{\numberline {3}File naming conventions}{4}
-\contentsline {paragraph}{Image files}{4}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Folder Structure}{4}
+\contentsline {subsection}{\numberline {2.1}Common}{4}
+\contentsline {subsection}{\numberline {2.2}Libraries}{4}
+\contentsline {subsection}{\numberline {2.3}SITE Folder}{4}
+\contentsline {subsection}{\numberline {2.4}Project Folder Structure}{4}
+\contentsline {subsubsection}{\numberline {2.4.1}General}{4}
+\contentsline {subsubsection}{\numberline {2.4.2}\_tools}{4}
+\contentsline {subsubsection}{\numberline {2.4.3}assets}{4}
+\contentsline {paragraph}{General}{4}
+\contentsline {paragraph}{geo}{4}
+\contentsline {paragraph}{img}{4}
+\contentsline {paragraph}{tex}{5}
+\contentsline {paragraph}{app\_3dcoat or app\_zbrush or etc}{5}
+\contentsline {paragraph}{sdr}{5}
+\contentsline {subsubsection}{\numberline {2.4.4}editorial}{5}
+\contentsline {paragraph}{animatic}{5}
+\contentsline {paragraph}{edit}{5}
+\contentsline {paragraph}{edl}{5}
+\contentsline {paragraph}{script}{5}
+\contentsline {paragraph}{storyboard}{5}
+\contentsline {subsubsection}{\numberline {2.4.5}io}{5}
+\contentsline {paragraph}{in}{5}
+\contentsline {paragraph}{out}{5}
+\contentsline {paragraph}{\_deliver}{6}
+\contentsline {subsubsection}{\numberline {2.4.6}shots}{6}
+\contentsline {paragraph}{General}{6}
+\contentsline {paragraph}{sq010\_name}{6}
+\contentsline {paragraph}{sh010\_name}{6}
+\contentsline {paragraph}{geo}{6}
+\contentsline {paragraph}{img}{7}
+\contentsline {paragraph}{animatic}{7}
+\contentsline {paragraph}{comp}{7}
+\contentsline {paragraph}{flip}{7}
+\contentsline {paragraph}{plates}{7}
+\contentsline {paragraph}{renders}{7}
+\contentsline {subsubsection}{\numberline {2.4.7}tmp}{7}
+\contentsline {paragraph}{General}{7}
+\contentsline {paragraph}{ifd\_files}{7}
+\contentsline {paragraph}{rs\_files}{7}
+\contentsline {section}{\numberline {3}Luma Tools}{8}
+\contentsline {paragraph}{General}{8}
+\contentsline {section}{\numberline {4}File naming conventions}{9}
+\contentsline {paragraph}{Image files}{9}

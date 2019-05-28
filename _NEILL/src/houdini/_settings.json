@@ -33,7 +33,7 @@
 
   "optix_location" : {
     "win" : "H:/_distros/optix5.1.1",
-    "lin" : "/mnt/h/_distros/_lnx/optix5.1.1",
+    "lin" : "//192.168.35.14/hq/_distros/_lnx/optix5.1.1",
     "mac" : "",
     "cyg" : ""
   },

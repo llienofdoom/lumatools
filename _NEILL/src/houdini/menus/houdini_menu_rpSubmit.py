@@ -26,7 +26,7 @@ def RP_selected_write_nodes():
             cmd += ' -nj_paused'
             cmd += ' -nj_renderer "Redshift/RS_EXPORT"'
             cmd += ' -nj_pools "rs_gen_luma"'
-            cmd += ' "-nj_splitmode" "2,10"'
+            cmd += ' "-nj_splitmode" "2,20"'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
             cmd += ' -rop "%s"' % (node_path)
             cmd += ' %s' % path + '.hip'

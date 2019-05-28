@@ -1,0 +1,102 @@
+\section{Folder Structure}
+
+% -----------------------------------------------------------------------------
+\subsection{Common}
+
+% -----------------------------------------------------------------------------
+\subsection{Libraries}
+
+% -----------------------------------------------------------------------------
+\subsection{SITE Folder}
+
+% -----------------------------------------------------------------------------
+\subsection{Project Folder Structure}
+
+% -----------------------------------------------------------------------------
+\subsubsection{General}
+All jobs should be thought of as divided into assets, and shots. Almost exclusively. The tools surrounding the job should not, for the most part, be the concern of the artist. So, all jobs are \textbf{ASSETS}, and \textbf{SHOTS}. Bare this in mind.
+
+The idea behind this structure is to keep all the data associated with a project together in on place that is easy to backup, and move around. The idea is to, in the near future, include things like the software used for each project and the settings needed to recreate the project all located within the project. So, wherever possible, set your \textbf{PROJECT ROOT} to the top folder of the project. So, for Houdini, \textbf{\$JOB} will be set to the top folder. In Nuke Studio, the project directory will be that. 
+
+% -------------------------------------
+\subsubsection{\_tools}
+So this is the folder where the tools used in the project will be saved in the future. So installs of houdini etc will be copied into this folder, as well as all the settings needed to make them work. To be ignored for now.
+
+% -------------------------------------
+\subsubsection{assets}
+\paragraph{General}
+We are working towards a goal of easily transferable assets. So, the general guideline is to make sure all your paths for assets are relative to \textbf{\$JOB}, only. You should make a folder in the assets folder using the naming convention \texttt{\[la\_job\_assetName\]}, by copying the template and renaming it. All files used for this asset must be stored in this folder. The \textbf{HDA} must be saved in the root of the assets folder using the SAME name as the asset. Please ask \textbf{Stephen} about HDA versioning. There should be only \textbf{ONE} file for each asset.
+
+\paragraph{geo}
+This is where all geometry for the asset will be saved. Anything that is needed for the asset. From modeling application exports, to caches if it is a physics asset. 
+
+\paragraph{img}
+All images that aren't used by shading should go here. Maybe even references? Not sure yet. Test renders, modeling guides. That tipe of thing.
+
+\paragraph{tex}
+All files used for shading go here. Textures, hdri, bump and displacement. 
+
+\paragraph{app\_3dcoat or app\_zbrush or etc}
+Here you can make folders for any other app used to create data for this asset. If you use \textbf{3dcoat}, make a \texttt{app\_3dcoat} folder, and save all your working files in there.
+
+\paragraph{sdr}
+This is where shader data will be saved, like \textbf{Substance} files. Also a future goal. 
+
+% -------------------------------------
+\subsubsection{editorial}
+\paragraph{animatic}
+Working files for an animatic can be saved here.
+\paragraph{edit}
+Nuke Studio, Resolve, Premiere etc files can be saved here for edit versions. 
+\paragraph{edl}
+We should be moving to an \textbf{EDL} workflow in the future, so this is where these files will live. But, in the meanwhile, you can save EL files from clients here, or when exporting for app interchange. 
+\paragraph{script}
+The text script for a show should be saved here. 
+\paragraph{storyboard}
+This is where the images for the storyboard go. Also any working files.
+
+% -------------------------------------
+\subsubsection{io}
+\paragraph{in}
+This is where files from clients go, or any files not from \luma{}. This acts like an inbox for files to be processed later, to fit within our pipeline. Make folders in the shape of \texttt{\[supplied\_DATE\]} and copy the files there.
+\paragraph{out}
+This is our new \textbf{VIEWINGS} folder. Make new folders here in the shape of \texttt{\[YYYY-MM-DD\]} and place your files for daily viewings there. This should in time contain a list of all files for internal viewing.
+\paragraph{\_deliver}
+Here, make folders in the same way as in \textbf{OUT}, and place the \textbf{Deliverables} in there, as in the files actually sent or to be sent to clients. This is, for lack of a better term, the \textbf{\texttt{\[FINAL\]}} folder. Treat it as such!
+
+% -------------------------------------
+\subsubsection{shots}
+\paragraph{General}
+So, this is the other major player in the current file structure, the \textbf{SHOT}. The idea is that all the data needed for a shot should be contained in this one folder. All, but the \textbf{ASSETS}. This should enable someone the only copy this one folder for any form or remote work. Or, when we get this to work, be copied locally, on a fast SSD drive, for simulation etc and copied right back when the work is done. 
+
+So, this is also where you'll save your Houdini and Nuke files. Right in the root. So, I know, I know, you're all thinking \lq But that's just mad?!?\rq and you're right, but this is how it goes. In time, we will not be saving versions of files, as we'll build a versioning system into our saves. But, for now, feel free to version your files. Just don't go crazy.  
+
+Please follow the following directions to follow. If there's no following, there shall be wrath. Or an angry letter. Anyhoo, on to business. Please name your files in the \textbf{FOLLOWING} manner only:
+\texttt{\textbf{\[sh\#\#\#\_name\_v\#\#.ext\]}}
+So, three pads for the shot version, and two pads for the version. Same as everywhere else. 
+
+\paragraph{sq010\_name}
+We have included \textbf{sequences} for use in larger shows, like episodic stuff, or film work. This should also work for multi episode commercials, like Cowbell. So, if this is a single show commercial job, simply copy the template, and call it the same as the job name, and forget it is there. But, when we're doing the larger shows, this will come in handy. The sequencing works as \textbf{BASIC} worked. Start at ten, and increase by ten each time. This allows for insertion on new shots later in the process, without renumbering all subsequent shots or sequences.  
+
+\paragraph{sh010\_name}
+Naming of \textbf{shots} work exactly the same as for sequences. Start at ten and work your way up. All paths used for data in shots should be relative to the \textbf{SHOT} folder. So, for Houdini, this means \textbf{\$HIP}, and for Nuke, this is the root you set your script to. 
+\paragraph{geo}
+All geometry used in the shot goes here. All per shot caches, all things not assets. Anything you have to save out for this particular shots, that isn't part of an asset. 
+\paragraph{img}
+\paragraph{animatic}
+All image files coming from the animatic that might be used as backplates etc for work on this shot will live here.
+\paragraph{comp}
+This is where all comp render ouptput lives. There should be a folder here matching the version of the comp file used to render this sequence, and the layers and sequences live inside that. So, one level deep only. The folder should be named \texttt{\[v\#\#\]} only. Lower case \lq v\rq, and two padding only. If your versions reach the hundreds, there are other things wrong. 
+\paragraph{flip}
+This is where you can save your screen captures, for use in animatics, scratch comps etc. Same rule applies at above, make a folder with the version name, and save your sequences there. Version should mirror the version of the scene file the capture came from.
+\paragraph{plates}
+This is where any live action plates will be saved, or any background plates needed for comp or display in Houdini viewports. There should be original plates, undistorted plates, exr plates and jpg proxy plates generated.
+\paragraph{renders}
+This is where your 3D renders go. Make a folder named \textbf{JUST LIKE YOUR SCENE FILE}, and save your sequences here. 
+
+
+% -------------------------------------
+\subsubsection{tmp}
+\paragraph{General}
+\paragraph{ifd\_files}
+\paragraph{rs\_files}

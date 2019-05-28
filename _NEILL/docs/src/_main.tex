@@ -4,10 +4,11 @@
 %%
 
 % Preamble
-\documentclass[a4paper,twocolumn,11pt]{article}
+% \documentclass[a4paper,twocolumn,11pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 % Packages
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \usepackage{times}
 %\usepackage{amsmath}
 
@@ -17,14 +18,18 @@
     \include{utils/macros}
     \include{utils/cover}
     \tableofcontents
+    \newpage
 
     \section{Introduction}
     Welcome to the \luma{} docs!
     This will be a large document hopefully containing all the information you will need to not anger the author.
+    \newpage
 
-
-
+    \include{folder_structure}
+    \newpage
     \include{tools}
+    \newpage
     \include{file_naming}
+    \newpage
 
 \end{document}
