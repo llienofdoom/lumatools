@@ -23,6 +23,19 @@ def mantraExportIfdUnc_RP():
             hou.hscript('set -u JOB')
             hou.hscript('set -g JOB = ' + new_job)
 
+        if 'S:/' in old_hip:
+            new_hip = old_hip.replace('S:/', '//192.168.35.13/Job_databases/')
+            hou.hscript('set -u HIP')
+            hou.hscript('set -g HIP = ' + new_hip)
+        if 'S:/' in old_hif:
+            new_hif = old_hip.replace('S:/', '//192.168.35.13/Job_databases/')
+            hou.hscript('set -u HIPFILE')
+            hou.hscript('set -g HIPFILE = ' + new_hif)
+        if 'S:/' in old_job:
+            new_job = old_hip.replace('S:/', '//192.168.35.13/Job_databases/')
+            hou.hscript('set -u JOB')
+            hou.hscript('set -g JOB = ' + new_job)
+
         rpcmd = '"' + os.environ['RP_CMDRC_DIR'] + 'RpRcCmd.exe"'
         for node in hou.selectedNodes():
             node.render()
@@ -43,7 +56,10 @@ def mantraExportIfdUnc_RP():
 
             output = node.parm('vm_picture').eval()
             output = os.path.dirname(output)
-            output = output.replace('//192.168.35.14/x', 'X:')
+            if '//192.168.35.14/x' in output:
+                output = output.replace('//192.168.35.14/x', 'X:')
+            if '//192.168.35.13/Job_databases' in output:
+                output = output.replace('//192.168.35.13/Job_databases', 'S:')
 
             hou_ver = hou.getenv('HOUDINI_VERSION')
             hou_ver = 'RenderEXR/' + hou_ver
@@ -52,7 +68,7 @@ def mantraExportIfdUnc_RP():
             cmd += ' -nj_name "IFD-REN : %s - %s - %s"' % (proj, scene, node.name())
             cmd += ' -nj_priority 5'
             cmd += ' -nj_renderer "%s"' % hou_ver
-            cmd += ' -nj_pools "rs_ren"'
+            cmd += ' -nj_pools "ren"'
             cmd += ' -frames "%s-%s"' % (frames[0], frames[1])
             cmd += ' -outdir "%s"' % output
             cmd += ' %s' % ifds
@@ -66,6 +82,5 @@ def mantraExportIfdUnc_RP():
         hou.hscript('set -g HIPFILE = ' + old_hif)
         hou.hscript('set -u JOB')
         hou.hscript('set -g JOB = ' + old_job)
-
 
 mantraExportIfdUnc_RP()
