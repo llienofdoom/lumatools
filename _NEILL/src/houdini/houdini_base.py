@@ -89,6 +89,7 @@ def setHoudiniEnv():
     env['HOUDINI_GALLERY_PATH']       = env['HSITE'] + '/h_galleries' + os.pathsep + env['HFS'] + '/houdini/gallery'
     env['HOUDINI_MENU_PATH']          = env['HSITE'] + '/h_menu' + os.pathsep + env['HOUDINI_MENU_PATH']
     env['HOUDINI_ACCESS_METHOD']      = '2'
+    env['HOUDINI_SOLARIS']            = '1'
 
 ###############################################################################
 def setRedshiftEnv():
