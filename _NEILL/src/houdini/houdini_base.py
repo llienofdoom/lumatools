@@ -91,6 +91,8 @@ def setHoudiniEnv():
     env['HOUDINI_ACCESS_METHOD']      = '2'
     env['HOUDINI_SOLARIS']            = '1'
 
+    env['HOUDINI_PATH'] += env['HSITE'] + '/houdini_DM'
+
 ###############################################################################
 def setRedshiftEnv():
     global env
