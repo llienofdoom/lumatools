@@ -80,7 +80,7 @@ def processRop(rop):
     cmd += ' -outdir "%s"' % (archive_root)
     cmd += ' -rop "%s"' % (rop.path())
     cmd += ' %s' % hip
-    print cmd
+    # print cmd
     id = os.system('"' + cmd + '"')
 
     # EXR
@@ -94,7 +94,7 @@ def processRop(rop):
     cmd += ' -nj_deptype "0"'
     cmd += ' -outdir "%s"' % (ioutput_root)
     cmd += ' %s' % files
-    print cmd
+    # print cmd
     os.system('"' + cmd + '"')
 
 ###############################################################################
@@ -106,6 +106,7 @@ def main():
     selected_nodes = checkSelected()
     for rop in selected_nodes:
         processRop(rop)
+    hou.ui.displayMessage('Submitted! Please check RenderPal.')
 
 ###############################################################################
 main()

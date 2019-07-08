@@ -1,0 +1,47 @@
+
+      <separatorItem />
+
+      <scriptItem id="luma_bloopity_bloop1">
+        <label>bloopity bloop1</label>
+        <!-- <scriptPath>$HOME/scripts/first_script.py</scriptPath> -->
+        <scriptCode>
+          <![CDATA[
+hou.ui.displayMessage("bloopity bloop!")
+          ]]>
+        </scriptCode>
+      </scriptItem>
+
+      <scriptItem id="luma_bloopity_bloop2">
+        <label>bloopity bloop2</label>
+        <!-- <scriptPath>$HOME/scripts/first_script.py</scriptPath> -->
+        <scriptCode>
+          <![CDATA[
+hou.ui.displayMessage("bloopity bloop!")
+          ]]>
+        </scriptCode>
+      </scriptItem>
+
+      <subMenu id="luma_menu_easter">
+      <label>Python Easter Eggs</label>
+
+        <scriptItem id="luma_antigravity">
+          <label>antigravity</label>
+          <scriptCode>
+            <![CDATA[
+import antigravity
+            ]]>
+          </scriptCode>
+        </scriptItem>
+
+        <scriptItem id="luma_poem">
+          <label>poem</label>
+          <scriptCode>
+            <![CDATA[
+import this
+            ]]>
+          </scriptCode>
+        </scriptItem>
+
+      </subMenu>
+
+    </subMenu>
