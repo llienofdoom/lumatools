@@ -97,6 +97,28 @@ def processRop(rop):
     cmd += ' %s' % files
     # print cmd
     os.system('"' + cmd + '"')
+    
+    #Denoise
+    ioutput_path = rop.parm('RS_outputFileNamePrefix').eval()[:-9]
+    ioutput_name = os.path.basename(ioutput_path)
+    ioutput_root = os.path.dirname( ioutput_path)
+    #delete placeholder denoised images
+    #for i in range(frame_s, frame_e + 1):
+     #   filename = '%s/%s.%04d.%s' % (ioutput_root, ioutput_name, i, 'exr')
+      #  os.remove(filename)
+    
+    conf= open(ioutput_path + "_Denoise" + ".cfg","w+")
+    #write altus cfg
+    #beauty
+    conf.write("rgb - 0 =" +  ioutput_path + "D0.####.exr")
+    conf.write("rgb - 1 =" +  ioutput_path + "D1.####.exr")
+    #P
+    conf.write("rgb - 0 =" +  ioutput_path + "D0.####.exr::P")
+    conf.write("rgb - 1 =" +  ioutput_path + "D1.####.exr::P")
+    #N
+    conf.write("rgb - 0 =" +  ioutput_path + "D0.####.exr::P")
+    conf.write("rgb - 1 =" +  ioutput_path + "D1.####.exr::P")
+
 
 ###############################################################################
 def main():
