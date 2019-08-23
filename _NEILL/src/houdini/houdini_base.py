@@ -91,6 +91,7 @@ def setHoudiniEnv():
     env['HOUDINI_ACCESS_METHOD']      = '2'
     env['HOUDINI_SOLARIS']            = '1'
 
+    env['DM']            = env['HSITE'] + '/houdini_DM'
     env['HOUDINI_PATH'] += env['HSITE'] + '/houdini_DM'
 
 ###############################################################################
