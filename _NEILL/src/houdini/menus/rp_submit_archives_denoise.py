@@ -46,7 +46,7 @@ def processRop(rop):
         ioutput_name = os.path.basename(ioutput_path)
         ioutput_root = os.path.dirname( ioutput_path)
         archive_ext = 'ifd'
-        renderer    = 'RenderEXR/17.5.258'
+        renderer    = 'RenderEXR/17.5.364'
     elif 'Redshift_ROP' in rop.type().name(): #################################
         archive_on = rop.parm('RS_archive_enable').eval()
         if archive_on is 0:
@@ -59,7 +59,7 @@ def processRop(rop):
         ioutput_name = os.path.basename(ioutput_path)
         ioutput_root = os.path.dirname( ioutput_path)
         archive_ext = 'rs'
-        renderer    = 'Redshift/17.5_2.6.42'
+        renderer    = 'Redshift/17.5_2.6.44'
 
     if not os.path.exists(archive_root):
         os.makedirs(archive_root)
