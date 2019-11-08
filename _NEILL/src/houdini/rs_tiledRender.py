@@ -36,7 +36,7 @@ for rs_file in args:
             cmd += ' -nj_tags "LUMA"'
             cmd += ' -nj_priority 5'
             cmd += ' -nj_renderer "Redshift/2.6.44_Tiled"'
-            cmd += ' -nj_pools "ren"'
+            cmd += ' -nj_pools "testing"'
             # cmd += ' -nj_paused'
             path_crop = path + os.sep + 'crop_%d-%d' % (x, y)
             cmd += ' -outdir "%s"' % path_crop

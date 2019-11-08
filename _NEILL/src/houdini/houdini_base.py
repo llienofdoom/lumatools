@@ -138,7 +138,12 @@ def setAeLib():
     env['HOUDINI_PATH'] = env['HSITE'] + '/houdini_aelib' + os.pathsep + env['HOUDINI_PATH']
 
 ###############################################################################
-def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plug_gdev=False, plug_aelib=False):
+def setFeatherTools():
+    global env
+    env['HOUDINI_PATH'] = env['HSITE'] + '/houdini_featherTools2FX' + os.pathsep + env['HOUDINI_PATH']
+
+###############################################################################
+def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plug_gdev=False, plug_aelib=False, plug_feathers=False):
     if local:
         useLocalHoudini()
     setHoudiniEnv()
@@ -152,6 +157,8 @@ def runHou(app, local=True, plug_rs=False, plug_mops=False, plug_qlib=False, plu
         setGameDevEnv()
     if plug_aelib:
         setAeLib()
+    if plug_feathers:
+        setFeatherTools()
 
     args = ' '.join(sys.argv[1:])
     cmd = env['HB'] + '/%s %s' % (app, args)
