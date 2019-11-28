@@ -94,6 +94,11 @@ def setHoudiniEnv():
     env['DM']            = env['HSITE'] + '/houdini_DM'
     env['HOUDINI_PATH'] += env['HSITE'] + '/houdini_DM'
 
+    # ARNOLD TEMP
+    path_arnold  = str(settings['arnold_location'][opsys])
+    env['HOUDINI_PATH'] = path_arnold + os.pathsep + env['HOUDINI_PATH']
+    env['PATH'] = path_arnold + os.sep + 'scripts/bin' + os.pathsep + env['PATH']
+
 ###############################################################################
 def setRedshiftEnv():
     global env

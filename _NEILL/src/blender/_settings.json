@@ -7,7 +7,7 @@
   },
 
   "location" : {
-    "win" : "H:/_distros/blender/blender_2.8_win",
+    "win" : "H:/_distros/blender/blender_2.81_win",
     "lin" : "/mnt/h/_distros/blender/blender_2.8_lin",
     "mac" : "/mnt/h/_distros/blender/blender_2.8_mac",
     "cyg" : ""
