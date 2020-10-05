@@ -54,7 +54,7 @@ def runCmd(cmd, environ=None):
                 environ['PATH'] += os.environ['PATH']
         # for i, j in environ.items():
         #     print i, j
-        return subprocess.check_output(cmd, env=environ, shell=True)
+        return subprocess.check_output(cmd, env=environ, shell=True, stderr=subprocess.STDOUT)
 ###############################################################################
 
 ###############################################################################

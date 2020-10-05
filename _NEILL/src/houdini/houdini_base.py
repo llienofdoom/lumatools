@@ -13,6 +13,8 @@ config_versions    = settings['config'][config_current]
 version_houdini    = str(config_versions['houdini'])
 version_redshift   = str(config_versions['redshift'])
 version_plugin_rs  = str(config_versions['plugin_rs'])
+version_arnold     = str(config_versions['arnold_version'])
+location_arnold    = str(settings['arnold_location' ][opsys])
 
 # Check for local version #####################################################
 use_local_houdini = False
@@ -95,9 +97,10 @@ def setHoudiniEnv():
     env['HOUDINI_PATH'] += env['HSITE'] + '/houdini_DM'
 
     # ARNOLD TEMP
-    path_arnold  = str(settings['arnold_location'][opsys])
+    path_arnold  = location_arnold + os.sep + version_arnold + os.sep + version_arnold
     env['HOUDINI_PATH'] = path_arnold + os.pathsep + env['HOUDINI_PATH']
     env['PATH'] = path_arnold + os.sep + 'scripts/bin' + os.pathsep + env['PATH']
+    env['PXR_PLUGINPATH_NAME'] = path_arnold + os.sep + 'hydra'
 
 ###############################################################################
 def setRedshiftEnv():

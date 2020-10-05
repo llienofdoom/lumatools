@@ -1,9 +1,10 @@
 {
-  "current" : "0025",
+  "current" : "0030",
 
   "config" : {
-    "0000" : { "houdini" : "16.0.762", "redshift" : "2.6.38", "plugin_rs" : "16.0.736" },
-    "0008" : { "houdini" : "16.5.634", "redshift" : "2.6.24", "plugin_rs" : "16.5.571" },
+    "0000" : { "houdini" : "16.0.762", "redshift" : "2.6.38", "plugin_rs" : "16.0.736", "arnold_version" : ""},
+    "0001" : { "houdini" : "17.0.506", "redshift" : "2.6.31", "plugin_rs" : "17.0.416", "arnold_version" : ""},
+    "0008" : { "houdini" : "16.5.634", "redshift" : "2.6.24", "plugin_rs" : "16.5.571", "arnold_version" : ""},
     "0015" : { "houdini" : "17.0.506", "redshift" : "2.6.38", "plugin_rs" : "17.0.506" },
     "0018" : { "houdini" : "17.5.258", "redshift" : "2.6.42", "plugin_rs" : "17.5.258" },
     "0019" : { "houdini" : "17.5.293", "redshift" : "2.6.43", "plugin_rs" : "17.5.258" },
@@ -15,7 +16,14 @@
     "0025" : { "houdini" : "17.5.425", "redshift" : "2.6.44", "plugin_rs" : "17.5.293" },
     "0026" : { "houdini" : "18.0.286", "redshift" : "0",      "plugin_rs" : "0"        },
     "0027" : { "houdini" : "17.5.425", "redshift" : "3.0.05", "plugin_rs" : "17.5.293" },
-    "0028" : { "houdini" : "18.0.287", "redshift" : "0",      "plugin_rs" : "0"        }
+    "0028" : { "houdini" : "18.0.287", "redshift" : "0",      "plugin_rs" : "0"        },
+    "0030" : { "houdini" : "17.5.460", "redshift" : "2.6.44", "plugin_rs" : "17.5.293", "arnold_version" : "htoa-5.0.2_raba8949_houdini-17.5.460" },
+    "0031" : { "houdini" : "18.0.348", "redshift" : "", "plugin_rs" : "", "arnold_version" : "htoa-5.1.0_r9289183_houdini-18.0.348" },
+    "0032" : { "houdini" : "18.0.391", "redshift" : "", "plugin_rs" : "", "arnold_version" : "htoa-5.1.1_r126b954_houdini-18.0.391" },
+    "0033" : { "houdini" : "18.0.416", "redshift" : "", "plugin_rs" : "", "arnold_version" : "htoa-5.2.0_r0292f07_houdini-18.0.416" },
+    "0034" : { "houdini" : "18.5.188", "redshift" : "", "plugin_rs" : "", "arnold_version" : "" },
+    "0035" : { "houdini" : "18.0.566", "redshift" : "", "plugin_rs" : "", "arnold_version" : "htoa-5.4.1_r8b71461_houdini-18.0.566" },
+    "0036" : { "houdini" : "18.5.351", "redshift" : "", "plugin_rs" : "", "arnold_version" : "" }
   },
 
   "location_remote" : {
@@ -40,9 +48,9 @@
   },
 
   "arnold_location" : {
-    "win" : "H:/_distros/htoa-4.4.0_r51f71a9_houdini-17.5.425/htoa-4.4.0_r51f71a9_houdini-17.5.425",
-    "lin" : "/mnt/luma_h/_distros/htoa-4.4.0_r51f71a9_houdini-17.5.425/htoa-4.4.0_r51f71a9_houdini-17.5.425",
-    "mac" : "/mnt/luma_h/_distros/htoa-4.4.0_r51f71a9_houdini-17.5.425/htoa-4.4.0_r51f71a9_houdini-17.5.425",
+    "win" : "H:/_distros",
+    "lin" : "/mnt/luma_h/_distros",
+    "mac" : "/mnt/luma_h/_distros",
     "cyg" : ""
   },
 
@@ -60,4 +68,3 @@
     "cyg" : ""
   }
 }
-  

@@ -1,0 +1,28 @@
+{
+    "current" : "0001",
+
+    "config"  : {
+        "0001" : {"maya" : "2016.5"}
+    },
+
+    "location_remote" : {
+        "win" : "H:/_distros/Maya",
+        "lin" : "/mnt/h/_distros/_lnx/hfs",
+        "mac" : "",
+        "cyg" : ""
+      },
+    
+      "location_local" : {
+        "win" : "C:/_lumatools/_distros/Maya",
+        "lin" : "~/.lumatools/_distros/hfs",
+        "mac" : "",
+        "cyg" : ""
+      },
+      
+      "hsite" : {
+        "win" : "H:/SITE",
+        "lin" : "/mnt/h/SITE",
+        "mac" : "",
+        "cyg" : ""
+      }
+}
